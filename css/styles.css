@@ -1,0 +1,247 @@
+/*
+ * File Name: styles.css
+ * Author: Timothy Roush
+ * Date Created: 10/07/17
+ * Assignment: Behind The Knife: The Surgery Podcast
+ * Description:  Styles for use in the podcast web app
+*/
+
+
+/* ====== EXTERNAL FONTS ====== */
+
+
+@import url('https://fonts.googleapis.com/css?family=Telex');
+@import url('https://fonts.googleapis.com/css?family=Raleway:400,700');
+
+
+/* ====== GLOBAL ====== */
+
+
+html {
+    height: 100%;
+    position: relative;
+}
+
+body {
+    background-color: #444;
+    font-family: "Raleway", sans-serif;
+    font-size: 1.1em;
+    font-weight: normal;
+    height: 100%;
+    position: relative;
+}
+
+a, a:hover, .pc-title:hover {
+    text-decoration: none;
+}
+
+.wrapper {
+    background-color: #fff;
+    margin: auto;
+    max-width: 400px;
+    min-height: 100%;
+    padding: 20px;
+    position: relative;
+    width: 100%;
+}
+
+.title {
+    font-face: "Telex", sans-serif;
+    font-size: 3em;
+    font-variant: small-caps;
+    font-weight: bold;
+    letter-spacing: .15em;
+    margin: 5px 0px 25px 0px;
+    text-align: center;
+}
+
+.subtitle {
+    color: #8282a1;
+    font-size: 1.5em;
+    margin: -25px 0px 80px 0px;
+    text-align: center;
+}
+
+
+/* ====== LANDING ====== */
+
+
+.logo {
+    margin: auto;
+    width: 100%;
+}
+
+
+/* ====== HOME ====== */
+
+
+.newest-button {
+    border: 2px solid #f44;
+    border-radius: 15px;
+    display: flex;
+    padding: 20px 20px;
+    margin: 0px
+    position: relative;
+    vertical-align: middle;
+    width: 100%;
+}
+
+.newest-button p {
+    display: inline-block;
+    font-size: 2.2em;
+    font-weight: bold;
+    margin: 0px;
+    width: 75%;
+    text-transform: capitalize;
+}
+
+.newest-button div.play {
+    border-bottom: 23px solid transparent;
+    border-left: 55px solid #f44;
+    border-top: 23px solid transparent;
+    display: inline-block;
+    height: 0px;
+    position: relative;
+    margin: auto;
+    width: 0px;
+}
+
+a .newest-button, a .newest-button:hover  {
+    color: #000;
+    text-decoration: none;
+}
+
+.headline {
+    color: #8282a1;
+    font-size: 2.5em;
+    font-weight: normal;
+    margin: 40px 2px 15px 2px;
+    text-transform: capitalize;
+}
+
+.topic-wrapper {
+    margin: 0px -13px;
+    position: relative;
+}
+
+.topic {
+    border: 1px solid #8282a1;
+    border-radius: 10px;
+    box-shadow: 0px 6px 6px -6px #8282cc;
+    float: left;
+    font-size: 1.5em;
+    margin: 7px 9px;
+    padding: 10px;
+    text-align: center;
+    width: calc(50% - 18px);
+}
+
+a .topic, a .topic:hover  {
+    color: #8282a1;
+    text-decoration: none;
+}
+
+
+/* ====== TOPIC PODCASTS ====== */
+
+
+.pc-row {
+    display: flex;
+    padding: 5px;
+    width: 100%;
+}
+
+a .pc-row, a .pc-row:hover  {
+    color: #8282a1;
+    text-decoration: none;
+}
+
+a .pc-row:hover {
+    background-color: #eee;
+}
+
+.pc-title {
+    color: #8282a1;
+    font-size: 1.5em;
+    text-align: center;
+    width: 50%;
+}
+
+.pc-content {
+    border: 1px solid #000;
+    width: 50%;
+}
+
+.pc-progress-bar {
+    background-color: #ff0000;
+    height: 100%;
+    left: 0;
+    position: relative;
+    width: 35%;
+}
+
+
+/* ====== PLAYER ====== */
+
+
+.player-image {
+    box-shadow: 0px 5px 15px -5px #8282cc;
+    width: 100%;
+}
+
+.player-description {
+    color: #8282a1;
+    font-size: 1.8em;
+    margin-top: 25px;
+    text-align: center;
+}
+
+.player-controls {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    padding: 15px 20px;
+    width: 100%;
+}
+
+.player-author {
+    color: #8282a1;
+    font-size: 1.8em;
+}
+
+.player-title {
+    color: #f00;
+    font-size: 1.8em;
+}
+
+.player-progress-full {
+    border: 1px solid #000;
+    height: 20px;
+    position: relative;
+    width: 100%;
+}
+
+.player-progress {
+    background-color: #f00;
+    height: 100%;
+    right: 0px;
+    position: relative;
+    width: 35%;
+}
+
+.player-time {
+    display: flex;
+    justify-content: space-between;
+}
+
+.time-remaining {
+    color: #8282a1;
+    font-size: 1.8em;
+    text-align: left;
+}
+
+.time-total {
+    color: #8282a1;
+    font-size: 1.8em;
+    text-align: right;
+}
