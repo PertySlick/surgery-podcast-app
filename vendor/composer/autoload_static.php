@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit124527061c25c10939e6cd0a02f6b216
+class ComposerStaticInitddf561d67b2903e7b09226aaa3551a7c
 {
     public static $classMap = array (
         'Audit' => __DIR__ . '/..' . '/bcosca/fatfree-core/audit.php',
@@ -15,6 +15,7 @@ class ComposerStaticInit124527061c25c10939e6cd0a02f6b216
         'CLI\\Agent' => __DIR__ . '/..' . '/bcosca/fatfree-core/cli/ws.php',
         'CLI\\WS' => __DIR__ . '/..' . '/bcosca/fatfree-core/cli/ws.php',
         'Cache' => __DIR__ . '/..' . '/bcosca/fatfree-core/base.php',
+        'Controller' => __DIR__ . '/../..' . '/controller/controller.php',
         'DB\\Cursor' => __DIR__ . '/..' . '/bcosca/fatfree-core/db/cursor.php',
         'DB\\Jig' => __DIR__ . '/..' . '/bcosca/fatfree-core/db/jig.php',
         'DB\\Jig\\Mapper' => __DIR__ . '/..' . '/bcosca/fatfree-core/db/jig/mapper.php',
@@ -53,7 +54,7 @@ class ComposerStaticInit124527061c25c10939e6cd0a02f6b216
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->classMap = ComposerStaticInit124527061c25c10939e6cd0a02f6b216::$classMap;
+            $loader->classMap = ComposerStaticInitddf561d67b2903e7b09226aaa3551a7c::$classMap;
 
         }, null, ClassLoader::class);
     }

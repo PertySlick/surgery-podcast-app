@@ -1,0 +1,38 @@
+[21-Oct-2017 21:25:19 America/Chicago] PHP Warning:  include(/home/troush/public_html/surgerypodcast/vendor/composer/../bcosca/fatfree-core/base.php): failed to open stream: No such file or directory in /home/troush/public_html/surgerypodcast/vendor/composer/ClassLoader.php on line 412
+[21-Oct-2017 21:25:19 America/Chicago] PHP Warning:  include(): Failed opening '/home/troush/public_html/surgerypodcast/vendor/composer/../bcosca/fatfree-core/base.php' for inclusion (include_path='.:/opt/php70/lib/php') in /home/troush/public_html/surgerypodcast/vendor/composer/ClassLoader.php on line 412
+[21-Oct-2017 21:25:19 America/Chicago] PHP Fatal error:  Uncaught Error: Class 'Base' not found in /home/troush/public_html/surgerypodcast/index.php:31
+Stack trace:
+#0 {main}
+  thrown in /home/troush/public_html/surgerypodcast/index.php on line 31
+[21-Oct-2017 21:25:59 America/Chicago] PHP Fatal error:  Uncaught Error: Class 'Base' not found in /home/troush/public_html/surgerypodcast/index.php:31
+Stack trace:
+#0 {main}
+  thrown in /home/troush/public_html/surgerypodcast/index.php on line 31
+[21-Oct-2017 21:26:09 America/Chicago] PHP Fatal error:  Uncaught Error: Class 'Base' not found in /home/troush/public_html/surgerypodcast/index.php:31
+Stack trace:
+#0 {main}
+  thrown in /home/troush/public_html/surgerypodcast/index.php on line 31
+[21-Oct-2017 21:27:56 America/Chicago] HTTP 404 (GET /css/style.css)
+[21-Oct-2017 21:27:56 America/Chicago] [surgerypodcast/vendor/bcosca/fatfree-core/base.php:1659] Base->error()
+[21-Oct-2017 21:27:56 America/Chicago] [surgerypodcast/index.php:72] Base->run()
+[21-Oct-2017 21:27:56 America/Chicago] HTTP 404 (GET /css/style.css)
+[21-Oct-2017 21:27:56 America/Chicago] [surgerypodcast/vendor/bcosca/fatfree-core/base.php:1659] Base->error()
+[21-Oct-2017 21:27:56 America/Chicago] [surgerypodcast/index.php:72] Base->run()
+[21-Oct-2017 21:27:57 America/Chicago] HTTP 404 (GET /css/style.css)
+[21-Oct-2017 21:27:57 America/Chicago] [surgerypodcast/vendor/bcosca/fatfree-core/base.php:1659] Base->error()
+[21-Oct-2017 21:27:57 America/Chicago] [surgerypodcast/index.php:72] Base->run()
+[21-Oct-2017 21:27:58 America/Chicago] HTTP 404 (GET /css/style.css)
+[21-Oct-2017 21:27:58 America/Chicago] [surgerypodcast/vendor/bcosca/fatfree-core/base.php:1659] Base->error()
+[21-Oct-2017 21:27:58 America/Chicago] [surgerypodcast/index.php:72] Base->run()
+[21-Oct-2017 21:29:12 America/Chicago] HTTP 404 (GET /css/style.css)
+[21-Oct-2017 21:29:12 America/Chicago] [surgerypodcast/vendor/bcosca/fatfree-core/base.php:1659] Base->error()
+[21-Oct-2017 21:29:12 America/Chicago] [surgerypodcast/index.php:72] Base->run()
+[21-Oct-2017 21:29:12 America/Chicago] HTTP 404 (GET /css/style.css)
+[21-Oct-2017 21:29:12 America/Chicago] [surgerypodcast/vendor/bcosca/fatfree-core/base.php:1659] Base->error()
+[21-Oct-2017 21:29:12 America/Chicago] [surgerypodcast/index.php:72] Base->run()
+[21-Oct-2017 21:30:06 America/Chicago] HTTP 404 (GET /css/style.css)
+[21-Oct-2017 21:30:06 America/Chicago] [surgerypodcast/vendor/bcosca/fatfree-core/base.php:1659] Base->error()
+[21-Oct-2017 21:30:06 America/Chicago] [surgerypodcast/index.php:72] Base->run()
+[21-Oct-2017 21:30:06 America/Chicago] HTTP 404 (GET /css/style.css)
+[21-Oct-2017 21:30:06 America/Chicago] [surgerypodcast/vendor/bcosca/fatfree-core/base.php:1659] Base->error()
+[21-Oct-2017 21:30:06 America/Chicago] [surgerypodcast/index.php:72] Base->run()
