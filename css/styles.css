@@ -41,6 +41,7 @@ a, a:hover, .pc-title:hover {
     max-width: 400px;
     min-height: 100%;
     padding: 20px;
+    padding-bottom: 0px;
     position: relative;
     width: 100%;
 }
@@ -63,16 +64,35 @@ a, a:hover, .pc-title:hover {
 }
 
 
-/* ====== FOOTER ====== */
+/* ====== FOOTER NAV ======*/
 
 
-footer.nav-footer {
-    background-color: rgba(0,0,0,.5);
-    bottom: 0px;
-    height: 100px;
-    left: 0px;
-    position: absolute;
+.nav-buffer {
+    height: 50px;
     width: 100%;
+}
+
+
+nav.nav-footer {
+    align-items: center;
+    background-color: rgba(0,0,0,.7) !important;
+    bottom: 0px;
+    display: flex;
+    height: 50px;
+    margin: 0px -20px;
+    max-width: inherit;
+    position: fixed;
+    width: inherit;
+}
+
+.nav-footer .nav-button {
+    color: #ddd;
+    display: inline-block;
+    flex-grow: 1;
+    font-size: 2em;
+    margin: 0px;
+    padding: 10px;
+    text-align: center;
 }
 
 
@@ -135,7 +155,6 @@ a .newest-button, a .newest-button:hover  {
 .topic-wrapper {
     margin: 0px -13px;
     position: relative;
-    overflow: auto;
 }
 
 .topic {
@@ -192,6 +211,15 @@ a .pc-row:hover {
     left: 0;
     position: relative;
     width: 35%;
+}
+
+
+/* ====== ALTERNATE TOPIC PODCASTS ====== */
+
+
+.new-podcast-row {
+    display: flex;
+    width: 100%;
 }
 
 
