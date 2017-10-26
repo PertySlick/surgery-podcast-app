@@ -223,6 +223,56 @@ a .pc-row:hover {
 }
 
 
+/* ====== ALTERNATER PLAYER ====== */
+
+
+#play {
+    color: green;
+}
+
+#close {
+    color: red;
+}
+
+#progress-total {
+    background-color: #ddd;
+    border-radius: 10px;
+    height: 5px;
+    width: 100%;
+}
+
+#progress-actual {
+    background-color: red;
+    height: 100%;
+    width: 0%;
+}
+
+.new-player {
+    align-items: center;
+    background-color: #333;
+    display: flex;
+    font-size: 2em;
+    height: 50px;
+    position: relative;
+    width: 100%;
+}
+
+.new-player-controls {
+    align-items: center;
+    display: flex;
+    width: 100%;
+}
+
+.controls {
+    text-align: center;
+    width: 25%;
+}
+
+.progress-bar {
+    width: 50%;
+}
+
+
 /* ====== PLAYER ====== */
 
 
