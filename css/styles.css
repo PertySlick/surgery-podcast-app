@@ -81,8 +81,17 @@ nav.nav-footer {
     height: 50px;
     margin: 0px -20px;
     max-width: inherit;
+    overflow: hidden;
     position: fixed;
     width: inherit;
+    transition: height 2s ease;
+    -webkit-transition: height .5s ease-out;
+}
+
+.hidden {
+    height: 1px;
+    transition: height 2s ease;
+    -webkit-transition: height .5s ease-out;
 }
 
 .nav-footer .nav-button {
@@ -238,6 +247,7 @@ a .pc-row:hover {
     background-color: #ddd;
     border-radius: 10px;
     height: 5px;
+    overflow: hidden;
     width: 100%;
 }
 
