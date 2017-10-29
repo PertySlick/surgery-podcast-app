@@ -5,7 +5,7 @@
  * Author: Timothy Roush
  * Date Created: 10/28/17
  * Assignment: The Surgery Podcast
- * Description: An object taht represents all the relevant data related to a
+ * Description: An object that represents all the relevant data related to a
  *              podcast object.
  */
 
