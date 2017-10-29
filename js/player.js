@@ -22,12 +22,15 @@ $('document').ready(function() {
     $(player).on('play', { play: false }, togglePlayButton);
     $(player).on('pause', { play: true }, togglePlayButton);
 
-    $('nav.nav-footer').on('click', function() {
-            $('nav.nav-footer').css('height', '0px');
-    });
     $('#close').on('click', function() {
-            $('nav.nav-footer').css('height', '50px');
+        $('nav.nav-footer').css('height', 'initial');
     });
+
+    $('nav.nav-footer').on('click', function() {
+        $('nav.nav-footer').css('height', '0');
+    });
+
+
 
 });
 
@@ -55,10 +58,11 @@ function updateProgressBar() {
 
     if (current > 0) {
         width = Math.round(((100 / duration) * current) * 10) / 10;
+        console.log('HEIGHT: ' + $('nav.nav-footer').height());
     }
 
     $progress.css('width', width + '%');
-    // console.log('WIDTH: ' + width + '%'); DEBUG INFO
+    console.log('WIDTH: ' + width + '%');
 }
 
 // Seek functionality for skipping around via progress bar clicks
