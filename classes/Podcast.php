@@ -46,6 +46,14 @@ abstract class Podcast {
     */
     public function __construct($title, $publishDate,  $url,
                                 $description, $duration) {
+        // Set fields values
+        $this->setTitle($title);
+        $this->setPublishDate($publishDate);
+        $this->setUrl($url);
+        $this->setDescription($description);
+        $this->setDuration($duration);
+
+        // Initialize keywords array
         $this->keywords = array();
     }
 
