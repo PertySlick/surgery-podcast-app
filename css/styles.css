@@ -266,9 +266,33 @@ a .pc-row:hover {
 /* ====== ALTERNATE TOPIC PODCASTS ====== */
 
 
-.new-podcast-row {
-    display: flex;
+.new-pc-row {
+    -webkit-box-shadow: 0 3px 3px -3px #444;
+    -moz-box-shadow: 0 3px 3px -3px #444;
+    box-shadow: 0 3px 3px -3px #444;
+    font-size: 2em;
+    padding: 5px 10px;
     width: 100%;
+}
+
+.new-pc-title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.new-pc-desc {
+    font-size: .7em;
+}
+
+.new-pc-duration {
+    font-size: .7em;
+    margin: auto;
+    text-align: center;
+}
+
+.open {
+    font-weight: bold;
 }
 
 
