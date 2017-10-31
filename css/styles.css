@@ -40,26 +40,25 @@ a, a:hover, .pc-title:hover {
     margin: auto;
     max-width: 400px;
     min-height: 100%;
-    padding: 20px;
-    padding-bottom: 0px;
+    padding: 20px 20px 0;
     position: relative;
     width: 100%;
 }
 
 .title {
-    font-face: "Telex", sans-serif;
+    font-family: "Telex", sans-serif;
     font-size: 3em;
     font-variant: small-caps;
     font-weight: bold;
     letter-spacing: .15em;
-    margin: 5px 0px 25px 0px;
+    margin: 5px 0 25px 0;
     text-align: center;
 }
 
 .subtitle {
     color: #8282a1;
     font-size: 1.5em;
-    margin: -25px 0px 80px 0px;
+    margin: -25px 0 80px 0;
     text-align: center;
 }
 
@@ -78,11 +77,11 @@ nav.nav-header {
     background-color: rgba(0,0,0,.7);
     display: flex;
     height: 50px;
-    margin: 0px -20px;
+    margin: 0 -20px;
     max-width: inherit;
     overflow: hidden;
     position: fixed;
-    top: 0px;
+    top: 0;
     -webkit-transition: height .5s ease-out;
     transition: height 2s ease;
     width: inherit;
@@ -93,7 +92,7 @@ nav.nav-header {
     display: inline-block;
     flex-grow: 1;
     font-size: 2em;
-    margin: 0px;
+    margin: 0;
     padding: 10px;
     text-align: center;
 }
@@ -101,30 +100,36 @@ nav.nav-header {
 
 /* ====== ALTERNATE FOOTER NAV ======*/
 
+footer {
+    background-color: #333;
+    bottom: 0;
+    height: 90px;
+    margin: 0 -20px;
+    max-width: inherit;
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+    transition: height 2s;
+    -webkit-transition: height 2s;
+}
+
 
 .nav-buffer {
-    height: 50px;
+
+    height: 90px;
     width: 100%;
 }
 
 
 nav.nav-footer {
     align-items: center;
-    background-color: rgba(0,0,0,.7) !important;
-    bottom: 0px;
     display: flex;
-    height: 50px;
-    margin: 0px -20px;
-    max-width: inherit;
-    overflow: hidden;
-    position: fixed;
-    width: inherit;
-    transition: height 2s;
-    -webkit-transition: height 2s;
+    height: 45px;
+    width: 100%;
 }
 
 .hidden {
-    height: 0px;
+    height: 0;
     transition: height 2s;
     -webkit-transition: height 2s;
 }
@@ -134,7 +139,7 @@ nav.nav-footer {
     display: inline-block;
     flex-grow: 1;
     font-size: 2em;
-    margin: 0px;
+    margin: 0;
     padding: 10px;
     text-align: center;
 }
@@ -157,7 +162,7 @@ nav.nav-footer {
     border-radius: 15px;
     display: flex;
     padding: 20px 20px;
-    margin: 0px
+    margin: 0;
     position: relative;
     vertical-align: middle;
     width: 100%;
@@ -167,7 +172,7 @@ nav.nav-footer {
     display: inline-block;
     font-size: 2.2em;
     font-weight: bold;
-    margin: 0px;
+    margin: 0;
     width: 75%;
     text-transform: capitalize;
 }
@@ -177,10 +182,10 @@ nav.nav-footer {
     border-left: 55px solid #f44;
     border-top: 23px solid transparent;
     display: inline-block;
-    height: 0px;
+    height: 0;
     position: relative;
     margin: auto;
-    width: 0px;
+    width: 0;
 }
 
 a .newest-button, a .newest-button:hover  {
@@ -197,14 +202,14 @@ a .newest-button, a .newest-button:hover  {
 }
 
 .topic-wrapper {
-    margin: 0px -13px;
+    margin: 0 -13px;
     position: relative;
 }
 
 .topic {
     border: 1px solid #8282a1;
     border-radius: 10px;
-    box-shadow: 0px 6px 6px -6px #8282cc;
+    box-shadow: 0 6px 6px -6px #8282cc;
     float: left;
     font-size: 1.5em;
     margin: 7px 9px;
@@ -267,21 +272,25 @@ a .pc-row:hover {
 }
 
 
-/* ====== ALTERNATER PLAYER ====== */
+/* ====== ALTERNATE PLAYER ====== */
 
 
 #play {
     color: green;
 }
 
-#close {
+#close, #download {
     color: red;
+}
+
+#forward, #backward {
+    color: #4682b4;
 }
 
 #progress-total {
     background-color: #ddd;
-    border-radius: 10px;
-    height: 5px;
+    border-radius: 15px;
+    height: 10px;
     overflow: hidden;
     width: 100%;
 }
@@ -289,15 +298,14 @@ a .pc-row:hover {
 #progress-actual {
     background-color: red;
     height: 100%;
-    width: 0%;
+    width: 0;
 }
 
 .new-player {
     align-items: center;
-    background-color: #333;
     display: flex;
     font-size: 2em;
-    height: 50px;
+    height: 45px;
     position: relative;
     width: 100%;
 }
@@ -308,7 +316,9 @@ a .pc-row:hover {
     width: 100%;
 }
 
-.controls {
+.timing {
+    color: #ddd;
+    font-size: .7em;
     text-align: center;
     width: 25%;
 }
@@ -322,7 +332,7 @@ a .pc-row:hover {
 
 
 .player-image {
-    box-shadow: 0px 5px 15px -5px #8282cc;
+    box-shadow: 0 5px 15px -5px #8282cc;
     width: 100%;
 }
 
@@ -335,8 +345,8 @@ a .pc-row:hover {
 
 .player-controls {
     position: absolute;
-    bottom: 0px;
-    left: 0px;
+    bottom: 0;
+    left: 0;
     padding: 15px 20px;
     width: 100%;
 }
@@ -361,7 +371,7 @@ a .pc-row:hover {
 .player-progress {
     background-color: #f00;
     height: 100%;
-    right: 0px;
+    right: 0;
     position: relative;
     width: 35%;
 }

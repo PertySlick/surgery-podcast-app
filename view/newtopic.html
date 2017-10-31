@@ -65,25 +65,5 @@
     </audio>
 </div>
 
-<div class="new-player">
-    <div class="new-player-controls">
-        <div id="play" class="controls">
-            <i id="play-button" class="fa fa-play" aria-hidden="true"></i>
-        </div>
-        <div id="progress" class="progress-bar">
-            <div id="progress-total">
-                <div id="progress-actual"></div>
-            </div>
-        </div>
-        <div id="close" class="controls">
-            <i class="fa fa-times" aria-hidden="true"></i>
-        </div>
 
-    </div>
-    <audio id="new-player" class="podcast-player">
-        <source src="{{ @IMG . 'eagles-take-it-to-the-limit.mp3' }}" type="audio/mpeg">
-    </audio>
-</div>
-
-
-<include href="{{ @INC . 'new-footer.inc.html' }}">
+<include href="{{ @INC . 'new-footer.inc.html' }}" >
