@@ -1,5 +1,5 @@
 # CodeWorks - Sprint Review 2
-*Author: Tim Roush (@pertyslick) - 11/01/17*
+*Author: Tim Roush (PertySlick) - 11/01/17*
 
 ### Current Development Site Location
 
@@ -18,9 +18,9 @@
     - [x] XML data has been successfully parsed and checked for errors
     - [ ] Parsed data inserts into our database and checked for errors
   - **Developers**
-    - Nathan Strand (@NStrand42)
+    - Nathan Strand (NStrand42)
   - **Progress and Notes**
-    - Script has been written and produces an HTML output of the RSS feed podcast values.  Wedo still need to modify this process to actually insert the data into the database itself. - @PertySlick
+    - Script has been written and produces an HTML output of the RSS feed podcast values.  We do still need to modify this process to actually insert the data into the database itself. - @PertySlick
   - **User Testing**
     - None
 
@@ -34,25 +34,25 @@
     - [x] Podcast tables are initialized
     - [ ] A test podcast has been entered via SQL commands as a test
   - **Developers**
-    - Brett Taylor (@Brent253)
-    - Tim Roush (@PertySlick)
+    - Brett Taylor (Brent253)
+    - Tim Roush (PertySlick)
   - **Progress and Notes**
-    - Tables are created but testing has not completed successfully.  Podcast/Tag join table is not it use and an admin is not properly registered yet. - @PertySlick
+    - Tables are created but testing has not completed successfully.  Podcast/Tag join table is not it use and an admin is not properly registered yet. - PertySlick
   - **User Testing**
     - None
 
 3. **Create Fat-free DB Operator** - 5
   - *As a product owner I want a framework setup to separate database functionality into a separate controller class.*
-  - Our Fat-free framework needs to have a database operator class added to implement interactivity with the database.  This will involve all the necessary SQL queries and commands as well as returning the data or responses in a useable format.
+  - Our Fat-free framework needs to have a database operator class added to implement interactivity with the database.  This will involve all the necessary SQL queries and commands as well as returning the data or responses in a usable format.
   - **Definition Of Done**
     - [x] Operator class has been created
     - [ ] Operator class performs necessary functions
     - [ ] Operator class returns data in a usable format
   - **Developers**
-    - Brett Taylor (@Brent253)
-    - Tim Roush (@PertySlick)
+    - Brett Taylor (Brent253)
+    - Tim Roush (PertySlick)
   - **Progress and Notes**
-    - Operator class has been created but has a few bugs and needs review.  Not yet implemented or usable - @PertySlick
+    - Operator class has been created but has a few bugs and needs review.  Not yet implemented or usable - PertySlick
   - **User Testing**
     - None
 
@@ -64,20 +64,20 @@
     - [x] Produces examples of alternative designs or concepts
     - [ ] Product Owner has reviewed and rejected or selected ideas
   - **Developers**
-    - Tim Roush (@PertySlick)
+    - Tim Roush (PertySlick)
   - **Progress and Notes**
-    - Research was done on other podcast related sites as well as some UX/UI informational sites.  New alternative design rough draft created with mobile users in mind as well as reducing clicks while improving navigation.  Client will be reviewing Wednesday 11/01/17. - @PertySlick
+    - Research was done on other podcast related sites as well as some UX/UI informational sites.  New alternative design rough draft created with mobile users in mind as well as reducing clicks while improving navigation.  Client will be reviewing Wednesday 11/01/17. - PertySlick
   - **User Testing**
     - A small group of users familiar with podcast use performed some testing on the rough draft.  Color scheme was not well accepted but from what they could tell without full functionality, the design seemed intuitive and manageable for mobile use.
 
 ### Files Created / Modified
 
 - [XMLParser.php](https://github.com/PertySlick/surgery-podcast-app/blob/master/classes/XmlParser.php)
-  - Created/modified by: Nathan Strand (@NStrand42)
-  - Peer reviewed by: Tim Roush (@PertySlick)
+  - Created/modified by: Nathan Strand (NStrand42)
+  - Peer reviewed by: Tim Roush (PertySlick)
 - [Operate.php](https://github.com/PertySlick/surgery-podcast-app/blob/master/dboperator.php)
-  - Created/modified by: Brent Taylor (@Brent253)
-  - Peer reviewed by: Tim Roush (@PertySlick)
+  - Created/modified by: Brent Taylor (Brent253)
+  - Peer reviewed by: Tim Roush (PertySlick)
 - File Group:
   - [styles.css](https://github.com/PertySlick/surgery-podcast-app/blob/master/css/styles.css)
   - [index.php](https://github.com/PertySlick/surgery-podcast-app/blob/master/index.php)
@@ -85,13 +85,13 @@
   - [new-footer.inc.html](https://github.com/PertySlick/surgery-podcast-app/blob/master/includes/new-footer.inc.html)
   - [new-header.inc.html](https://github.com/PertySlick/surgery-podcast-app/blob/master/includes/new-header.inc.html)
   - [player.js](https://github.com/PertySlick/surgery-podcast-app/blob/master/js/player.js)
-  - Created/modified by: Tim Roush (@PertySlick)
+  - Created/modified by: Tim Roush (PertySlick)
   - Peer reviewed by: None
 
 ### Final Review Notes
 
 The main focus of this sprint was functionality to compliment the visual product produced in the last sprint.  We encountered many obstacle this time around including:
-  - Team member Marlene Leano (@mleano) had a major health concern that effectively removed her from the sprint.
+  - Team member Marlene Leano (mleano) had a major health concern that effectively removed her from the sprint.
   - We quickly discovered that our sprint plan included team members waiting on others to produce before they could start.
   - Complications regarding determining what exactly the client currently has as far as a web host provider and possible database accessibility.
   - A few technical skill issues that caused delays.
