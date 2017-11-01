@@ -1,6 +1,5 @@
-# CodeWorks
-## Sprint Review 2
-*Author: Tim Roush (@PertySlick) - 11/01/17*
+# CodeWorks - Sprint Review 2
+*Author: Tim Roush (@pertyslick) - 11/01/17*
 
 ### Current Development Site Location
 
