@@ -36,7 +36,7 @@
     - [x] Podcast tables are initialized
     - [ ] A test podcast has been entered via SQL commands as a test
   - **Developer(s)**
-    - Brett Taylor (Brent253)
+    - Brent Taylor (Brent253)
     - Tim Roush (PertySlick)
   - **Link To View Results**
     - None
@@ -53,7 +53,7 @@
     - [ ] Operator class performs necessary functions
     - [ ] Operator class returns data in a usable format
   - **Developer(s)**
-    - Brett Taylor (Brent253)
+    - Brent Taylor (Brent253)
     - Tim Roush (PertySlick)
   - **Link To View Results**
     - None
