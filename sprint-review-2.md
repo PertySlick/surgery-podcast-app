@@ -94,7 +94,7 @@ Client meeting scheduled for 11/01/17
 
 ### Final Review Notes
 
-The main focus of this sprint was functionality to compliment the visual product produced in the last sprint.  We encountered many obstacle this time around including:
+The main focus of this sprint was functionality to compliment the visual product produced in the last sprint.  We encountered a few obstacles this time around including:
   - Team member Marlene Leano (mleano) had a major health concern that effectively removed her from the sprint.
   - We quickly discovered that our sprint plan included team members waiting on others to produce before they could start.
   - Complications regarding determining what exactly the client currently has as far as a web host provider and possible database accessibility.
