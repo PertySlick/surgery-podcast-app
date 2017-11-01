@@ -17,10 +17,10 @@
   - **Definition Of Done**
     - [x] XML data has been successfully parsed and checked for errors
     - [ ] Parsed data inserts into our database and checked for errors
-  - **Developers**
+  - **Developer(s)**
     - Nathan Strand (NStrand42)
   - **Progress and Notes**
-    - Script has been written and produces an HTML output of the RSS feed podcast values.  We do still need to modify this process to actually insert the data into the database itself. - @PertySlick
+    - Script has been written and produces an HTML output of the RSS feed podcast values.  We do still need to modify this process to actually insert the data into the database itself. - PertySlick
   - **User Testing**
     - None
 
@@ -33,7 +33,7 @@
     - [ ] Admin user is registered
     - [x] Podcast tables are initialized
     - [ ] A test podcast has been entered via SQL commands as a test
-  - **Developers**
+  - **Developer(s)**
     - Brett Taylor (Brent253)
     - Tim Roush (PertySlick)
   - **Progress and Notes**
@@ -48,7 +48,7 @@
     - [x] Operator class has been created
     - [ ] Operator class performs necessary functions
     - [ ] Operator class returns data in a usable format
-  - **Developers**
+  - **Developer(s)**
     - Brett Taylor (Brent253)
     - Tim Roush (PertySlick)
   - **Progress and Notes**
@@ -63,7 +63,7 @@
     - [x] Researched multiple alternative sites
     - [x] Produces examples of alternative designs or concepts
     - [ ] Product Owner has reviewed and rejected or selected ideas
-  - **Developers**
+  - **Developer(s)**
     - Tim Roush (PertySlick)
   - **Progress and Notes**
     - Research was done on other podcast related sites as well as some UX/UI informational sites.  New alternative design rough draft created with mobile users in mind as well as reducing clicks while improving navigation.  Client will be reviewing Wednesday 11/01/17. - PertySlick
@@ -75,7 +75,7 @@
 - [XMLParser.php](https://github.com/PertySlick/surgery-podcast-app/blob/master/classes/XmlParser.php)
   - Created/modified by: Nathan Strand (NStrand42)
   - Peer reviewed by: Tim Roush (PertySlick)
-- [Operate.php](https://github.com/PertySlick/surgery-podcast-app/blob/master/dboperator.php)
+- [Operator.php](https://github.com/PertySlick/surgery-podcast-app/blob/master/dboperator.php)
   - Created/modified by: Brent Taylor (Brent253)
   - Peer reviewed by: Tim Roush (PertySlick)
 - File Group:
