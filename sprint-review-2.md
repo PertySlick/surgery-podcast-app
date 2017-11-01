@@ -20,7 +20,7 @@
   - **Developer(s)**
     - Nathan Strand (NStrand42)
   - **Link To View Results**
-   - None
+    - None
   - **Progress and Notes**
     - Script has been written and produces an HTML output of the RSS feed podcast values.  We do still need to modify this process to actually insert the data into the database itself. - PertySlick
   - **User Testing**
@@ -39,7 +39,7 @@
     - Brett Taylor (Brent253)
     - Tim Roush (PertySlick)
   - **Link To View Results**
-   - None
+    - None
   - **Progress and Notes**
     - Tables are created but testing has not completed successfully.  Podcast/Tag join table is not it use and an admin is not properly registered yet. - PertySlick
   - **User Testing**
@@ -56,7 +56,7 @@
     - Brett Taylor (Brent253)
     - Tim Roush (PertySlick)
   - **Link To View Results**
-   - None
+    - None
   - **Progress and Notes**
     - Operator class has been created but has a few bugs and needs review.  Not yet implemented or usable - PertySlick
   - **User Testing**
@@ -72,7 +72,7 @@
   - **Developer(s)**
     - Tim Roush (PertySlick)
   - **Link To View Results**
-   - [Alternate Design: New Topic Page](http://surgerypodcast.greenrivertech.net/newtopic)
+    - [Alternate Design: New Topic Page](http://surgerypodcast.greenrivertech.net/newtopic)
   - **Progress and Notes**
     - Research was done on other podcast related sites as well as some UX/UI informational sites.  New alternative design rough draft created with mobile users in mind as well as reducing clicks while improving navigation.  Client will be reviewing Wednesday 11/01/17. - PertySlick
   - **User Testing**
