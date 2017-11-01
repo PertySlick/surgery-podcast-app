@@ -13,17 +13,17 @@
 ### Sprint User Stories
 
 1. **Script To Parse XML Data From Libsyn** - 5
- - *As a product owner I want to utilize data available from my current podcast host to populate a database on my own site to provide further functionality.*
- - LibSyn provides an XML representation of the client's entire podcast library.  We need a script that can parse this XML data into a usable format and input it into our own database.
- - **Definition Of Done**
-  - [x] XML data has been successfully parsed and checked for errors
-  - [ ] Parsed data inserts into our database and checked for errors
- - **Developers**
-  - Nathan Strand (@NStrand42)
- - **Progress and Notes**
-  - Script has been written and produces an HTML output of the RSS feed podcast values.  Wedo still need to modify this process to actually insert the data into the database itself. - @PertySlick
- - **User Testing**
-  - None
+  - *As a product owner I want to utilize data available from my current podcast host to populate a database on my own site to provide further functionality.*
+  - LibSyn provides an XML representation of the client's entire podcast library.  We need a script that can parse this XML data into a usable format and input it into our own database.
+  - **Definition Of Done**
+    - [x] XML data has been successfully parsed and checked for errors
+    - [ ] Parsed data inserts into our database and checked for errors
+  - **Developers**
+    - Nathan Strand (@NStrand42)
+  - **Progress and Notes**
+    - Script has been written and produces an HTML output of the RSS feed podcast values.  Wedo still need to modify this process to actually insert the data into the database itself. - @PertySlick
+  - **User Testing**
+    - None
 
 2. **Initialize Database Setup** - 5
  - *As a product owner I need a database setup so that I can manage an admin user as well as podcast data storage.*
