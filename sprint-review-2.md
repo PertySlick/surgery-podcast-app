@@ -88,6 +88,10 @@
   - Created/modified by: Tim Roush (PertySlick)
   - Peer reviewed by: None
 
+### Product Owner Review / Comments
+
+Client meeting scheduled for 11/01/17
+
 ### Final Review Notes
 
 The main focus of this sprint was functionality to compliment the visual product produced in the last sprint.  We encountered many obstacle this time around including:
