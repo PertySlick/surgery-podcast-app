@@ -20,7 +20,8 @@
   - **Developer(s)**
     - Nathan Strand (NStrand42)
   - **Link To View Results**
-    - None
+    - view-source:http://behindtheknife.libsyn.com/rss (original data)
+    - view-source:http://nstrand.greenrivertech.net/IT355/ (HTML Output showing control of the data)
   - **Progress and Notes**
     - Script has been written and produces an HTML output of the RSS feed podcast values.  We do still need to modify this process to actually insert the data into the database itself. - PertySlick
   - **User Testing**
