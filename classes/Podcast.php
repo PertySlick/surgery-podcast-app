@@ -17,7 +17,8 @@
  * @copyright 2017
  * @version 1.0
  */
-abstract class Podcast {
+public class Podcast
+{
 
 
 // FIELDS
@@ -35,17 +36,18 @@ abstract class Podcast {
 
 
     /**
-    * Creates an instance of a podcast storing all relevant data to a single
-    * podcast.  All supplied data is assigned before initializing the array for
-    * keywords.
-    * @param String title Podcast title
-    * @param String publishDate Date podcast was published
-    * @param String url URL to access podcast
-    * @param String description Podcast description
-    * @param String duration Length of podcast
-    */
-    public function __construct($title, $publishDate,  $url,
-                                $description, $duration) {
+     * Creates an instance of a podcast storing all relevant data to a single
+     * podcast.  All supplied data is assigned before initializing the array for
+     * keywords.
+     * @param String title Podcast title
+     * @param String publishDate Date podcast was published
+     * @param String url URL to access podcast
+     * @param String description Podcast description
+     * @param String duration Length of podcast
+     */
+    public function __construct($title, $publishDate, $url,
+                                $description, $duration)
+    {
         // Set fields values
         $this->setTitle($title);
         $this->setPublishDate($publishDate);
@@ -62,51 +64,57 @@ abstract class Podcast {
 
 
     /**
-    * Returns the title for this podcast
-    * @return String title
-    */
-    public function getTitle() {
+     * Returns the title for this podcast
+     * @return String title
+     */
+    public function getTitle()
+    {
         return $this->title;
     }
 
     /**
-    * Returns the publish date for this podcast
-    * @return String publishDate
-    */
-    public function getPublishDate() {
+     * Returns the publish date for this podcast
+     * @return String publishDate
+     */
+    public function getPublishDate()
+    {
         return $this->publishDate;
     }
 
     /**
-    * Returns the access url for this podcast
-    * @return String url
-    */
-    public function getUrl() {
+     * Returns the access url for this podcast
+     * @return String url
+     */
+    public function getUrl()
+    {
         return $this->url;
     }
 
     /**
-    * Returns the description for this podcast
-    * @return String description
-    */
-    public function getDescription() {
+     * Returns the description for this podcast
+     * @return String description
+     */
+    public function getDescription()
+    {
         return $this->description;
     }
 
     /**
-    * Returns the duration for this podcast
-    * @return String duration
-    */
-    public function getDuration() {
+     * Returns the duration for this podcast
+     * @return String duration
+     */
+    public function getDuration()
+    {
         return $this->duration;
     }
 
     /**
-    * Returns the keywords for this podcast in an array of strings.  If no
-    * keywords exist, null is returned.
-    * @return String[] keywords or null
-    */
-    public function getKeywords() {
+     * Returns the keywords for this podcast in an array of strings.  If no
+     * keywords exist, null is returned.
+     * @return String[] keywords or null
+     */
+    public function getKeywords()
+    {
         return $this->keywords;
     }
 
@@ -115,49 +123,56 @@ abstract class Podcast {
 
 
     /**
-    * Sets the title for this podcast
-    * @param String title Podcast title
-    */
-    private function setTitle($title) {
+     * Sets the title for this podcast
+     * @param String title Podcast title
+     */
+    private function setTitle($title)
+    {
         $this->title = $title;
     }
 
     /**
-    * Sets the published date for this podcast
-    * @param String publishDate Date podcast was published
-    */
-    private function setPublishDate($publishDate) {
+     * Sets the published date for this podcast
+     * @param String publishDate Date podcast was published
+     */
+    private function setPublishDate($publishDate)
+    {
         $this->publishDate = $publishDate;
     }
 
     /**
-    * Sets the url for this podcast
-    * @param String url URL to access podcast
-    */
-    private function setUrl($url) {
+     * Sets the url for this podcast
+     * @param String url URL to access podcast
+     */
+    private function setUrl($url)
+    {
         $this->url = $url;
     }
 
     /**
-    * Sets the description for this podcast
-    * @param String description Podcast description
-    */
-    private function setDescription($description) {
+     * Sets the description for this podcast
+     * @param String description Podcast description
+     */
+    private function setDescription($description)
+    {
         $this->description = $description;
     }
 
     /**
-    * Sets the duration for this podcast
-    * @param String duration Length of podcast
-    */
-    private function setDuration($duration) {
+     * Sets the duration for this podcast
+     * @param String duration Length of podcast
+     */
+    private function setDuration($duration)
+    {
         $this->duration = $duration;
     }
 
     /**
-    * Adds a single keyword to this podcast
-    * @param String keyword Keyword to add to podcast
-    */
-    public function addKeyword($keyword) {
+     * Adds a single keyword to this podcast
+     * @param String keyword Keyword to add to podcast
+     */
+    public function addKeyword($keyword)
+    {
         $keywords[] = $keyword;
     }
+}

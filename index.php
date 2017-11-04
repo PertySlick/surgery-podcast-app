@@ -28,14 +28,14 @@ define('CSS_PATH', '/css/');
 define('JS_PATH', '/js/');
 
 // Initiate fat-free, and Controller objects and set defaults
-$f3 = Base::instance();                         // Instance of Fat Free object
-$f3->set('DEBUG', 3);                           // Set Fat Free debug level
-$f3->set('INC', INCLUDES);   // Set Includes File Path
-$f3->set('IMG', $f3->get('BASE') . IMAGE_PATH); // Set Image File Path
-$f3->set('CSS', $f3->get('BASE') . CSS_PATH);   // Set CSS File Path
-$f3->set('JS', $f3->get('BASE') . JS_PATH);     // Set JavaScript File Path
-$f3->set('fontAwesome', false);                 // Initialize FontAwesome Toggle
-$controller = new Controller();                 // MVC Controller object
+$f3 = Base::instance();                                          // Instance of Fat Free object
+$f3->set('DEBUG', 3);                                   // Set Fat Free debug level
+$f3->set('INC', INCLUDES);                              // Set Includes File Path
+$f3->set('IMG', $f3->get('BASE') . IMAGE_PATH);    // Set Image File Path
+$f3->set('CSS', $f3->get('BASE') . CSS_PATH);      // Set CSS File Path
+$f3->set('JS', $f3->get('BASE') . JS_PATH);        // Set JavaScript File Path
+$f3->set('fontAwesome', false);                         // Initialize FontAwesome Toggle
+$controller = new Controller();                                  // MVC Controller object
 
 //Instantiate the ? class
 //   $DB = new DB();
@@ -73,7 +73,6 @@ $f3->route('GET /newtopic', function($f3) use ($controller) {
     $f3->set('fontAwesome', true);
     echo Template::instance()->render('view/newtopic.html');
 });
-
 
 //Run fat free
 $f3->run();
