@@ -10,7 +10,7 @@
  */
 
 /**
- * Provides an instanciatiable class object for storing and retrieving all data
+ * Provides an instantiatable class object for storing and retrieving all data
  * relevant to a single podcast.
  *
  * @author CodeWorks - Timothy Roush
