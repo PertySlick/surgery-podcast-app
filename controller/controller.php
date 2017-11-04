@@ -21,6 +21,24 @@
 class Controller {
 
 
+// FIELDS, CONSTANTS, OBJECTS
+
+
+    private $db;
+
+
+// CONSTRUCTOR
+
+
+    /**
+     * Creates an instance of the Constructor object by initiating a DbOperator
+     * object.
+     */
+    public function __construct() {
+        $db = new DbOperator();
+    }
+
+
 // METHODS - MAIN ROUTE OPERATIONS
 
 
