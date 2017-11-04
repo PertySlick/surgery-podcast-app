@@ -24,7 +24,7 @@ class Controller {
 // FIELDS, CONSTANTS, OBJECTS
 
 
-    private $db;
+
 
 
 // CONSTRUCTOR
@@ -35,7 +35,7 @@ class Controller {
      * object.
      */
     public function __construct() {
-        $db = new DbOperator();
+        //TODO:  Empty Operator?
     }
 
 
@@ -44,7 +44,7 @@ class Controller {
 
 /**
      * Handles all logic for the main home page.
-     * @param $f3 Fat Free object
+     * @param $f3 Object Fat Free object
      */
     public function home($f3)
     {
@@ -54,4 +54,28 @@ class Controller {
             'description' => 'Behind The Knife:  The Surgery Podcast'
         ));
     }
+
+    /**
+     * Fetches all podcast records that match the supplied tag and assigns the
+     * results to an F3 variable.
+     * @param $f3 Object F3 object
+     * @param $params array Tokens received by F3 object
+     */
+    public function topic($f3, $params)
+    {
+        $f3->mSet(array(
+            'title' => 'BTK Podcasts By Topic',
+            'description' => 'Behind The Knife:  Browse podcasts by topic'
+        ));
+
+
+        $db = new DbOperator();
+        $f3->set('podcasts', $db->getPodcastByTag($params['tag']));
+    }
+
+
+// METHODS - SUB-ROUTINES
+
+    // TODO: Separate out title and description settings for flexibility
+
 }
