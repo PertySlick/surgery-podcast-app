@@ -17,7 +17,7 @@
  * @copyright 2017
  * @version 1.0
  */
-public class Podcast
+class Podcast
 {
 
 
