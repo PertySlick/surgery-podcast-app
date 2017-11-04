@@ -99,7 +99,11 @@
 
 ### Product Owner Review / Comments
 
-Client meeting scheduled for 11/01/17
+  - PO will determine a finite set of topics/categories to sort podcasts by
+  - PO will assign the topic tags to the podcasts himself within LibSyn
+  - PO provided access to BlueHost web host service and existing database access looks good
+  - PO likes the alternative design ideas and asked that we proceed using them
+    - He will be presenting these to his partners and returning with some feedback
 
 ### Final Review Notes
 
