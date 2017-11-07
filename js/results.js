@@ -12,8 +12,25 @@ var titleItself = $('.new-pc-title');
 var description = $('.pc-description');
 
 $('document').ready(function() {
-    // Add click listener to podcast titles
-    titleDiv.on('click', function() {
+    // Add click listener to podcast title dive
+    $('.pc-title').on('click', function() {
+        // Hide all descriptions in case one is open
+        description.hide();
+        
+        // Set all titles overflow to hidden and wrap
+        // to nowrap in case a title is visible
+        titleItself.css('overflow', 'hidden');
+        titleItself.css('white-space', 'nowrap');
+        
+        // Show only the desc for the clicked title
+        $(this).next('.pc-description').slideDown("fast");
+        
+        // Toggle title overflow 
+        $(this).children('.new-pc-title').css('overflow', 'visible');
+        
+        // Toggle title wrap
+        $(this).children('.new-pc-title').css('white-space', 'normal');
+ /*       
         // Toggle visibility of description
         description.slideToggle("fast");
         
@@ -25,7 +42,7 @@ $('document').ready(function() {
         // Toddle title wrap
         titleItself.css('white-space', function(_, val) {
             return val == "nowrap" ? "normal" : "nowrap";
-        });
+        });  */
     });
 
 });

@@ -235,3 +235,6 @@
 [07-Nov-2017 14:14:02 America/Chicago] HTTP 404 (GET /resultsbytopic.html)
 [07-Nov-2017 14:14:02 America/Chicago] [vendor/bcosca/fatfree-core/base.php:1659] Base->error()
 [07-Nov-2017 14:14:02 America/Chicago] [index.php:90] Base->run()
+[07-Nov-2017 16:57:12 America/Chicago] HTTP 404 (GET /resultsbytopoc)
+[07-Nov-2017 16:57:12 America/Chicago] [vendor/bcosca/fatfree-core/base.php:1659] Base->error()
+[07-Nov-2017 16:57:12 America/Chicago] [index.php:90] Base->run()
