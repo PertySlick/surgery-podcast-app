@@ -6,26 +6,26 @@
     * Description:  Slide up and down functionality for the results list
 */
 
-var player = document.getElementById('new-player');     // Audio Player
-var $player = $('#new-player');
-var $playButton = $('#play-button');                    // Actual Play Button
-var $duration = $('#progress-total');                   // Total Duration Bar
-var $progress = $('#progress-actual');                  // Progress Indicator
-var $durationTime = $('#current-duration');             // Duration Time Display
-var $progressTime = $('#current-position');             // Progress Time Display
-var pauseClass = 'fa fa-pause';                         // Class For Pause Button
-var playClass = 'fa fa-play';                           // Class For Play Button
-
+// Store reference to podcast title and description
+var titleDiv = $('.pc-title');
+var titleItself = $('.new-pc-title');
+var description = $('.pc-description');
 
 $('document').ready(function() {
-
-    // Set initial duration value
-    $player.on('loadeddata', setDuration);
-
-    $('#play').on('click', togglePlay);
-    $duration.on('click', seekFunction);
-    $player.on('timeupdate', updateProgress);
-    $player.on('play', { play: false }, togglePlayButton);
-    $player.on('pause', { play: true }, togglePlayButton);
+    // Add click listener to podcast titles
+    titleDiv.on('click', function() {
+        // Toggle visibility of description
+        description.slideToggle("fast");
+        
+        // Toggle title overflow
+        titleItself.css('overflow', function(_, val) {
+            return val == "hidden" ? "visible" : "hidden";
+        });
+        
+        // Toddle title wrap
+        titleItself.css('white-space', function(_, val) {
+            return val == "nowrap" ? "normal" : "nowrap";
+        });
+    });
 
 });

@@ -285,6 +285,11 @@ a .pc-row:hover {
     font-size: .7em;
 }
 
+/* Podcast desc in results are hidden/collapsed at start */
+.pc-description {
+    display: none;
+}
+
 .new-pc-duration {
     font-size: .7em;
     margin: auto;
