@@ -25,7 +25,7 @@
 
             </div>
             <audio id="new-player" class="podcast-player">
-                <source src="{{ @IMG . 'eagles-take-it-to-the-limit.mp3' }}" type="audio/mpeg">
+                <source src="<?= ($IMG . 'eagles-take-it-to-the-limit.mp3') ?>" type="audio/mpeg">
             </audio>
         </div>
         <nav class="nav-footer">
@@ -53,8 +53,8 @@
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/v/bs-3.3.7/dt-1.10.15/datatables.min.js"></script>
-    <script src="{{ @JS . 'player.js' }}"></script>
+    <script src="<?= ($JS . 'player.js') ?>"></script>
     <!-- TODO: If not used by end of project, remove this script element -->
-    <!-- <script src="{{ @BASE }}/js/scripts.js"></script> -->
+    <!-- <script src="<?= ($BASE) ?>/js/scripts.js"></script> -->
 </body>
 </html>

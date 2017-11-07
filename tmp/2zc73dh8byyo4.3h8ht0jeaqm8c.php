@@ -6,7 +6,7 @@
  * Description:  Landing page for a podcast app
 -->
 
-<include href="includes/header.inc.html">
+<?php echo $this->render('includes/header.inc.html',NULL,get_defined_vars(),0); ?>
 
 <div class="wrapper">
 

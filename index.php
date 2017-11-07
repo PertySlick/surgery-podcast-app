@@ -62,6 +62,12 @@ $f3->route('GET /topic/@tag', function($f3, $params) use ($controller) {
     echo Template::instance()->render('view/topic.html');
 });
 
+//
+$f3->route('GET /topic', function($f3, $params) use ($controller) {
+    //$controller->topic($f3, $params);
+    echo Template::instance()->render('view/topic.html');
+});
+
 // Podcast player route
 // TODO: Route needs to be completed with functionality
 $f3->route('GET /play', function($f3) use ($controller) {
@@ -72,6 +78,12 @@ $f3->route('GET /play', function($f3) use ($controller) {
 $f3->route('GET /newtopic', function($f3) use ($controller) {
     $f3->set('fontAwesome', true);
     echo Template::instance()->render('view/newtopic.html');
+});
+
+// Results by topic selected
+$f3->route('GET /resultsbytopic', function($f3) use ($controller) {
+    $f3->set('fontAwesome', true);
+    echo Template::instance()->render('view/resultsbytopic.html');
 });
 
 //Run fat free

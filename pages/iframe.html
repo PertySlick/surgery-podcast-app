@@ -1,0 +1,61 @@
+
+<!--
+ * File Name: home.html
+ * Author: Timothy Roush
+ * Date Created: 10/07/17
+ * Assignment: Behind The Knife: The Surgery App
+ * Description:  Landing page for a podcast app
+-->
+<!DOCTYPE html>
+<html>
+<head>
+    <!--
+    * File Name: header.inc.html
+    * Authors: Timothy Roush
+    * Date Created: 10/02/17
+    * Assignment: Behind The Knife: The Surgery Podcast
+    * Description:  Header to be placed at beginning of each page.
+    -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="description" content="" />
+    <meta name="author" content="Timothy Roush" />
+    <meta name="author" content="Marlene Leano" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- BOOTSTRAP STYLES -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" />
+    <link rel="stylesheet" href="css/iframestyles.css" />
+    <!--[if lt IE 9]>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- FONTAWESOME IF REQUIRED -->
+    </head>
+
+<body>
+ <include href="{{ @INC . 'new-header.inc.html' }}">
+ 
+  <iframe src="/home" height="400" width="400" align="center">
+  <p>Your browser does not support iframes.</p>
+</iframe>
+
+<!--
+    * File Name: footer.inc.html
+    * Authors: Timothy Roush
+    * Date Created: 10/02/17
+    * Assignment: Behind The Knife: The Surgery Podcast
+    * Description:  Footer content for each page within the app
+-->
+
+    <!-- EXTERNAL JAVASCRIPTS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/bs-3.3.7/dt-1.10.15/datatables.min.js"></script>
+    <!-- TODO: If not used by end of project, remove this script element -->
+    <!-- <script src="/js/scripts.js"></script> -->
+    <include href="{{ @INC . 'new-footer.inc.html' }}" >
+</body>
+</html>

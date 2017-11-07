@@ -10,8 +10,8 @@
     -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
-    <title>{{ @title }}</title>
-    <meta name="description" content="{{ @description }}" />
+    <title><?= ($title) ?></title>
+    <meta name="description" content="<?= ($description) ?>" />
     <meta name="author" content="Timothy Roush" />
     <meta name="author" content="Marlene Leano" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -23,31 +23,11 @@
     <script src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-    
-    <!-- jQuery -->
-    <script
-    src="https://code.jquery.com/jquery-3.2.1.min.js"
-    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-    crossorigin="anonymous"></script>
 
     <!-- FONTAWESOME IF REQUIRED -->
-    <check if="{{ @fontAwesome }}">
+    <?php if ($fontAwesome): ?>
         <script src="https://use.fontawesome.com/a5cce48296.js"></script>
-    </check>
+    <?php endif; ?>
 </head>
 <body>
-<div class="wrapper">
-
-    <nav class="nav-header">
-        <div class="nav-button">
-            <i class="fa fa-home" aria-hidden="true"></i>
-        </div>
-        <div class="nav-button">
-            <i class="fa fa-th-list" aria-hidden="true"></i>
-        </div>
-        <div class="nav-button">
-            <i class="fa fa-search" aria-hidden="true"></i>
-        </div>
-    </nav>
-
-    <div class="nav-header-buffer"></div>
+    <div class="wrapper">

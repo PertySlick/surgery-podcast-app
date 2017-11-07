@@ -6,15 +6,15 @@
  * Description:  Landing page for a podcast app
 -->
 
-<include href="{{ @INC . 'header.inc.html' }}">
+<?php echo $this->render($INC . 'header.inc.html',NULL,get_defined_vars(),0); ?>
 
 <div class="wrapper">
 
 <a href="home">
-    <img class="logo" src="{{ @IMG . 'logo.png'}}" />
+    <img class="logo" src="<?= ($IMG . 'logo.png') ?>" />
 </a>
 
 
 </div>
 
-<include href="{{ @INC . 'footer.inc.html' }}">
+<?php echo $this->render($INC . 'footer.inc.html',NULL,get_defined_vars(),0); ?>

@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInitddf561d67b2903e7b09226aaa3551a7c
+class ComposerStaticInit62b10a0552096d558b76568a027ad726
 {
     public static $classMap = array (
         'Audit' => __DIR__ . '/..' . '/bcosca/fatfree-core/audit.php',
@@ -26,6 +26,7 @@ class ComposerStaticInitddf561d67b2903e7b09226aaa3551a7c
         'DB\\SQL' => __DIR__ . '/..' . '/bcosca/fatfree-core/db/sql.php',
         'DB\\SQL\\Mapper' => __DIR__ . '/..' . '/bcosca/fatfree-core/db/sql/mapper.php',
         'DB\\SQL\\Session' => __DIR__ . '/..' . '/bcosca/fatfree-core/db/sql/session.php',
+        'DbOperator' => __DIR__ . '/../..' . '/model/dboperator.php',
         'F3' => __DIR__ . '/..' . '/bcosca/fatfree-core/f3.php',
         'ISO' => __DIR__ . '/..' . '/bcosca/fatfree-core/base.php',
         'Image' => __DIR__ . '/..' . '/bcosca/fatfree-core/image.php',
@@ -33,6 +34,7 @@ class ComposerStaticInitddf561d67b2903e7b09226aaa3551a7c
         'Magic' => __DIR__ . '/..' . '/bcosca/fatfree-core/magic.php',
         'Markdown' => __DIR__ . '/..' . '/bcosca/fatfree-core/markdown.php',
         'Matrix' => __DIR__ . '/..' . '/bcosca/fatfree-core/matrix.php',
+        'Podcast' => __DIR__ . '/../..' . '/classes/Podcast.php',
         'Prefab' => __DIR__ . '/..' . '/bcosca/fatfree-core/base.php',
         'Preview' => __DIR__ . '/..' . '/bcosca/fatfree-core/base.php',
         'Registry' => __DIR__ . '/..' . '/bcosca/fatfree-core/base.php',
@@ -54,7 +56,7 @@ class ComposerStaticInitddf561d67b2903e7b09226aaa3551a7c
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->classMap = ComposerStaticInitddf561d67b2903e7b09226aaa3551a7c::$classMap;
+            $loader->classMap = ComposerStaticInit62b10a0552096d558b76568a027ad726::$classMap;
 
         }, null, ClassLoader::class);
     }

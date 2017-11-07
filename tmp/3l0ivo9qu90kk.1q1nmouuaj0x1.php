@@ -11,6 +11,6 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/v/bs-3.3.7/dt-1.10.15/datatables.min.js"></script>
     <!-- TODO: If not used by end of project, remove this script element -->
-    <!-- <script src="{{ @BASE }}/js/scripts.js"></script> -->
+    <!-- <script src="<?= ($BASE) ?>/js/scripts.js"></script> -->
 </body>
 </html>

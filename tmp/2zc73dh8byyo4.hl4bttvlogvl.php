@@ -6,11 +6,11 @@
  * Description:  Player for streaming podcasts content
 -->
 
-<include href="{{ @INC . 'header.inc.html' }}">
+<?php echo $this->render($INC . 'header.inc.html',NULL,get_defined_vars(),0); ?>
 
 <div class="wrapper">
 
-<img class="player-image" src="{{ @IMG . 'santa.png'}}" />
+<img class="player-image" src="<?= ($IMG . 'santa.png') ?>" />
 <div class="player-description">
     Information here about the episode and if they want to learn more click...
 </div>
@@ -30,4 +30,4 @@
 
 </div>
 
-<include href="{{ @INC . 'footer.inc.html' }}">
+<?php echo $this->render($INC . 'footer.inc.html',NULL,get_defined_vars(),0); ?>

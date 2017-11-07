@@ -1,12 +1,12 @@
 <!--
- * File Name: newtopic.html
- * Author: Timothy Roush
+ * File Name: resultsbytopic.html
+ * Author: Marlene Leano
  * Date Created: 10/23/17
  * Assignment: Behind The Knife: The Surgery App
- * Description:  Alternate Page that lists podcasts related to selected topic
+ * Description: List of podcasts related to selected topic
 -->
 
-<include href="{{ @INC . 'new-header.inc.html' }}">
+<?php echo $this->render($INC . 'new-header.inc.html',NULL,get_defined_vars(),0); ?>
 
 <h1 class="title">Surgery Legends</h1>
 <div class="subtitle">click to play</div>
@@ -48,4 +48,4 @@
 </div>
 
 
-<include href="{{ @INC . 'new-footer.inc.html' }}" >
+<?php echo $this->render($INC . 'new-footer.inc.html',NULL,get_defined_vars(),0); ?>

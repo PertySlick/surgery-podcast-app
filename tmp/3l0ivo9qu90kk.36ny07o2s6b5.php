@@ -6,7 +6,7 @@
  * Description:  Page that lists podcasts related to selected topic
 -->
 
-<include href="{{ @INC . 'header.inc.html' }}">
+<?php echo $this->render($INC . 'header.inc.html',NULL,get_defined_vars(),0); ?>
 
 <div class="wrapper">
 
@@ -17,7 +17,7 @@
 <div class="pc-row">
     <div class="pc-title">John Cameron</div>
     <audio class="pc-content" controls>
-        <source src="{{ @IMG . 'eagles-take-it-to-the-limit.mp3' }}" type="audio/mpeg">
+        <source src="<?= ($IMG . 'eagles-take-it-to-the-limit.mp3') ?>" type="audio/mpeg">
     </audio>
 </div>
 
@@ -33,38 +33,38 @@
 <div class="pc-row">
     <div class="pc-title">John Cameron</div>
     <audio class="pc-content" controls>
-        <source src="{{ @IMG . 'eagles-take-it-to-the-limit.mp3' }}" type="audio/mpeg">
+        <source src="<?= ($IMG . 'eagles-take-it-to-the-limit.mp3') ?>" type="audio/mpeg">
     </audio>
 </div>
 <div class="pc-row">
     <div class="pc-title">John Cameron</div>
     <audio class="pc-content" controls>
-        <source src="{{ @IMG . 'eagles-take-it-to-the-limit.mp3' }}" type="audio/mpeg">
+        <source src="<?= ($IMG . 'eagles-take-it-to-the-limit.mp3') ?>" type="audio/mpeg">
     </audio>
 </div>
 <div class="pc-row">
     <div class="pc-title">John Cameron</div>
     <audio class="pc-content" controls>
-        <source src="{{ @IMG . 'eagles-take-it-to-the-limit.mp3' }}" type="audio/mpeg">
+        <source src="<?= ($IMG . 'eagles-take-it-to-the-limit.mp3') ?>" type="audio/mpeg">
     </audio>
 </div>
 <div class="pc-row">
     <div class="pc-title">John Cameron</div>
     <audio class="pc-content" controls>
-        <source src="{{ @IMG . 'eagles-take-it-to-the-limit.mp3' }}" type="audio/mpeg">
+        <source src="<?= ($IMG . 'eagles-take-it-to-the-limit.mp3') ?>" type="audio/mpeg">
     </audio>
 </div>
 <div class="pc-row">
     <div class="pc-title">John Cameron</div>
     <audio class="pc-content" controls>
-        <source src="{{ @IMG . 'eagles-take-it-to-the-limit.mp3' }}" type="audio/mpeg">
+        <source src="<?= ($IMG . 'eagles-take-it-to-the-limit.mp3') ?>" type="audio/mpeg">
     </audio>
 </div>
 <div class="pc-row">
     <div class="pc-title">John Cameron</div>
     <audio class="pc-content" controls>
-        <source src="{{ @IMG . 'eagles-take-it-to-the-limit.mp3' }}" type="audio/mpeg">
+        <source src="<?= ($IMG . 'eagles-take-it-to-the-limit.mp3') ?>" type="audio/mpeg">
     </audio>
 </div>
 
-<include href="{{ @INC . 'footer.inc.html' }}">
+<?php echo $this->render($INC . 'footer.inc.html',NULL,get_defined_vars(),0); ?>
