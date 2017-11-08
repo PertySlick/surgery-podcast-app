@@ -72,6 +72,18 @@ class Controller {
         $db = new DbOperator();
         $f3->set('podcasts', $db->getPodcastByTag($params['tag']));
     }
+    
+    /* Handles all logic for the results by topic page.
+     * @param $f3 Object Fat Free object
+     */
+    public function resultsByTopic($f3)
+    {
+        // Set environment tokens
+        $f3->mSet(array(
+            'title' => 'BTK Surgery Podcast',
+            'description' => 'Behind The Knife:  The Surgery Podcast'
+        ));
+    }
 
 
 // METHODS - SUB-ROUTINES

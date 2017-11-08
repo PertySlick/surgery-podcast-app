@@ -83,6 +83,7 @@ $f3->route('GET /newtopic', function($f3) use ($controller) {
 // Results by topic selected
 $f3->route('GET /resultsbytopic', function($f3) use ($controller) {
     $f3->set('fontAwesome', true);
+    $controller->resultsByTopic($f3);
     echo Template::instance()->render('view/resultsbytopic.html');
 });
 
