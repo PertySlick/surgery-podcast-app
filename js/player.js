@@ -6,27 +6,28 @@
     * Description:  Custom Podcast Player Functionality
 */
 
-var player = document.getElementById('player');     // Audio Player
-var $player = $('#player');
-var $playButton = $('#play-button');                    // Actual Play Button
-var $duration = $('#progress-total');                   // Total Duration Bar
-var $progress = $('#progress-actual');                  // Progress Indicator
-var $durationTime = $('#current-duration');             // Duration Time Display
-var $progressTime = $('#current-position');             // Progress Time Display
-var pauseClass = 'fa fa-pause';                         // Class For Pause Button
-var playClass = 'fa fa-play';                           // Class For Play Button
+var player = parent.document.getElementById('player');     // Audio Player
+var $player = $('#player', parent.document);
+var $playButton = $('#play-button');                // Actual Play Button
+var $duration = $('#progress-total');               // Total Duration Bar
+var $progress = $('#progress-actual');              // Progress Indicator
+var $durationTime = $('#current-duration');         // Duration Time Display
+var $progressTime = $('#current-position');         // Progress Time Display
+// TODO: Change this from "new-pc-row" to "pc-row"
+var $podcastRow = $('.new-pc-title');               // Podcast Row Toggling Player
+var pauseClass = 'fa fa-pause';                     // Class For Pause Button
+var playClass = 'fa fa-play';                       // Class For Play Button
 
 
 $('document').ready(function() {
 
-    // Set initial duration value
-    $player.on('loadeddata', setDuration);
-
-    $('#play').on('click', togglePlay);
-    $duration.on('click', seekFunction);
-    $player.on('timeupdate', updateProgress);
-    $player.on('play', { play: false }, togglePlayButton);
-    $player.on('pause', { play: true }, togglePlayButton);
+    $player.on('loadeddata', setDuration);                  // Set Initial Duration Value
+    $('#play').on('click', togglePlay);                     // Play Button Functionality
+    $duration.on('click', seekFunction);                    // Seek Bar Functionality
+    $player.on('timeupdate', updateProgress);               // Progress Timer Functionality
+    $player.on('play', { play: false }, togglePlayButton);  // Play/PAUSE Button Toggle
+    $player.on('pause', { play: true }, togglePlayButton);  // PLAY/Pause Button Toggle
+    $podcastRow.on('click', loadPlayer);     // Load Podcast From Clicked Row
 
 });
 
@@ -93,6 +94,17 @@ function isPlaying() {
 // Sets the value of the audio duration to the duration display number
 function setDuration() {
     $durationTime.html(formatSeconds($player.prop('duration')));
+}
+
+// Load podcast from clicked row
+function loadPlayer(e) {
+    var $row = $(e.target).parent();
+    var url = $row.data('url');
+
+
+    $player.slideUp();
+    player.src = url;
+    player.load();
 }
 
 // Format times supplied by HTML audio to an hh:mm:ss format
