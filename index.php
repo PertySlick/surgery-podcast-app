@@ -34,7 +34,7 @@ $f3->set('INC', INCLUDES);                         // Set Includes File Path
 $f3->set('IMG', $f3->get('BASE') . IMAGE_PATH);    // Set Image File Path
 $f3->set('CSS', $f3->get('BASE') . CSS_PATH);      // Set CSS File Path
 $f3->set('JS', $f3->get('BASE') . JS_PATH);        // Set JavaScript File Path
-$f3->set('fontAwesome', false);                    // Initialize FontAwesome Toggle
+$f3->set('fontAwesome', true);                    // Initialize FontAwesome Toggle
 $controller = new Controller();                    // MVC Controller object
 
 //Instantiate the ? class
@@ -47,7 +47,7 @@ $controller = new Controller();                    // MVC Controller object
 //Default route
 // TODO: Route needs controller functionality
 $f3->route('GET /', function($f3) {
-    echo Template::instance()->render('view/landing.html');
+    echo Template::instance()->render('view/iframe.html');
 });
 
 // Home page route
@@ -55,6 +55,7 @@ $f3->route('GET /home', function($f3) use ($controller) {
     $controller->home($f3);
     echo Template::instance()->render('view/home.html');
 });
+
 
 //
 $f3->route('GET /topic/@tag', function($f3, $params) use ($controller) {

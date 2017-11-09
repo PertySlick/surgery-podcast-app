@@ -11,7 +11,22 @@
 <h1 class="title">Surgery Legends</h1>
 <div class="subtitle">click to play</div>
 
+<!--
+<?php foreach (($podcasts?:[]) as $podcast): ?>
+    <div class="new-pc-row pc-title">
+        <div class="new-pc-title"><?= ($podcast->getTitle()) ?></div>
+    </div>
+    <div class="new-pc-row pc-description">
+        <div class="new-pc-desc">
+            <?= ($podcast->getDescription())."
+" ?>
+        </div>
+        <div class="new-pc-duration"><?= ($podcast->getDuration()) ?></div>
+    </div>
+<?php endforeach; ?>
+-->
 
+<!--Repetition-->
 <div class="new-pc-row pc-title">
     <div class="new-pc-title">Mock Orals #6: Thoracic Surgery with Dr. Kathleen Berfield</div>
 </div>
@@ -195,5 +210,6 @@
     </div>
     <div class="new-pc-duration">01:23:45</div>
 </div>
+
 
 <?php echo $this->render($INC . 'new-footer.inc.html',NULL,get_defined_vars(),0); ?>

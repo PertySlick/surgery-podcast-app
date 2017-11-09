@@ -54,7 +54,15 @@ class Controller {
             'description' => 'Behind The Knife:  The Surgery Podcast'
         ));
     }
-
+    
+        public function iframe($f3)
+    {
+        // Set environment tokens
+        $f3->mSet(array(
+            'title' => 'BTK Surgery Podcast',
+            'description' => 'Behind The Knife:  The Surgery Podcast'
+        ));
+    }
     /**
      * Fetches all podcast records that match the supplied tag and assigns the
      * results to an F3 variable.

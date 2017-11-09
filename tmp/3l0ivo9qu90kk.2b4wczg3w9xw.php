@@ -34,13 +34,22 @@
 
     <nav class="nav-header">
         <div class="nav-button">
+            <!--Link to homepage-->
+            <a href="/home">
             <i class="fa fa-home" aria-hidden="true"></i>
+            </a>
         </div>
+        <!--Dropdown list here-->
         <div class="nav-button">
+            <a>
             <i class="fa fa-th-list" aria-hidden="true"></i>
+            </a>
         </div>
         <div class="nav-button">
+            <!--Search feature to be added here-->
+            <a>
             <i class="fa fa-search" aria-hidden="true"></i>
+            </a>
         </div>
     </nav>
 
