@@ -6,8 +6,8 @@
     * Description:  Custom Podcast Player Functionality
 */
 
-var player = document.getElementById('new-player');     // Audio Player
-var $player = $('#new-player');
+var player = document.getElementById('player');     // Audio Player
+var $player = $('#player');
 var $playButton = $('#play-button');                    // Actual Play Button
 var $duration = $('#progress-total');                   // Total Duration Bar
 var $progress = $('#progress-actual');                  // Progress Indicator
