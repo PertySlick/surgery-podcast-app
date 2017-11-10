@@ -56,7 +56,6 @@ $f3->route('GET /home', function($f3) use ($controller) {
     echo Template::instance()->render('view/home.html');
 });
 
-
 //
 $f3->route('GET /topic/@tag', function($f3, $params) use ($controller) {
     $controller->topic($f3, $params);
