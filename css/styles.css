@@ -264,8 +264,13 @@ a .pc-row:hover {
 }
 
 
-/* ====== ALTERNATE TOPIC PODCASTS ====== */
+/* ====== ALTERNATE TOPIC PODCASTS & PODCASR RESULTS ====== */
 
+.pc-title-div {
+    color: #8282a1;
+    text-align: center;
+    width: 50%;
+}
 
 .new-pc-row {
     -webkit-box-shadow: 0 3px 3px -3px #444;

@@ -78,7 +78,8 @@ class Controller {
     {
         $f3->mSet(array(
             'title' => 'BTK Podcasts By Topic',
-            'description' => 'Behind The Knife:  Browse podcasts by topic'
+            'description' => 'Behind The Knife:  Browse podcasts by topic',
+            'keyword' => $params['tag']
         ));
 
         $db = new DbOperator();
