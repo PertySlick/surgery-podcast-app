@@ -60,7 +60,7 @@ $f3->route('GET /home', function($f3) use ($controller) {
 $f3->route('GET /topic/@tag', function($f3, $params) use ($controller) {
     $f3->set('fontAwesome', true);
     $controller->topic($f3, $params);
-    echo Template::instance()->render('view/resultsbytopic.html');
+    echo Template::instance()->render('view/podcastresults.html');
 });
 
 //
@@ -79,13 +79,6 @@ $f3->route('GET /play', function($f3) use ($controller) {
 $f3->route('GET /newtopic', function($f3) use ($controller) {
     $f3->set('fontAwesome', true);
     echo Template::instance()->render('view/newtopic.html');
-});
-
-// Results by topic selected
-$f3->route('GET /resultsbytopic', function($f3) use ($controller) {
-    $f3->set('fontAwesome', true);
-    $controller->resultsByTopic($f3);
-    echo Template::instance()->render('view/resultsbytopic.html');
 });
 
 //Run fat free
