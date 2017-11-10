@@ -43,7 +43,7 @@ class DbOperator {
         // Require Configuration File
         // IMPORTANT: For this assignment store credentials in the following path:
         //      home/username/secure/credentials_budgetapp.inc.php
-        require_once '../secure/credentials_surgerypodcast.inc.php';
+        require_once '../../secure/credentials_surgerypodcast.inc.php';
 
         // Establish Database Connection And Set Attributes
         try {
@@ -237,6 +237,34 @@ class DbOperator {
         }
 
         return $this->_conn->lastInsertId();
+    }
+
+
+    public function getTopics() {
+        $topics = array();
+
+        $stmt = $this->_conn->prepare('
+            SELECT tag_name as topic
+            FROM podcast_tags 
+            NATURAL JOIN podcast_tag_join 
+            WHERE tag_name <> \'\'
+            GROUP BY tag_id 
+            ORDER BY COUNT(tag_name) DESC
+        ');
+
+        try {
+            $stmt->execute();
+        } catch (PDOException $error) {
+            die ("(!) There was an retrieving topics from the database... " . $error);
+        }
+
+        if ($stmt->rowCount() > 0) {
+            while ($record = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                $topics[] = $record['topic'];
+            }
+            return $topics;
+        }
+        return null;
     }
 
 }

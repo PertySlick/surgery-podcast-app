@@ -13,8 +13,7 @@ var $duration = $('#progress-total');               // Total Duration Bar
 var $progress = $('#progress-actual');              // Progress Indicator
 var $durationTime = $('#current-duration');         // Duration Time Display
 var $progressTime = $('#current-position');         // Progress Time Display
-// TODO: Change this from "new-pc-row" to "pc-row"
-var $podcastRow = $('.new-pc-title');               // Podcast Row Toggling Player
+var $podcastRow = $('.pc-title');               // Podcast Row Toggling Player
 var pauseClass = 'fa fa-pause';                     // Class For Pause Button
 var playClass = 'fa fa-play';                       // Class For Play Button
 

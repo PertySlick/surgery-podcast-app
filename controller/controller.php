@@ -53,9 +53,13 @@ class Controller {
             'title' => 'BTK Surgery Podcast',
             'description' => 'Behind The Knife:  The Surgery Podcast'
         ));
+
+        // Store topics for building links
+        $db = new DbOperator();
+        $f3->set('topics', $db->getTopics());
     }
     
-        public function iframe($f3)
+    public function iframe($f3)
     {
         // Set environment tokens
         $f3->mSet(array(
