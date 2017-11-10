@@ -77,7 +77,6 @@ class Controller {
             'description' => 'Behind The Knife:  Browse podcasts by topic'
         ));
 
-
         $db = new DbOperator();
         $f3->set('podcasts', $db->getPodcastByTag($params['tag']));
     }
