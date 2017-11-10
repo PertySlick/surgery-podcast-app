@@ -37,6 +37,7 @@ a, a:hover, .pc-title:hover {
 
 .wrapper {
     background-color: #fff;
+    box-sizing: border-box;
     margin: auto;
     max-width: 400px;
     min-height: 100%;
@@ -84,14 +85,14 @@ nav.nav-header {
     top: 0;
     -webkit-transition: height .5s ease-out;
     transition: height 2s ease;
-    width: inherit;
+    width: 100%;
 }
 
 .nav-header .nav-button {
     color: #ddd;
     display: inline-block;
     flex-grow: 1;
-    font-size: 2em;
+    /*font-size: 2em;*/
     margin: 0;
     padding: 10px;
     text-align: center;
@@ -138,7 +139,7 @@ nav.nav-footer {
     color: #ddd;
     display: inline-block;
     flex-grow: 1;
-    font-size: 2em;
+    /*font-size: 2em;*/
     margin: 0;
     padding: 10px;
     text-align: center;
@@ -330,7 +331,7 @@ a .pc-row:hover {
     width: 0;
 }
 
-.new-player {
+.player {
     align-items: center;
     display: flex;
     font-size: 2em;
@@ -339,7 +340,7 @@ a .pc-row:hover {
     width: 100%;
 }
 
-.new-player-controls {
+.player-controls {
     align-items: center;
     display: flex;
     width: 100%;
@@ -347,7 +348,7 @@ a .pc-row:hover {
 
 .timing {
     color: #ddd;
-    font-size: .7em;
+    font-size: .5em;
     text-align: center;
     width: 25%;
 }
@@ -370,14 +371,6 @@ a .pc-row:hover {
     font-size: 1.8em;
     margin-top: 25px;
     text-align: center;
-}
-
-.player-controls {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    padding: 15px 20px;
-    width: 100%;
 }
 
 .player-author {

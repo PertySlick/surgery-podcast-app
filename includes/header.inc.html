@@ -14,15 +14,10 @@
     <meta name="description" content="{{ @description }}" />
     <meta name="author" content="Timothy Roush" />
     <meta name="author" content="Marlene Leano" />
+    <meta name="author" content="Brent Taylor" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <!-- BOOTSTRAP STYLES -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" />
-    <link rel="stylesheet" href="css/styles.css" />
-    <!--[if lt IE 9]>
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+    <!-- CSS STYLES -->
+    <link rel="stylesheet" href="{{ @CSS . 'styles.css' }}" />
 
     <!-- FONTAWESOME IF REQUIRED -->
     <check if="{{ @fontAwesome }}">

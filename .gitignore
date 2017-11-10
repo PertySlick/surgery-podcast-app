@@ -11,3 +11,7 @@ composer.lock
 composer.phar
 /.idea/
 /vendor/
+
+error_log
+
+/tmp/
