@@ -59,8 +59,9 @@ $f3->route('GET /home', function($f3) use ($controller) {
 
 //
 $f3->route('GET /topic/@tag', function($f3, $params) use ($controller) {
+    $f3->set('fontAwesome', true);
     $controller->topic($f3, $params);
-    echo Template::instance()->render('view/topic.html');
+    echo Template::instance()->render('view/resultsbytopic.html');
 });
 
 //
