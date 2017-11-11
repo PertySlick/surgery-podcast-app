@@ -228,11 +228,11 @@ a .topic, a .topic:hover  {
 /* ====== TOPIC PODCASTS ====== */
 
 
-.pc-row {
+/*.pc-row {
     display: flex;
     padding: 5px;
     width: 100%;
-}
+}*/
 
 a .pc-row, a .pc-row:hover  {
     color: #8282a1;
@@ -267,9 +267,12 @@ a .pc-row:hover {
 /* ====== PODCASTS RESULTS ====== */
 
 
-.pc-title-div {
+.pc-title {
     color: #8282a1;
     text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .pc-row {
@@ -279,12 +282,6 @@ a .pc-row:hover {
     font-size: 1em;
     padding: 15px 10px;
     /*width: 100%;*/
-}
-
-.pc-title {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
 }
 
 .pc-desc {

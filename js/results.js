@@ -12,7 +12,7 @@ var description = $('.pc-description');
 
 $('document').ready(function() {
     // Add click listener to podcast title dive
-    $('.pc-title-div').on('click', function() {
+    title.on('click', function() {
         // If description of clicked title is already visible, slide up
         // and hide overflow of title
         if ($(this).next('.pc-description').is(':visible')) {

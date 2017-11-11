@@ -13,8 +13,8 @@
 
 <repeat group="{{ @podcasts }}" value="{{ @podcast }}">
     <div class="pc-row">
-        <div class="pc-title-div" data-url="{{ @podcast->getUrl() }}">
-            <div class="pc-title">{{ @podcast->getTitle() }}</div>
+        <div class="pc-title" data-url="{{ @podcast->getUrl() }}">
+            {{ @podcast->getTitle() }}
         </div>
         <div class="pc-description">
             <div class="pc-desc">
