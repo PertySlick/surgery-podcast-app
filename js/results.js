@@ -17,14 +17,11 @@ $('document').ready(function() {
         // and hide overflow of title
         if ($(this).next('.pc-description').is(':visible')) {
             $(this).next('.pc-description').slideUp("fast");
-            title.css('overflow', 'hidden').css('white-space', 'nowrap');
+            title.toggleClass('hide-title');
+            //title.css('overflow', 'hidden').css('white-space', 'nowrap');
         } else {   
             // Hide all descriptions in case one is open
-            description.hide("fast");
-            
-            // Set all titles overflow to hidden and wrap
-            // to nowrap in case a title is visible
-            title.css('overflow', 'hidden').css('white-space', 'nowrap');
+            description.hide('fast');
             
             // Show only the desc for the clicked title
             $(this).next('.pc-description').slideDown("fast");

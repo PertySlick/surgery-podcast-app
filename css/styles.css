@@ -228,11 +228,11 @@ a .topic, a .topic:hover  {
 /* ====== TOPIC PODCASTS ====== */
 
 
-/*.pc-row {
+/*.pc-row {  
     display: flex;
     padding: 5px;
     width: 100%;
-}*/
+}*/ /*caused conflict with results page*/
 
 a .pc-row, a .pc-row:hover  {
     color: #8282a1;
@@ -248,7 +248,7 @@ a .pc-row:hover {
     font-size: 1.5em;
     text-align: center;
     width: 50%;
-}*/
+}*/ /*caused conflict with results page*/
 
 .pc-content {
     border: 1px solid #000;
@@ -270,9 +270,9 @@ a .pc-row:hover {
 .pc-title {
     color: #8282a1;
     text-align: center;
-    overflow: hidden;
+    /*overflow: hidden;
     text-overflow: ellipsis;
-    white-space: nowrap;
+    white-space: nowrap;*/
 }
 
 .pc-row {
@@ -281,7 +281,7 @@ a .pc-row:hover {
     box-shadow: 0 3px 3px -3px #444;
     font-size: 1em;
     padding: 15px 10px;
-    /*width: 100%;*/
+    /*width: 100%;*/  /*removing this centered div*/
 }
 
 .pc-desc {
@@ -301,6 +301,12 @@ hidden/collapsed at start*/
     margin: auto;
     text-align: center;
     padding-top: 10px;
+}
+
+.hide-title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap; 
 }
 
 
