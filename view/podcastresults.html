@@ -20,24 +20,12 @@
             <div class="new-pc-desc">
                 {{ @podcast->getDescription() }}
             </div>
-            <div class="new-pc-duration">{{ @podcast->getDuration() }}</div>
+            <div class="new-pc-duration">
+                {{ @podcast->getDuration() }}
+            </div>
         </div>
     </div>        
 </repeat>
-
-<!--
-<repeat group="{{ @podcasts }}" value="{{ @podcast }}">
-    <div class="new-pc-row pc-title-div" data-url="{{ @podcast->getUrl() }}">
-        <div class="new-pc-title">{{ @podcast->getTitle() }}</div>
-    </div>
-    <div class="new-pc-row pc-description">
-        <div class="new-pc-desc">
-            {{ @podcast->getDescription() }}
-        </div>
-        <div class="new-pc-duration">{{ @podcast->getDuration() }}</div>
-    </div>
-</repeat>
--->
 
 <include href="{{ @INC . 'footer.inc.html' }}" >
     
