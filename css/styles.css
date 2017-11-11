@@ -416,17 +416,22 @@ a .pc-row:hover {
     text-align: right;
 }
 
-/*==============================Iframe styles======================*/
 /* ============Iframe styles================ */
+
+/*Id for iframe*/
 #iframe1{ 
     outline: none;
-    width: 396px;
+    width: 410px;
     height:600px;
     margin: -20px;
-    padding-top: 60px;
-    margin-right: -10px;
+ 
     border: none;
    
-  
+}
+
+/*Div containing iframe*/
+#iframeContainer
+{
+     overflow: hidden; /*hides scrollbar and outer padding*/  
 }
 
