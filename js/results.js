@@ -30,8 +30,7 @@ $('document').ready(function() {
             $(this).next('.pc-description').slideDown("fast");
             
             // Toggle title overflow, wrap, and font-size (make larger)
-            $(this).children('.pc-title').css('overflow', 'visible').
-                css('white-space', 'normal');
+            $(this).css('overflow', 'visible').css('white-space', 'normal');
         }
     });
 });
