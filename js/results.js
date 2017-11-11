@@ -16,18 +16,20 @@ $('document').ready(function() {
         // If description of clicked title is already visible, slide up
         // and hide overflow of title
         if ($(this).next('.pc-description').is(':visible')) {
-            $(this).next('.pc-description').slideUp("fast");
-            title.toggleClass('hide-title');
-            //title.css('overflow', 'hidden').css('white-space', 'nowrap');
+            $(this).next('.pc-description').slideUp('fast');
+            $(this).toggleClass('hide-title');
         } else {   
             // Hide all descriptions in case one is open
             description.hide('fast');
             
-            // Show only the desc for the clicked title
-            $(this).next('.pc-description').slideDown("fast");
+            // Reset all titles so that overflow is hidden
+            title.addClass('hide-title');
+            
+            // Show only the description for the clicked title
+            $(this).next('.pc-description').slideDown('fast');
             
             // Toggle title overflow, wrap, and font-size (make larger)
-            $(this).css('overflow', 'visible').css('white-space', 'normal');
+            $(this).toggleClass('hide-title');
         }
     });
 });
