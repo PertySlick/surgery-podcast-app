@@ -294,12 +294,14 @@ a .pc-row:hover {
 /* Podcast desc in results are hidden/collapsed at start */
 .pc-description {
     display: none;
+    padding-top: 15px;
 }
 
 .new-pc-duration {
     font-size: .7em;
     margin: auto;
     text-align: center;
+    padding-top: 10px;
 }
 
 .open {
