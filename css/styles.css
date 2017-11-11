@@ -420,8 +420,13 @@ a .pc-row:hover {
 /* ============Iframe styles================ */
 #iframe1{ 
     outline: none;
-    width: 400px;
-    height:400px;
+    width: 396px;
+    height:600px;
     margin: -20px;
+    padding-top: 60px;
+    margin-right: -10px;
+    border: none;
+   
+  
 }
 
