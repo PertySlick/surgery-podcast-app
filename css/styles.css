@@ -243,12 +243,12 @@ a .pc-row:hover {
     background-color: #eee;
 }
 
-.pc-title {
+/*.pc-title {
     color: #8282a1;
     font-size: 1.5em;
     text-align: center;
     width: 50%;
-}
+}*/
 
 .pc-content {
     border: 1px solid #000;
@@ -264,42 +264,46 @@ a .pc-row:hover {
 }
 
 
-/* ====== ALTERNATE TOPIC PODCASTS ====== */
+/* ====== PODCASTS RESULTS ====== */
 
 
-.new-pc-row {
+.pc-title-div {
+    color: #8282a1;
+    text-align: center;
+}
+
+.pc-row {
     -webkit-box-shadow: 0 3px 3px -3px #444;
     -moz-box-shadow: 0 3px 3px -3px #444;
     box-shadow: 0 3px 3px -3px #444;
     font-size: 1em;
     padding: 15px 10px;
-    width: 100%;
+    /*width: 100%;*/
 }
 
-.new-pc-title {
+.pc-title {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
 }
 
-.new-pc-desc {
+.pc-desc {
     font-size: .7em;
     word-wrap: break-word;
 }
 
-/* Podcast desc in results are hidden/collapsed at start */
-.pc-description {
+/*podcast desc in results are
+hidden/collapsed at start*/
+.pc-description {   
     display: none;
+    padding-top: 15px;
 }
 
-.new-pc-duration {
+.pc-duration {
     font-size: .7em;
     margin: auto;
     text-align: center;
-}
-
-.open {
-    font-weight: bold;
+    padding-top: 10px;
 }
 
 

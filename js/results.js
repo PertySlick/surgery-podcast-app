@@ -7,7 +7,7 @@
 */
 
 // Store reference to podcast title and description
-var title = $('.new-pc-title');
+var title = $('.pc-title');
 var description = $('.pc-description');
 
 $('document').ready(function() {
@@ -30,7 +30,7 @@ $('document').ready(function() {
             $(this).next('.pc-description').slideDown("fast");
             
             // Toggle title overflow, wrap, and font-size (make larger)
-            $(this).children('.new-pc-title').css('overflow', 'visible').
+            $(this).children('.pc-title').css('overflow', 'visible').
                 css('white-space', 'normal');
         }
     });
