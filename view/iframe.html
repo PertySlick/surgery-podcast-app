@@ -7,8 +7,10 @@
  * Description:  Landing page for a podcast app
 -->
 
-<include href="{{ @INC . 'header.inc.html' }}">
 
+
+<include href="{{ @INC . 'header.inc.html' }}">
+<link href= css/styles.css type="text/css" rel="stylesheet">
 <!-- TOP NAVIGATION -->
 
 <nav class="nav-header">
@@ -34,7 +36,7 @@
 
 <!-- MAIN IFRAME PORTAL -->
 
-<iframe src="home" height="400" width="800" align="left" frameBorder="0" scrolling="no">
+<iframe src="view/topic.html" id="iframe1" frameBorder="0" scrolling="no" >
     <p>Your browser does not support iframes.</p>
 </iframe>
 
