@@ -6,27 +6,36 @@
     * Description:  Custom Podcast Player Functionality
 */
 
-var player = parent.document.getElementById('player');     // Audio Player
+var player = parent.document.getElementById('player');              // Audio Player
 var $player = $('#player', parent.document);
-var $playButton = $('#play-button');                // Actual Play Button
-var $duration = $('#progress-total');               // Total Duration Bar
-var $progress = $('#progress-actual');              // Progress Indicator
-var $durationTime = $('#current-duration');         // Duration Time Display
-var $progressTime = $('#current-position');         // Progress Time Display
-var $podcastRow = $('.pc-title');               // Podcast Row Toggling Player
-var pauseClass = 'fa fa-pause';                     // Class For Pause Button
-var playClass = 'fa fa-play';                       // Class For Play Button
+var $playerContainer = $('.player-container', parent.document);     // Container For Entire Player
+var $playButton = $('#play-button');                                // Actual Play Button
+var $closeButton = $('#close');                                     // Actual Close Button
+var $downloadButton = $('#download', parent.document);              // Actual Download Button
+var $forwardButton = $('#forward');                                 // Actual Forward Button
+var $backwardButton = $('#backward');                               // Actual Backward Button
+var $duration = $('#progress-total');                               // Total Duration Bar
+var $progress = $('#progress-actual');                              // Progress Indicator
+var $durationTime = $('#current-duration');                         // Duration Time Display
+var $progressTime = $('#current-position');                         // Progress Time Display
+var $podcastRow = $('.pc-title');                                   // Podcast Row Toggling Player
+var pauseClass = 'fa fa-pause';                                     // Class For Pause Button
+var playClass = 'fa fa-play';                                       // Class For Play Button
+var t = 30;                                                         // Time Interval For Skipping
 
 
 $('document').ready(function() {
 
-    $player.on('loadeddata', setDuration);                  // Set Initial Duration Value
-    $('#play').on('click', togglePlay);                     // Play Button Functionality
-    $duration.on('click', seekFunction);                    // Seek Bar Functionality
-    $player.on('timeupdate', updateProgress);               // Progress Timer Functionality
-    $player.on('play', { play: false }, togglePlayButton);  // Play/PAUSE Button Toggle
-    $player.on('pause', { play: true }, togglePlayButton);  // PLAY/Pause Button Toggle
-    $podcastRow.on('click', loadPlayer);     // Load Podcast From Clicked Row
+    $player.on('loadeddata', setDuration);                          // Set Initial Duration Value
+    $playButton.on('click', togglePlay);                            // Play Button Functionality
+    $closeButton.on('click', closePlayer);                          // Close PodCast Player
+    $forwardButton.on('click', { time: t }, jumpProgress);           // Jump Ahead 10 Seconds
+    $backwardButton.on('click', { time: (t * -1) }, jumpProgress);  // Jump Back 10 Seconds
+    $duration.on('click', seekFunction);                            // Seek Bar Functionality
+    $player.on('timeupdate', updateProgress);                       // Progress Timer Functionality
+    $player.on('play', { play: false }, togglePlayButton);          // Play/PAUSE Button Toggle
+    $player.on('pause', { play: true }, togglePlayButton);          // PLAY/Pause Button Toggle
+    $podcastRow.on('click', loadPlayer);                            // Load Podcast From Clicked Row
 
 });
 
@@ -60,11 +69,9 @@ function updateProgressBar() {
 
     if (current > 0) {
         width = Math.round(((100 / duration) * current) * 10) / 10;
-        //console.log('HEIGHT: ' + $('nav.nav-footer').height());
     }
 
     $progress.css('width', width + '%');
-    //console.log('WIDTH: ' + width + '%');
 }
 
 // Seek functionality for skipping around via progress bar clicks
@@ -97,13 +104,32 @@ function setDuration() {
 
 // Load podcast from clicked row
 function loadPlayer(e) {
-    var $row = $(e.target).parent();
-    var url = $row.data('url');
-
+    var url = $(e.target).data('url');
 
     $player.slideUp();
-    player.src = url;
+    player.src = url;                       // Set source of player
+    $downloadButton.prop("href", url);
     player.load();
+    openPlayer();
+}
+
+// Lift player into the screen
+function openPlayer() {
+    if ($playerContainer.css('bottom') == '-90px') {
+        $playerContainer.css('bottom', 0);
+    }
+}
+
+// Remove the player from the screen
+function closePlayer() {
+    player.pause();
+    $playerContainer.css('bottom', '-90px');
+}
+
+// Provide skip forward/backward functionality
+function jumpProgress(e) {
+    var t = e.data.time;
+    player.currentTime = player.currentTime + t;
 }
 
 // Format times supplied by HTML audio to an hh:mm:ss format

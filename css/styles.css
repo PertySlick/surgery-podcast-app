@@ -128,22 +128,14 @@ nav.nav-header {
 
 footer {
     background-color: #333;
-    bottom: 0;
+    bottom: -90px;
     height: 90px;
-    /*margin: 0 -20px;*/
     max-width: inherit;
     overflow: hidden;
     position: fixed;
     width: 100%;
-    transition: height 2s;
-    -webkit-transition: height 2s;
-}
-
-
-.nav-buffer {
-
-    height: 90px;
-    width: 100%;
+    transition: bottom .5s;
+    -webkit-transition: bottom .5s;
 }
 
 
