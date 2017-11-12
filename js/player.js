@@ -115,7 +115,7 @@ function loadPlayer(e) {
 
 // Lift player into the screen
 function openPlayer() {
-    if ($playerContainer.css('bottom') == '-90px') {
+    if ($playerContainer.css('bottom') === '-90px') {
         $playerContainer.css('bottom', 0);
     }
 }
