@@ -10,13 +10,14 @@
 
 
 <include href="{{ @INC . 'header.inc.html' }}">
-<link href= css/styles.css type="text/css" rel="stylesheet">
+
+
 <!-- TOP NAVIGATION -->
 
 <nav class="nav-header">
     <div class="nav-button">
         <!--Link to homepage-->
-        <a href="/home">
+        <a href="home" target="iframe">
             <i class="fa fa-home" aria-hidden="true"></i>
         </a>
     </div>
@@ -35,11 +36,13 @@
 </nav>
 
 <!-- MAIN IFRAME PORTAL -->
-<div id="iframeContainer">
-<iframe src="home" id="iframe1">
+
+
+<iframe src="home" name="iframe" scrolling="no">
     <p>Your browser does not support iframes.</p>
 </iframe>
-</div>
+
+
 <!-- PODCAST PLAYER INTERFACE -->
 
 <footer>

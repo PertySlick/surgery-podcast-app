@@ -28,6 +28,7 @@ body {
     font-size: 1.1em;
     font-weight: normal;
     height: 100%;
+    margin: 0;
     position: relative;
 }
 
@@ -35,13 +36,37 @@ a, a:hover, .pc-title:hover {
     text-decoration: none;
 }
 
+
+/* ====== IFRAME ====== */
+
+
+iframe {
+    border: 0;
+    height: 100%;
+    margin: 0;
+    width: calc(100% + 15px);
+}
+
+.iframe-wrapper {
+    box-sizing: border-box;
+    height: 100vh;
+    margin: 0 auto;
+    max-width: 400px;
+    overflow: hidden;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+
+
+/* ====== TOPICS ====== */
+
 .wrapper {
     background-color: #fff;
     box-sizing: border-box;
-    margin: auto;
-    max-width: 400px;
-    min-height: 100%;
-    padding: 20px 20px 0;
+    height: 100%;
+    overflow: auto;
+    padding: 50px 20px 90px 20px;
     position: relative;
     width: 100%;
 }
@@ -64,7 +89,7 @@ a, a:hover, .pc-title:hover {
 }
 
 
-/* ====== ALTERNATE HEADER ====== */
+/* ====== HEADER ====== */
 
 
 .nav-header-buffer {
@@ -78,7 +103,7 @@ nav.nav-header {
     background-color: rgba(0,0,0,.7);
     display: flex;
     height: 50px;
-    margin: 0 -20px;
+    /*margin: 0 -20px;*/
     max-width: inherit;
     overflow: hidden;
     position: fixed;
@@ -99,13 +124,13 @@ nav.nav-header {
 }
 
 
-/* ====== ALTERNATE FOOTER NAV ======*/
+/* ====== FOOTER NAV ======*/
 
 footer {
     background-color: #333;
     bottom: 0;
     height: 90px;
-    margin: 0 -20px;
+    /*margin: 0 -20px;*/
     max-width: inherit;
     overflow: hidden;
     position: fixed;
@@ -166,7 +191,7 @@ nav.nav-footer {
     margin: 0;
     position: relative;
     vertical-align: middle;
-    width: 100%;
+    /*width: 100%;*/
 }
 
 .newest-button p {
@@ -212,11 +237,11 @@ a .newest-button, a .newest-button:hover  {
     border-radius: 10px;
     box-shadow: 0 6px 6px -6px #8282cc;
     float: left;
-    font-size: 1.5em;
-    margin: 7px 9px;
+    font-size: 1.3em;
+    margin: 7px 6px;
     padding: 10px;
     text-align: center;
-    width: calc(50% - 18px);
+    width: calc(50% - 40px);
 }
 
 a .topic, a .topic:hover  {
@@ -310,7 +335,7 @@ hidden/collapsed at start*/
 }
 
 
-/* ====== ALTERNATE PLAYER ====== */
+/* ====== PLAYER ====== */
 
 
 #play {
@@ -366,8 +391,7 @@ hidden/collapsed at start*/
 }
 
 
-/* ====== PLAYER ====== */
-
+/* ====== ORIGINAL PLAYER DESIGN ====== */
 
 .player-image {
     box-shadow: 0 5px 15px -5px #8282cc;
@@ -422,23 +446,3 @@ hidden/collapsed at start*/
     font-size: 1.8em;
     text-align: right;
 }
-
-/* ============Iframe styles================ */
-
-/*Id for iframe*/
-#iframe1{ 
-    outline: none;
-    width: 410px;
-    height:600px;
-    margin: -20px;
- 
-    border: none;
-   
-}
-
-/*Div containing iframe*/
-#iframeContainer
-{
-     overflow: hidden; /*hides scrollbar and outer padding*/  
-}
-

@@ -25,4 +25,12 @@
     </check>
 </head>
 <body>
-    <div class="wrapper">
+
+    <check if="{{ @iframe }}">
+        <true>
+            <div class="iframe-wrapper">
+        </true>
+        <false>
+            <div class="wrapper">
+        </false>
+    </check>

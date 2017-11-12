@@ -64,7 +64,8 @@ class Controller {
         // Set environment tokens
         $f3->mSet(array(
             'title' => 'BTK Surgery Podcast',
-            'description' => 'Behind The Knife:  The Surgery Podcast'
+            'description' => 'Behind The Knife:  The Surgery Podcast',
+            'iframe' => true
         ));
     }
     

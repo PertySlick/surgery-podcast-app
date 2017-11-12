@@ -43,7 +43,7 @@ class DbOperator {
         // Require Configuration File
         // IMPORTANT: For this assignment store credentials in the following path:
         //      home/username/secure/credentials_budgetapp.inc.php
-        require_once '../secure/credentials_surgerypodcast.inc.php';
+        require_once '../../secure/credentials_surgerypodcast.inc.php';
 
         // Establish Database Connection And Set Attributes
         try {
@@ -250,6 +250,7 @@ class DbOperator {
             WHERE tag_name <> \'\'
             GROUP BY tag_id 
             ORDER BY COUNT(tag_name) DESC
+            LIMIT 20
         ');
 
         try {

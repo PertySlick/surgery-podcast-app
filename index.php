@@ -34,7 +34,8 @@ $f3->set('INC', INCLUDES);                         // Set Includes File Path
 $f3->set('IMG', $f3->get('BASE') . IMAGE_PATH);    // Set Image File Path
 $f3->set('CSS', $f3->get('BASE') . CSS_PATH);      // Set CSS File Path
 $f3->set('JS', $f3->get('BASE') . JS_PATH);        // Set JavaScript File Path
-$f3->set('fontAwesome', true);                    // Initialize FontAwesome Toggle
+$f3->set('iframe', false);                         // Set Initial IFrame Toggle Value
+$f3->set('fontAwesome', true);                     // Initialize FontAwesome Toggle
 $controller = new Controller();                    // MVC Controller object
 
 //Instantiate the ? class
@@ -46,7 +47,8 @@ $controller = new Controller();                    // MVC Controller object
 
 //Default route
 // TODO: Route needs controller functionality
-$f3->route('GET /', function($f3) {
+$f3->route('GET /', function($f3) use ($controller) {
+    $controller->iframe($f3);
     echo Template::instance()->render('view/iframe.html');
 });
 
