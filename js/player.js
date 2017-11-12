@@ -7,7 +7,7 @@
 */
 
 var player = parent.document.getElementById('player');              // Audio Player
-var $player = $('#player', parent.document);
+var $player = $('#player', parent.document);                        // Audio Player jQuery
 var $playerContainer = $('.player-container', parent.document);     // Container For Entire Player
 var $playButton = $('#play-button');                                // Actual Play Button
 var $closeButton = $('#close');                                     // Actual Close Button
@@ -30,7 +30,7 @@ $('document').ready(function() {
     $playButton.on('click', togglePlay);                            // Play Button Functionality
     $closeButton.on('click', closePlayer);                          // Close PodCast Player
     $forwardButton.on('click', { time: t }, jumpProgress);           // Jump Ahead 10 Seconds
-    $backwardButton.on('click', { time: (t * -1) }, jumpProgress);  // Jump Back 10 Seconds
+    $backwardButton.on('click', { time: (t*-1) }, jumpProgress);    // Jump Back 10 Seconds
     $duration.on('click', seekFunction);                            // Seek Bar Functionality
     $player.on('timeupdate', updateProgress);                       // Progress Timer Functionality
     $player.on('play', { play: false }, togglePlayButton);          // Play/PAUSE Button Toggle
