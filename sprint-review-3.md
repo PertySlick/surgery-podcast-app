@@ -41,7 +41,7 @@
     - Brent Taylor (Brent253)
     - Tim Roush (PertySlick)
   - **Link To View Results**
-    - [The Surgery Podcast - Product Backlog](https://trello.com/b/6gTgrtVA/the-surgery-podcast-app)
+    - [The Surgery Podcast](http://surgerypodcast.greenrivertech.net)
   - **Progress and Notes**
     - Task was completed and is fully functional.
 
@@ -57,7 +57,7 @@
   - **Developer(s)**
     - Tim Roush (PertySlick)
   - **Link To View Results**
-    - [The Surgery Podcast - Product Backlog](https://trello.com/b/6gTgrtVA/the-surgery-podcast-app)
+    - [The Surgery Podcast](http://surgerypodcast.greenrivertech.net)
   - **Progress and Notes**
     - Podcast player is fully functional and cooperates with IFrame displayed Podcast search result rows. - PertySlick
 
@@ -85,7 +85,7 @@
     - [x] Each result row has a functioning accordion feature
     - [x] Each result row displays a full title, description, and duration
   - **Developer(s)**
-    - Marlene Leano (mleano)
+    - Marlene Leano (mleano), Tim Roush (PertySlick)
   - **Link To View Results**
     - [The Surgery Podcast](http://surgerypodcast.greenrivertech.net) - (Click a topic to see this result)
   - **Progress and Notes**
@@ -137,4 +137,4 @@
 
 Our focus this goal was to achieve a solid MVP.  An observation was made this sprint that our sprint plans were in effect segregating the developers and were not encompassing end-to-end functionality.  So this sprint we reorganized and restructured our user stories to adapt.
 
-Solid MVP was achieved with all primary functionality in combination with the alternate design ideas the product owner approved last sprint.  From this point forward every sprint and user story will be an improvement on the product as it is.
+Solid MVP was achieved with all primary functionality in combination with the alternate design ideas the product owner approved last sprint.  From this point forward every sprint and user story will be an improvement on the product as it is.  We also had a more structured and effective user testing procedure as well as documentation to record the results.
