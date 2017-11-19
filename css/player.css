@@ -1,5 +1,18 @@
 /* ====== VARIABLES ====== */
+/* Color Settings */
 /* ====== PLAYER ====== */
+.player-wrapper {
+  background-color: #333;
+  bottom: -100vh;
+  height: 100vh;
+  max-width: inherit;
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+  transition: bottom .5s;
+  -webkit-transition: bottom .5s;
+  display: block; }
+
 #play {
   color: #3aca2d; }
 

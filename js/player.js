@@ -8,7 +8,7 @@
 
 var player = parent.document.getElementById('player');              // Audio Player
 var $player = $('#player', parent.document);                        // Audio Player jQuery
-var $playerContainer = $('.player-container', parent.document);     // Container For Entire Player
+var $playerContainer = $('.player-wrapper', parent.document);       // Container For Entire Player
 var $playButton = $('#play-button');                                // Actual Play Button
 var $closeButton = $('#close');                                     // Actual Close Button
 var $downloadButton = $('#download', parent.document);              // Actual Download Button
@@ -25,6 +25,8 @@ var t = 30;                                                         // Time Inte
 
 
 $('document').ready(function() {
+
+    //setPlayerHeight();                                              // Store the height of the player
 
     $player.on('loadeddata', setDuration);                          // Set Initial Duration Value
     $playButton.on('click', togglePlay);                            // Play Button Functionality
@@ -106,7 +108,6 @@ function setDuration() {
 function loadPlayer(e) {
     var url = $(e.target).data('url');
 
-    $player.slideUp();
     player.src = url;                       // Set source of player
     $downloadButton.prop("href", url);
     player.load();
@@ -115,7 +116,7 @@ function loadPlayer(e) {
 
 // Lift player into the screen
 function openPlayer() {
-    if ($playerContainer.css('bottom') === '-90px') {
+    if ($playerContainer.css('bottom') === '-' + $(document).height() + 'px') {
         $playerContainer.css('bottom', 0);
     }
 }
@@ -123,7 +124,7 @@ function openPlayer() {
 // Remove the player from the screen
 function closePlayer() {
     player.pause();
-    $playerContainer.css('bottom', '-90px');
+    $playerContainer.css('bottom', '-' + $(document).height() + 'px');
 }
 
 // Provide skip forward/backward functionality

@@ -1,12 +1,27 @@
 /* ====== VARIABLES ====== */
 
 
+/* Color Settings */
 $play-button-color: #3aca2d;
 $stop-button-color: #ff856f;
+$seek-progress-color: #ff0000;
+$seek-total-color: #ffffff;
 
 
 /* ====== PLAYER ====== */
 
+.player-wrapper {
+  background-color: #333;
+  bottom: -100vh;
+  height: 100vh;
+  max-width: inherit;
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+  transition: bottom .5s;
+  -webkit-transition: bottom .5s;
+  display: block;
+}
 
 #play {
   color: $play-button-color;
