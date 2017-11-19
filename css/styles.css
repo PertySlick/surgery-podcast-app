@@ -44,18 +44,18 @@ iframe {
     border: 0;
     height: 100%;
     margin: 0;
-    width: calc(100% + 15px);
+    width: calc(100% + 20px);
 }
 
 .iframe-wrapper {
     box-sizing: border-box;
     height: 100vh;
     margin: 0 auto;
-    max-width: 400px;
+    max-width: 768px;
     overflow: hidden;
     padding: 0;
     position: relative;
-    width: 100%;
+    width: 100vw;
 }
 
 
@@ -66,9 +66,8 @@ iframe {
     box-sizing: border-box;
     height: 100%;
     overflow: auto;
-    padding: 50px 20px 90px 20px;
+    padding: 50px 40px 90px 20px;
     position: relative;
-    width: 100%;
 }
 
 .title {
@@ -183,7 +182,6 @@ nav.nav-footer {
     margin: 0;
     position: relative;
     vertical-align: middle;
-    /*width: 100%;*/
 }
 
 .newest-button p {
@@ -220,7 +218,8 @@ a .newest-button, a .newest-button:hover  {
 }
 
 .topic-wrapper {
-    margin: 0 -13px;
+    margin: 0;
+    overflow: auto;
     position: relative;
 }
 
@@ -228,12 +227,13 @@ a .newest-button, a .newest-button:hover  {
     border: 1px solid #8282a1;
     border-radius: 10px;
     box-shadow: 0 6px 6px -6px #8282cc;
+    box-sizing: border-box;
     float: left;
     font-size: 1.3em;
     margin: 7px 6px;
     padding: 10px;
     text-align: center;
-    width: calc(50% - 40px);
+    width: calc(50% - 12px);        /* Half minus margins */
 }
 
 a .topic, a .topic:hover  {
@@ -298,7 +298,6 @@ a .pc-row:hover {
     box-shadow: 0 3px 3px -3px #444;
     font-size: 1em;
     padding: 15px 10px;
-    /*width: 100%;*/  /*removing this centered div*/
 }
 
 .pc-desc {
@@ -324,117 +323,4 @@ hidden/collapsed at start*/
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap; 
-}
-
-
-/* ====== PLAYER ====== */
-
-
-#play {
-    color: green;
-}
-
-#close, #download {
-    color: red;
-}
-
-#forward, #backward {
-    color: #4682b4;
-}
-
-#progress-total {
-    background-color: #ddd;
-    border-radius: 15px;
-    height: 10px;
-    overflow: hidden;
-    width: 100%;
-}
-
-#progress-actual {
-    background-color: red;
-    height: 100%;
-    width: 0;
-}
-
-.player {
-    align-items: center;
-    display: flex;
-    font-size: 2em;
-    height: 45px;
-    position: relative;
-    width: 100%;
-}
-
-.player-controls {
-    align-items: center;
-    display: flex;
-    width: 100%;
-}
-
-.timing {
-    color: #ddd;
-    font-size: .5em;
-    text-align: center;
-    width: 25%;
-}
-
-.progress-bar {
-    width: 50%;
-}
-
-
-/* ====== ORIGINAL PLAYER DESIGN ====== */
-
-.player-image {
-    box-shadow: 0 5px 15px -5px #8282cc;
-    width: 100%;
-}
-
-.player-description {
-    color: #8282a1;
-    font-size: 1.8em;
-    margin-top: 25px;
-    text-align: center;
-}
-
-.player-author {
-    color: #8282a1;
-    font-size: 1.8em;
-}
-
-.player-title {
-    color: #f00;
-    font-size: 1.8em;
-}
-
-.player-progress-full {
-    border: 1px solid #000;
-    height: 20px;
-    position: relative;
-    width: 100%;
-}
-
-.player-progress {
-    background-color: #f00;
-    height: 100%;
-    right: 0;
-    position: relative;
-    width: 35%;
-}
-
-.player-time {
-    display: flex;
-    justify-content: space-between;
-}
-
-.time-remaining {
-    color: #8282a1;
-    font-size: 1.8em;
-    text-align: left;
-}
-
-.time-total {
-    color: #8282a1;
-    font-size: 1.8em;
-    text-align: right;
 }

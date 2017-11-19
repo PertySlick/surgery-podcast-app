@@ -1,0 +1,90 @@
+/* ====== VARIABLES ====== */
+/* ====== PLAYER ====== */
+#play {
+  color: #3aca2d; }
+
+#close, #download {
+  color: #ff856f; }
+
+#forward, #backward {
+  color: #4682b4; }
+
+#progress-total {
+  background-color: #ddd;
+  border-radius: 15px;
+  height: 10px;
+  overflow: hidden;
+  width: 100%; }
+
+#progress-actual {
+  background-color: red;
+  height: 100%;
+  width: 0; }
+
+.player {
+  align-items: center;
+  display: flex;
+  font-size: 2em;
+  height: 45px;
+  position: relative;
+  width: 100%; }
+
+.player-controls {
+  align-items: center;
+  display: flex;
+  width: 100%; }
+
+.timing {
+  color: #ddd;
+  font-size: .5em;
+  text-align: center;
+  width: 25%; }
+
+.progress-bar {
+  width: 50%; }
+
+/* ====== ORIGINAL PLAYER DESIGN ====== */
+.player-image {
+  box-shadow: 0 5px 15px -5px #8282cc;
+  width: 100%; }
+
+.player-description {
+  color: #8282a1;
+  font-size: 1.8em;
+  margin-top: 25px;
+  text-align: center; }
+
+.player-author {
+  color: #8282a1;
+  font-size: 1.8em; }
+
+.player-title {
+  color: #f00;
+  font-size: 1.8em; }
+
+.player-progress-full {
+  border: 1px solid #000;
+  height: 20px;
+  position: relative;
+  width: 100%; }
+
+.player-progress {
+  background-color: #f00;
+  height: 100%;
+  right: 0;
+  position: relative;
+  width: 35%; }
+
+.player-time {
+  display: flex;
+  justify-content: space-between; }
+
+.time-remaining {
+  color: #8282a1;
+  font-size: 1.8em;
+  text-align: left; }
+
+.time-total {
+  color: #8282a1;
+  font-size: 1.8em;
+  text-align: right; }
