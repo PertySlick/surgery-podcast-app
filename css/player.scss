@@ -55,22 +55,15 @@ $player-toggle-speed: .5s;
     }
 
     .skip-button {
+      min-width: 50px;
+      width: 12%;
+
       .skip-image {
-        color: #fff !important;
-        fill: #fff !important;
+        width: 100%;
       }
     }
-  }
-
-  #Layer_1 {
-    fill: #fff !important;
-  }
-
-
-  .skip-button {
-    width: 60px;
-  }
-}
+  } //.viewer-wrapper
+} //.player-wrapper
 
 
 
