@@ -43,8 +43,8 @@ a, a:hover, .pc-title:hover {
 iframe {
     border: 0;
     height: 100%;
-    margin: 0;
-    width: calc(100% + 20px);
+    overflow: hidden;
+    width: 100%;
 }
 
 .iframe-wrapper {
@@ -64,8 +64,9 @@ iframe {
 .wrapper {
     background-color: #fff;
     box-sizing: border-box;
+    height: 100%;
     overflow: auto;
-    padding: 50px 40px 90px 20px;
+    padding: 50px 20px 90px 20px;
     position: relative;
 }
 
@@ -322,4 +323,13 @@ hidden/collapsed at start*/
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap; 
+}
+
+
+/* ====== RESPONSIVENESS ====== */
+
+@media screen and (min-width: 768px) {
+    .wrapper {
+        width: calc(100% + 20px);
+    }
 }
