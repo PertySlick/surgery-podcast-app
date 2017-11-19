@@ -1,9 +1,10 @@
 /* ====== VARIABLES ====== */
 /* Color Settings */
 /* Player Settings */
+/* ====== MIXINS ====== */
 /* ====== PLAYER ====== */
 .player-wrapper {
-  background-color: #333;
+  background-color: #333333;
   bottom: -100vh;
   height: 100vh;
   max-width: inherit;
@@ -14,6 +15,7 @@
   -webkit-transition: bottom 0.5s;
   display: block; }
 
+/* ====== ORIGINAL PLAYER CODE ====== */
 #play {
   color: #3aca2d; }
 

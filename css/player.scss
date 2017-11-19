@@ -2,29 +2,47 @@
 
 
 /* Color Settings */
+$player-background: #333;
 $play-button-color: #3aca2d;
 $stop-button-color: #ff856f;
-$seek-progress-color: #ff0000;
-$seek-total-color: #ffffff;
+$seek-progress-color: #f00;
+$seek-total-color: #fff;
 
 /* Player Settings */
 $player-toggle-speed: .5s;
 
 
+/* ====== MIXINS ====== */
+
+
+
+// Player open and close operation
+@mixin player-transition($properties) {
+  transition: $properties;
+  -webkit-transition: $properties;
+}
+
+
 /* ====== PLAYER ====== */
 
+
 .player-wrapper {
-  background-color: #333;
+  background-color: $player-background;
   bottom: -100vh;
   height: 100vh;
   max-width: inherit;
   overflow: hidden;
   position: fixed;
   width: 100%;
-  transition: bottom $player-toggle-speed;
-  -webkit-transition: bottom $player-toggle-speed;
+  @include player-transition(bottom $player-toggle-speed);
   display: block;
 }
+
+
+
+
+
+/* ====== ORIGINAL PLAYER CODE ====== */
 
 #play {
   color: $play-button-color;
