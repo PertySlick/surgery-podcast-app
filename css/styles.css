@@ -64,7 +64,6 @@ iframe {
 .wrapper {
     background-color: #fff;
     box-sizing: border-box;
-    height: 100%;
     overflow: auto;
     padding: 50px 40px 90px 20px;
     position: relative;
