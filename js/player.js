@@ -26,8 +26,6 @@ var t = 30;                                                         // Time Inte
 
 $('document').ready(function() {
 
-    //setPlayerHeight();                                              // Store the height of the player
-
     $player.on('loadeddata', setDuration);                          // Set Initial Duration Value
     $playButton.on('click', togglePlay);                            // Play Button Functionality
     $closeButton.on('click', closePlayer);                          // Close PodCast Player

@@ -7,6 +7,9 @@ $stop-button-color: #ff856f;
 $seek-progress-color: #ff0000;
 $seek-total-color: #ffffff;
 
+/* Player Settings */
+$player-toggle-speed: .5s;
+
 
 /* ====== PLAYER ====== */
 
@@ -18,8 +21,8 @@ $seek-total-color: #ffffff;
   overflow: hidden;
   position: fixed;
   width: 100%;
-  transition: bottom .5s;
-  -webkit-transition: bottom .5s;
+  transition: bottom $player-toggle-speed;
+  -webkit-transition: bottom $player-toggle-speed;
   display: block;
 }
 
