@@ -6,14 +6,33 @@
 .player-wrapper {
   background-color: #333333;
   bottom: -100vh;
+  display: block;
   height: 100vh;
   max-width: inherit;
   overflow: hidden;
   position: fixed;
   width: 100%;
   transition: bottom 0.5s;
-  -webkit-transition: bottom 0.5s;
-  display: block; }
+  -webkit-transition: bottom 0.5s; }
+  .player-wrapper .viewer-wrapper {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center; }
+    .player-wrapper .viewer-wrapper .content {
+      margin: 0 5%;
+      width: 50%; }
+      .player-wrapper .viewer-wrapper .content .image {
+        margin: auto;
+        width: 100%; }
+    .player-wrapper .viewer-wrapper .skip-button .skip-image {
+      color: #fff !important;
+      fill: #fff !important; }
+  .player-wrapper #Layer_1 {
+    fill: #fff !important; }
+  .player-wrapper .skip-button {
+    width: 60px; }
 
 /* ====== ORIGINAL PLAYER CODE ====== */
 #play {

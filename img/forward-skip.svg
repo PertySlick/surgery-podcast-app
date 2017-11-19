@@ -1,0 +1,13 @@
+<svg width="63.9999918847832" height="63.9999918847832" xmlns="http://www.w3.org/2000/svg">
+
+ <g>
+  <title>background</title>
+  <rect height="66" width="66" y="-1" x="-1" fill="none" id="canvas_background"/>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <path d="m32.800003,51.900002c-10.900003,0 -19.900003,-8.900002 -19.900003,-19.900003c0,-11 8.9,-19.9 19.900003,-19.9c8.299995,0 15.399994,5.199999 18.299995,13.299999l-2.699997,1c-2.5,-7 -8.5,-11.4 -15.599998,-11.4c-9.400003,0 -17.000004,7.6 -17.000004,17s7.6,17.000002 17.000004,17.000002c6.599998,0 12.699997,-3.900002 15.5,-9.900002l2.599998,1.200001c-3.200005,7.100002 -10.300003,11.600002 -18.099998,11.600002" fill="#bf0000" id="Fill-83" class="st0"/>
+  <path d="m44.752201,26.87005l0,-1.9004l5.701401,0l0,-5.6401l1.900497,0l0,7.540501l-7.601898,0" transform="rotate(18 48.5531 23.0998)" stroke-width="null" stroke-linejoin="null" stroke-linecap="null" stroke="null" fill="#bf0000" id="Fill-84"/>
+  <text xml:space="preserve" y="49.332" x="21.6831" transform="matrix(0.678602 0 0 0.678602 5.96835 5.5891)" text-anchor="start" stroke-width="0" stroke-opacity="null" stroke="null" fill="#bf0000" style="cursor: move; pointer-events: inherit;" font-weight="bold" font-size="30px" font-family="Helvetica,Arial,sans-serif" id="svg_8">30</text>
+ </g>
+</svg>

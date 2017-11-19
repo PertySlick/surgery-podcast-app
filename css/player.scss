@@ -29,15 +29,48 @@ $player-toggle-speed: .5s;
 .player-wrapper {
   background-color: $player-background;
   bottom: -100vh;
+  display: block;
   height: 100vh;
   max-width: inherit;
   overflow: hidden;
   position: fixed;
   width: 100%;
   @include player-transition(bottom $player-toggle-speed);
-  display: block;
-}
 
+  .viewer-wrapper {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+
+    .content {
+      margin: 0 5%;
+      width: 50%;
+
+      .image {
+        margin: auto;
+        width: 100%;
+      }
+    }
+
+    .skip-button {
+      .skip-image {
+        color: #fff !important;
+        fill: #fff !important;
+      }
+    }
+  }
+
+  #Layer_1 {
+    fill: #fff !important;
+  }
+
+
+  .skip-button {
+    width: 60px;
+  }
+}
 
 
 
