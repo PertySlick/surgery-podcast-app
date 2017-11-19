@@ -27,6 +27,7 @@ class Podcast
     private $title;
     private $publishDate;
     private $url;
+    private $image;
     private $description;
     private $duration;
     private $keywords;
@@ -42,16 +43,18 @@ class Podcast
      * @param String title Podcast title
      * @param String publishDate Date podcast was published
      * @param String url URL to access podcast
+     * @param String image URL to the image for this podcast
      * @param String description Podcast description
      * @param String duration Length of podcast
      */
-    public function __construct($title, $publishDate, $url,
+    public function __construct($title, $publishDate, $url, $image,
                                 $description, $duration)
     {
         // Set fields values
         $this->setTitle($title);
         $this->setPublishDate($publishDate);
         $this->setUrl($url);
+        $this->setImage($image);
         $this->setDescription($description);
         $this->setDuration($duration);
 
@@ -88,6 +91,15 @@ class Podcast
     public function getUrl()
     {
         return $this->url;
+    }
+
+    /**
+     * Returns the image url for this podcast
+     * @return String image
+     */
+    public function getImage()
+    {
+        return $this->image;
     }
 
     /**
@@ -147,6 +159,15 @@ class Podcast
     private function setUrl($url)
     {
         $this->url = $url;
+    }
+
+    /**
+     * Sets the image url for this podcast
+     * @param String image URL to access podcast image
+     */
+    private function setImage($image)
+    {
+        $this->image = $image;
     }
 
     /**

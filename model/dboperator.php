@@ -98,7 +98,7 @@ class DbOperator {
      */
     public function getPodcastByTag($tag) {
         $stmt = $this->_conn->prepare("
-            SELECT podcast_id, title, description, url, duration, publish_date 
+            SELECT podcast_id, title, description, url, image, duration, publish_date 
             FROM podcasts
             NATURAL JOIN podcast_tags
             NATURAL JOIN podcast_tag_join
@@ -113,9 +113,10 @@ class DbOperator {
                 $title = $record['title'];
                 $publishDate = $record['publishDate'];
                 $url = $record['url'];
+                $image = $record['image'];
                 $description = $record['description'];
                 $duration = $record['duration'];
-                $newPodcast = new Podcast($title, $publishDate, $url, $description, $duration);
+                $newPodcast = new Podcast($title, $publishDate, $url, $image, $description, $duration);
                 $podcasts[] = $newPodcast;
             }
 
