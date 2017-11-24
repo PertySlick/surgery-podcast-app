@@ -29,10 +29,10 @@
 </p>
 
 <!--Most Recent Episodes-->
-<h3 class="other-titles">Most Recent Episodes</h3>
+<h3 class="other-headings">Most Recent Episodes</h3>
 
 <repeat group="{{ @podcasts }}" value="{{ @podcast }}">
-    <div class="pc-row">
+    <div class="recent-pc-row">
         <div class="pc-title hide-title" data-url="{{ @podcast->getUrl() }}">
             {{ @podcast->getTitle() }}
         </div>
@@ -61,3 +61,5 @@
 
 <!--Search bar-->
 <!--Topic Buttons-->
+
+<include href="{{ @INC . 'footer.inc.html' }}">

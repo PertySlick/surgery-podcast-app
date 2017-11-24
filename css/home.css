@@ -238,12 +238,20 @@ p#welcome-message {
     font-size: 0.8em;
 }
 
-h3.other-titles {
+h3.other-headings {
     color: #8282a1;
     text-align: center;
-    font-size: 1.7em;
+    font-size: 1.6em;
     font-weight: 100;
-    margin-bottom: 0;
+    margin-bottom: 10px;
+}
+
+div.recent-pc-row {
+    padding: 18px 5px;
+    
+   -webkit-box-shadow: 0 0 3px #8282a1;
+    -moz-box-shadow: 0 0 3px #8282a1;
+    box-shadow: 0 0 3px #8282a1;   
 }
 
 .headline {
