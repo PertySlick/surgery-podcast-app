@@ -225,6 +225,16 @@ h2#welcome_title {
     color: #8282a1;
     text-align: center;
     font-size: 2em;
+    margin-bottom: 0;
+    
+    -webkit-box-shadow: 0 3px 3px -3px #444;
+    -moz-box-shadow: 0 3px 3px -3px #444;
+    box-shadow: 0 3px 3px -3px #444;
+}
+
+p#welcome_message {
+    margin-top: 15px;
+    font-size: 0.8em;
 }
 
 .headline {
