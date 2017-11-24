@@ -211,9 +211,27 @@ a .newest-button, a .newest-button:hover  {
 
 img {
     width: 85%;
-    padding-top: 20px;
     display: block;
     margin: auto;
+    margin-top: 20px;
+    
+    -webkit-box-shadow: 0 0 3px #444;
+    -moz-box-shadow: 0 0 3px #444;
+    box-shadow: 0 0 3px #444;
+}
+
+h2#welcome_title {
+    color: #8282a1;
+    text-align: center;
+    font-size: 2em;
+}
+
+span.black {
+    color: black;
+}
+
+span.red {
+    color: #8B0000;
 }
 
 .headline {
