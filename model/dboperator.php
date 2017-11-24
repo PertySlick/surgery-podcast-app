@@ -136,11 +136,12 @@ class DbOperator {
  * Returns results in an array of Podcast objects.
  * @return array Array of Podcast object results
  */
-    public function checkTopThreePodcasts()
+    public function retrieveRecentPodcasts()
     {
-        $stmt = $this->_conn->prepare("SELECT * FROM podcasts GROUP BY podcast_id ORDER BY podcast_id DESC LIMIT 3");
-        //$stmt->bindParam(":pod_castid", $id);
-        //$stmt-execute();
+        $stmt = $this->_conn->prepare("
+                    SELECT podcast_id, title, description, url, image, duration, publish_date 
+                    FROM podcasts
+                    ORDER BY podcast_id LIMIT 3");
         
         if($stmt->execute()) {
             $podcasts = array();
@@ -159,6 +160,7 @@ class DbOperator {
             return  $podcasts;
         }
     }
+    
     
     public function addPodcastTag($tag_name)
     {

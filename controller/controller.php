@@ -54,8 +54,13 @@ class Controller {
             'description' => 'Behind The Knife:  The Surgery Podcast'
         ));
 
-        // Store topics for building links
+        // Connect to database
         $db = new DbOperator();
+        
+        // Store the 3 most recent podcasts
+        $f3->set('podcasts', $db->retrieveRecentPodcasts());
+        
+        // Store topics for building links
         $f3->set('topics', $db->getTopics());
     }
     
