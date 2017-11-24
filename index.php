@@ -54,6 +54,7 @@ $f3->route('GET /', function($f3) use ($controller) {
 
 // Home page route
 $f3->route('GET /home', function($f3) use ($controller) {
+    $f3->set('fontAwesome', true);
     $controller->home($f3);
     echo Template::instance()->render('view/home.html');
 });
