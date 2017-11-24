@@ -165,9 +165,9 @@ class DbOperator {
                 //If the podcast was publish this current year, only show month and day.
                 //Otherwise, also show year of publication.
                 if (date_format($publishDateAsDateTimeInterface, "Y") == $currentYear) {
-                    $publishDate = date_format($publishDateAsDateTimeInterface, "M j");
+                    $publishDate = date_format($publishDateAsDateTimeInterface, "M <\b\\r> j");
                 } else {
-                    $publishDate = date_format($publishDateAsDateTimeInterface, "M j Y");
+                    $publishDate = date_format($publishDateAsDateTimeInterface, "M j <\b\\r> Y");
                 }
                 
                 //Create new Podcast object and add to array
