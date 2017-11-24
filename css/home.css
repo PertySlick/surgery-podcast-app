@@ -242,88 +242,8 @@ a .topic, a .topic:hover  {
 }
 
 
-/* ====== TOPIC PODCASTS ====== */
 
 
-/*.pc-row {  
-    display: flex;
-    padding: 5px;
-    width: 100%;
-}*/ /*caused conflict with results page*/
-
-a .pc-row, a .pc-row:hover  {
-    color: #8282a1;
-    text-decoration: none;
-}
-
-a .pc-row:hover {
-    background-color: #eee;
-}
-
-/*.pc-title {
-    color: #8282a1;
-    font-size: 1.5em;
-    text-align: center;
-    width: 50%;
-}*/ /*caused conflict with results page*/
-
-.pc-content {
-    border: 1px solid #000;
-    width: 50%;
-}
-
-.pc-progress-bar {
-    background-color: #ff0000;
-    height: 100%;
-    left: 0;
-    position: relative;
-    width: 35%;
-}
-
-
-/* ====== PODCASTS RESULTS ====== */
-
-
-.pc-title {
-    color: #8282a1;
-    text-align: center;
-    /*overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;*/
-}
-
-.pc-row {
-    -webkit-box-shadow: 0 3px 3px -3px #444;
-    -moz-box-shadow: 0 3px 3px -3px #444;
-    box-shadow: 0 3px 3px -3px #444;
-    font-size: 1em;
-    padding: 15px 10px;
-}
-
-.pc-desc {
-    font-size: .7em;
-    word-wrap: break-word;
-}
-
-/*podcast desc in results are
-hidden/collapsed at start*/
-.pc-description {   
-    display: none;
-    padding-top: 15px;
-}
-
-.pc-duration {
-    font-size: .7em;
-    margin: auto;
-    text-align: center;
-    padding-top: 10px;
-}
-
-.hide-title {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap; 
-}
 
 
 /* ====== RESPONSIVENESS ====== */
