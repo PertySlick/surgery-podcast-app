@@ -120,4 +120,9 @@ a .topic, a .topic:hover  {
     text-decoration: none;
 }
 
+.topic:active {
+    background-color: #5c5c7a;
+    color: #eee;
+}
+
 
