@@ -8,14 +8,20 @@
 
 <include href="includes/header.inc.html">
 
-<h1 class="title">BTK Podcast App</h1>
+<!--<h1 class="title">BTK Podcast App</h1>
 
 <a href="play">
     <div class="newest-button">
         <p>Listen to Newest Episode Here</p>
         <div class="play"></div>
     </div>
-</a>
+</a>-->
+
+<!--Image of the logo-->
+<img src="{{ @IMG . 'BTK_logo_large.jpg' }}" alt="Behind the Knife Logo" />
+
+<!--Welcome Message-->
+
 <p class="headline">Episodes by Topic:</p>
 <div class="topic-wrapper">
     <repeat group="{{ @topics }}" value="{{ @topic }}">
