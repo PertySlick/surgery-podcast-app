@@ -131,18 +131,33 @@ class DbOperator {
         
     }
     
-    /**
- * Checks the top 3 recent podcasts and displays them in descending order
- * LIMIT 3 - The top 3 recent podcast rows
- * GROUP BY podcast_id - the auto incremented number each time a podcast is added
+/**
+ * Retrieves the 3 most recent podcasts.
+ * Returns results in an array of Podcast objects.
+ * @return array Array of Podcast object results
  */
-    public function checkTopThreePodcasts($id)
+    public function checkTopThreePodcasts()
     {
         $stmt = $this->_conn->prepare("SELECT * FROM podcasts GROUP BY podcast_id ORDER BY podcast_id DESC LIMIT 3");
-        $stmt->bindParam(":pod_castid", $id);
-        $stmt-execute();
-    
-    
+        //$stmt->bindParam(":pod_castid", $id);
+        //$stmt-execute();
+        
+        if($stmt->execute()) {
+            $podcasts = array();
+
+            while ($record = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                $title = $record['title'];
+                $publishDate = $record['publishDate'];
+                $url = $record['url'];
+                $image = $record['image'];
+                $description = $record['description'];
+                $duration = $record['duration'];
+                $newPodcast = new Podcast($title, $publishDate, $url, $image, $description, $duration);
+                $podcasts[] = $newPodcast;
+            }
+
+            return  $podcasts;
+        }
     }
     
     public function addPodcastTag($tag_name)

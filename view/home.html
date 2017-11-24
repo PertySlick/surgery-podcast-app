@@ -18,17 +18,36 @@
 </a>-->
 
 <!--Image of the logo-->
-<img src="{{ @IMG . 'BTK_logo_large.jpg' }}" alt="Behind the Knife Logo" />
+<img id="btk-logo" src="{{ @IMG . 'BTK_logo_large.jpg' }}" alt="Behind the Knife Logo" />
 
 <!--Welcome Message-->
-<h2 id="welcome_title">Welcome to Behind the Knife</h2>
+<h2 id="welcome-title">Welcome to Behind the Knife</h2>
 
-<p id="welcome_message">These surgery podcasts are aimed for everyone interested in an in-depth look at the broad range of
+<p id="welcome-message">These surgery podcasts are aimed for everyone interested in an in-depth look at the broad range of
     surgical topics. Come take a "behind the scenes" look at the interesting, controversial, and humanistic side of surgery
     from some of the giants in the field.
 </p>
 
 <!--Most Recent Episodes-->
+<h3 class="other-titles">Most Recent Episodes</h3>
+
+<repeat group="{{ @podcasts }}" value="{{ @podcast }}">
+    <div class="pc-row">
+        <div class="pc-title hide-title" data-url="{{ @podcast->getUrl() }}">
+            {{ @podcast->getTitle() }}
+        </div>
+        <div class="pc-description">
+            <div class="pc-desc">
+                {{ @podcast->getDescription() }}
+            </div>
+            <div class="pc-duration">
+                {{ @podcast->getDuration() }}
+            </div>
+        </div>
+    </div>        
+</repeat>
+
+<!--Episodes by Topic-->
 <p class="headline">Episodes by Topic:</p>
 <div class="topic-wrapper">
     <repeat group="{{ @topics }}" value="{{ @topic }}">
@@ -40,6 +59,5 @@
     </repeat>
 </div>
 
-<!--Episodes by Topic-->
 <!--Search bar-->
 <!--Topic Buttons-->

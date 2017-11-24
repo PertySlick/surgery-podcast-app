@@ -209,7 +209,7 @@ a .newest-button, a .newest-button:hover  {
     text-decoration: none;
 }*/
 
-img {
+img#btk-logo {
     width: 85%;
     display: block;
     padding-top: 8px;
@@ -221,20 +221,29 @@ img {
     box-shadow: 0 0 3px #444;
 }
 
-h2#welcome_title {
+h2#welcome-title {
     color: #8282a1;
     text-align: center;
     font-size: 2em;
+    font-weight: 100;
     margin-bottom: 0;
     
-    -webkit-box-shadow: 0 3px 3px -3px #444;
-    -moz-box-shadow: 0 3px 3px -3px #444;
-    box-shadow: 0 3px 3px -3px #444;
+    /*-webkit-box-shadow: 0 3px 3px -3px #444;*/
+    /*-moz-box-shadow: 0 3px 3px -3px #444;*/
+    /*box-shadow: 0 3px 3px -3px #444;*/
 }
 
-p#welcome_message {
-    margin-top: 15px;
+p#welcome-message {
+    margin-top: 5px;
     font-size: 0.8em;
+}
+
+h3.other-titles {
+    color: #8282a1;
+    text-align: center;
+    font-size: 1.7em;
+    font-weight: 100;
+    margin-bottom: 0;
 }
 
 .headline {
