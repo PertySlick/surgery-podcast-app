@@ -141,7 +141,7 @@ class DbOperator {
         $stmt = $this->_conn->prepare("
                     SELECT podcast_id, title, description, url, image, duration, publish_date 
                     FROM podcasts
-                    ORDER BY podcast_id LIMIT 3");
+                    ORDER BY publish_date DESC LIMIT 3");
         
         if($stmt->execute()) {
             $podcasts = array();
