@@ -62,13 +62,39 @@ div.recent-pc-row {
     vertical-align: super;
 }
 
-input[name="search-term"] {
+div.search-bar {
     display: block;
     margin: auto;
-    width: 80%;
+    width: 100%;
     text-align: center;
+    padding-bottom: 15px;
 }
 
+input[name="search-term"] {
+    width: 60%;
+    border: 1px solid #444;
+    border-radius: 5px 0 0 5px;
+    padding: 15px 10px;
+    vertical-align: middle;
+}
+
+button[type="submit"] {
+    padding: 10px 5px 9px 5px;
+    position: relative;
+    left: -5px;
+    vertical-align: middle;
+    border: 1px solid #444;
+    border-radius: 0 5px 5px 0;
+    background-color: #8282a1;
+}
+
+button[type="submit"]:active {
+    background-color: #5c5c7a;
+}
+
+.fa-search {
+    color: #ddd;
+}
 
 .topic-wrapper {
     margin: 0;
