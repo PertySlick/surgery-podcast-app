@@ -34,8 +34,8 @@
 <repeat group="{{ @podcasts }}" value="{{ @podcast }}">
     <div class="recent-pc-row">
         <div class="pc-title hide-title" data-url="{{ @podcast->getUrl() }}">
-            <div class="pc-publish-date">{{ @podcast->getPublishDate() }}</div>
-            <div class="pc-title-itself">{{ @podcast->getTitle() }}</div>
+            <span class="publish-date">{{ @podcast->getPublishDate() }}</span>
+            {{ @podcast->getTitle() }}
         </div>
         <div class="pc-description">
             <div class="pc-desc">

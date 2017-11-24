@@ -255,6 +255,14 @@ div.recent-pc-row {
     box-shadow: 0 0 3px #8282a1;   
 }
 
+.pc-publish-date {
+    width: 10%;
+}
+
+.pc-title-itself {
+    width: 90%;
+}
+
 .topic-wrapper {
     margin: 0;
     overflow: auto;
