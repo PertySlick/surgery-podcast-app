@@ -62,6 +62,13 @@ div.recent-pc-row {
     vertical-align: super;
 }
 
+input[name="search-term"] {
+    display: block;
+    margin: auto;
+    width: 80%;
+    text-align: center;
+}
+
 
 .topic-wrapper {
     margin: 0;
