@@ -34,7 +34,8 @@
 <repeat group="{{ @podcasts }}" value="{{ @podcast }}">
     <div class="recent-pc-row">
         <div class="pc-title hide-title" data-url="{{ @podcast->getUrl() }}">
-            {{ @podcast->getTitle() }}
+            <div class="pc-publish-date">{{ @podcast->getPublishDate() }}</div>
+            <div class="pc-title-itself">{{ @podcast->getTitle() }}</div>
         </div>
         <div class="pc-description">
             <div class="pc-desc">
@@ -48,7 +49,12 @@
 </repeat>
 
 <!--Episodes by Topic-->
-<p class="headline">Episodes by Topic:</p>
+<h3 class="other-headings">Episodes by Topic</h3>
+
+<!--Search bar-->
+
+
+<!--Topic Buttons-->
 <div class="topic-wrapper">
     <repeat group="{{ @topics }}" value="{{ @topic }}">
         <a href="{{ @BASE . '/topic/' . @topic }}">
@@ -59,7 +65,5 @@
     </repeat>
 </div>
 
-<!--Search bar-->
-<!--Topic Buttons-->
 
 <include href="{{ @INC . 'footer.inc.html' }}">

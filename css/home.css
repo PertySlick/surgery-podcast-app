@@ -241,9 +241,10 @@ p#welcome-message {
 h3.other-headings {
     color: #8282a1;
     text-align: center;
-    font-size: 1.6em;
+    font-size: 1.7em;
     font-weight: 100;
     margin-bottom: 10px;
+    margin-top: 40px;
 }
 
 div.recent-pc-row {
@@ -252,14 +253,6 @@ div.recent-pc-row {
    -webkit-box-shadow: 0 0 3px #8282a1;
     -moz-box-shadow: 0 0 3px #8282a1;
     box-shadow: 0 0 3px #8282a1;   
-}
-
-.headline {
-    color: #8282a1;
-    font-size: 2.5em;
-    font-weight: normal;
-    margin: 40px 2px 15px 2px;
-    text-transform: capitalize;
 }
 
 .topic-wrapper {

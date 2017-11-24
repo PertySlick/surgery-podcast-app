@@ -111,7 +111,7 @@ class DbOperator {
 
             while ($record = $stmt->fetch(PDO::FETCH_ASSOC)) {
                 $title = $record['title'];
-                $publishDate = $record['publishDate'];
+                $publishDate = $record['publish_date'];
                 $url = $record['url'];
                 $image = $record['image'];
                 $description = $record['description'];
@@ -148,7 +148,7 @@ class DbOperator {
 
             while ($record = $stmt->fetch(PDO::FETCH_ASSOC)) {
                 $title = $record['title'];
-                $publishDate = $record['publishDate'];
+                $publishDate = $record['publish_date'];
                 $url = $record['url'];
                 $image = $record['image'];
                 $description = $record['description'];
