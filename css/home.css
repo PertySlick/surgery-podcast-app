@@ -212,6 +212,7 @@ a .newest-button, a .newest-button:hover  {
 img {
     width: 85%;
     display: block;
+    padding-top: 8px;
     margin: auto;
     margin-top: 20px;
     
@@ -224,14 +225,6 @@ h2#welcome_title {
     color: #8282a1;
     text-align: center;
     font-size: 2em;
-}
-
-span.black {
-    color: black;
-}
-
-span.red {
-    color: #8B0000;
 }
 
 .headline {
