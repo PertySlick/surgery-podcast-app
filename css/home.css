@@ -1,0 +1,335 @@
+/*
+ * File Name: styles.css
+ * Author: Timothy Roush
+ * Date Created: 10/07/17
+ * Assignment: Behind The Knife: The Surgery Podcast
+ * Description:  Styles for use in the podcast web app
+*/
+
+
+/* ====== EXTERNAL FONTS ====== */
+
+
+@import url('https://fonts.googleapis.com/css?family=Telex');
+@import url('https://fonts.googleapis.com/css?family=Raleway:400,700');
+
+
+/* ====== GLOBAL ====== */
+
+
+html {
+    height: 100%;
+    position: relative;
+}
+
+body {
+    background-color: #444;
+    font-family: "Raleway", sans-serif;
+    font-size: 1.1em;
+    font-weight: normal;
+    height: 100%;
+    margin: 0;
+    position: relative;
+}
+
+a, a:hover, .pc-title:hover {
+    text-decoration: none;
+}
+
+
+/* ====== IFRAME ====== */
+
+
+iframe {
+    border: 0;
+    height: 100%;
+    overflow: hidden;
+    width: 100%;
+}
+
+.iframe-wrapper {
+    box-sizing: border-box;
+    height: 100vh;
+    margin: 0 auto;
+    max-width: 768px;
+    overflow: hidden;
+    padding: 0;
+    position: relative;
+    width: 100vw;
+}
+
+
+/* ====== TOPICS ====== */
+
+.wrapper {
+    background-color: #fff;
+    box-sizing: border-box;
+    height: 100%;
+    overflow: auto;
+    padding: 50px 20px 90px 20px;
+    position: relative;
+}
+
+.title {
+    font-family: "Telex", sans-serif;
+    font-size: 3em;
+    font-variant: small-caps;
+    font-weight: bold;
+    letter-spacing: .15em;
+    margin: 5px 0 25px 0;
+    text-align: center;
+}
+
+.subtitle {
+    color: #8282a1;
+    font-size: 1.5em;
+    margin: -25px 0 80px 0;
+    text-align: center;
+}
+
+
+/* ====== HEADER ====== */
+
+
+.nav-header-buffer {
+    height: 50px;
+    width: 100%;
+}
+
+
+nav.nav-header {
+    align-items: center;
+    background-color: rgba(0,0,0,.7);
+    display: flex;
+    height: 50px;
+    /*margin: 0 -20px;*/
+    max-width: inherit;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    -webkit-transition: height .5s ease-out;
+    transition: height 2s ease;
+    width: 100%;
+}
+
+.nav-header .nav-button {
+    color: #ddd;
+    display: inline-block;
+    flex-grow: 1;
+    /*font-size: 2em;*/
+    margin: 0;
+    padding: 10px;
+    text-align: center;
+}
+
+
+/* ====== FOOTER NAV ======*/
+
+footer {
+    background-color: #333;
+    bottom: -90px;
+    height: 90px;
+    max-width: inherit;
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+    transition: bottom .5s;
+    -webkit-transition: bottom .5s;
+}
+
+
+nav.nav-footer {
+    align-items: center;
+    display: flex;
+    height: 45px;
+    width: 100%;
+}
+
+.hidden {
+    height: 0;
+    transition: height 2s;
+    -webkit-transition: height 2s;
+}
+
+.nav-footer .nav-button {
+    color: #ddd;
+    display: inline-block;
+    flex-grow: 1;
+    /*font-size: 2em;*/
+    margin: 0;
+    padding: 10px;
+    text-align: center;
+}
+
+
+/* ====== LANDING ====== */
+
+
+.logo {
+    margin: auto;
+    width: 100%;
+}
+
+
+/* ====== HOME ====== */
+
+
+.newest-button {
+    border: 2px solid #f44;
+    border-radius: 15px;
+    display: flex;
+    padding: 20px 20px;
+    margin: 0;
+    position: relative;
+    vertical-align: middle;
+}
+
+.newest-button p {
+    display: inline-block;
+    font-size: 2.2em;
+    font-weight: bold;
+    margin: 0;
+    width: 75%;
+    text-transform: capitalize;
+}
+
+.newest-button div.play {
+    border-bottom: 23px solid transparent;
+    border-left: 55px solid #f44;
+    border-top: 23px solid transparent;
+    display: inline-block;
+    height: 0;
+    position: relative;
+    margin: auto;
+    width: 0;
+}
+
+a .newest-button, a .newest-button:hover  {
+    color: #000;
+    text-decoration: none;
+}
+
+.headline {
+    color: #8282a1;
+    font-size: 2.5em;
+    font-weight: normal;
+    margin: 40px 2px 15px 2px;
+    text-transform: capitalize;
+}
+
+.topic-wrapper {
+    margin: 0;
+    overflow: auto;
+    position: relative;
+}
+
+.topic {
+    border: 1px solid #8282a1;
+    border-radius: 10px;
+    box-shadow: 0 6px 6px -6px #8282cc;
+    box-sizing: border-box;
+    float: left;
+    font-size: 1.3em;
+    margin: 7px 6px;
+    padding: 10px;
+    text-align: center;
+    width: calc(50% - 12px);        /* Half minus margins */
+}
+
+a .topic, a .topic:hover  {
+    color: #8282a1;
+    text-decoration: none;
+}
+
+
+/* ====== TOPIC PODCASTS ====== */
+
+
+/*.pc-row {  
+    display: flex;
+    padding: 5px;
+    width: 100%;
+}*/ /*caused conflict with results page*/
+
+a .pc-row, a .pc-row:hover  {
+    color: #8282a1;
+    text-decoration: none;
+}
+
+a .pc-row:hover {
+    background-color: #eee;
+}
+
+/*.pc-title {
+    color: #8282a1;
+    font-size: 1.5em;
+    text-align: center;
+    width: 50%;
+}*/ /*caused conflict with results page*/
+
+.pc-content {
+    border: 1px solid #000;
+    width: 50%;
+}
+
+.pc-progress-bar {
+    background-color: #ff0000;
+    height: 100%;
+    left: 0;
+    position: relative;
+    width: 35%;
+}
+
+
+/* ====== PODCASTS RESULTS ====== */
+
+
+.pc-title {
+    color: #8282a1;
+    text-align: center;
+    /*overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;*/
+}
+
+.pc-row {
+    -webkit-box-shadow: 0 3px 3px -3px #444;
+    -moz-box-shadow: 0 3px 3px -3px #444;
+    box-shadow: 0 3px 3px -3px #444;
+    font-size: 1em;
+    padding: 15px 10px;
+}
+
+.pc-desc {
+    font-size: .7em;
+    word-wrap: break-word;
+}
+
+/*podcast desc in results are
+hidden/collapsed at start*/
+.pc-description {   
+    display: none;
+    padding-top: 15px;
+}
+
+.pc-duration {
+    font-size: .7em;
+    margin: auto;
+    text-align: center;
+    padding-top: 10px;
+}
+
+.hide-title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap; 
+}
+
+
+/* ====== RESPONSIVENESS ====== */
+
+@media screen and (min-width: 768px) {
+    .wrapper {
+        width: calc(100% + 20px);
+    }
+}
