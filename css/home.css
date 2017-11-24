@@ -7,207 +7,7 @@
 */
 
 
-/* ====== EXTERNAL FONTS ====== */
-
-
-@import url('https://fonts.googleapis.com/css?family=Telex');
-@import url('https://fonts.googleapis.com/css?family=Raleway:400,700');
-
-
-/* ====== GLOBAL ====== */
-
-
-html {
-    height: 100%;
-    position: relative;
-}
-
-body {
-    background-color: #444;
-    font-family: "Raleway", sans-serif;
-    font-size: 1.1em;
-    font-weight: normal;
-    height: 100%;
-    margin: 0;
-    position: relative;
-}
-
-a, a:hover, .pc-title:hover {
-    text-decoration: none;
-}
-
-
-/* ====== IFRAME ====== */
-
-
-iframe {
-    border: 0;
-    height: 100%;
-    overflow: hidden;
-    width: 100%;
-}
-
-.iframe-wrapper {
-    box-sizing: border-box;
-    height: 100vh;
-    margin: 0 auto;
-    max-width: 768px;
-    overflow: hidden;
-    padding: 0;
-    position: relative;
-    width: 100vw;
-}
-
-
-/* ====== TOPICS ====== */
-
-.wrapper {
-    background-color: #fff;
-    box-sizing: border-box;
-    height: 100%;
-    overflow: auto;
-    padding: 50px 20px 90px 20px;
-    position: relative;
-}
-
-.title {
-    font-family: "Telex", sans-serif;
-    font-size: 3em;
-    font-variant: small-caps;
-    font-weight: bold;
-    letter-spacing: .15em;
-    margin: 5px 0 25px 0;
-    text-align: center;
-}
-
-.subtitle {
-    color: #8282a1;
-    font-size: 1.5em;
-    margin: -25px 0 80px 0;
-    text-align: center;
-}
-
-
-/* ====== HEADER ====== */
-
-
-.nav-header-buffer {
-    height: 50px;
-    width: 100%;
-}
-
-
-nav.nav-header {
-    align-items: center;
-    background-color: rgba(0,0,0,.7);
-    display: flex;
-    height: 50px;
-    /*margin: 0 -20px;*/
-    max-width: inherit;
-    overflow: hidden;
-    position: fixed;
-    top: 0;
-    -webkit-transition: height .5s ease-out;
-    transition: height 2s ease;
-    width: 100%;
-}
-
-.nav-header .nav-button {
-    color: #ddd;
-    display: inline-block;
-    flex-grow: 1;
-    /*font-size: 2em;*/
-    margin: 0;
-    padding: 10px;
-    text-align: center;
-}
-
-
-/* ====== FOOTER NAV ======*/
-
-footer {
-    background-color: #333;
-    bottom: -90px;
-    height: 90px;
-    max-width: inherit;
-    overflow: hidden;
-    position: fixed;
-    width: 100%;
-    transition: bottom .5s;
-    -webkit-transition: bottom .5s;
-}
-
-
-nav.nav-footer {
-    align-items: center;
-    display: flex;
-    height: 45px;
-    width: 100%;
-}
-
-.hidden {
-    height: 0;
-    transition: height 2s;
-    -webkit-transition: height 2s;
-}
-
-.nav-footer .nav-button {
-    color: #ddd;
-    display: inline-block;
-    flex-grow: 1;
-    /*font-size: 2em;*/
-    margin: 0;
-    padding: 10px;
-    text-align: center;
-}
-
-
-/* ====== LANDING ====== */
-
-
-.logo {
-    margin: auto;
-    width: 100%;
-}
-
-
 /* ====== HOME ====== */
-
-
-/*.newest-button {
-    border: 2px solid #f44;
-    border-radius: 15px;
-    display: flex;
-    padding: 20px 20px;
-    margin: 0;
-    position: relative;
-    vertical-align: middle;
-}
-
-.newest-button p {
-    display: inline-block;
-    font-size: 2.2em;
-    font-weight: bold;
-    margin: 0;
-    width: 75%;
-    text-transform: capitalize;
-}
-
-.newest-button div.play {
-    border-bottom: 23px solid transparent;
-    border-left: 55px solid #f44;
-    border-top: 23px solid transparent;
-    display: inline-block;
-    height: 0;
-    position: relative;
-    margin: auto;
-    width: 0;
-}
-
-a .newest-button, a .newest-button:hover  {
-    color: #000;
-    text-decoration: none;
-}*/
 
 img#btk-logo {
     width: 85%;
@@ -227,10 +27,6 @@ h2#welcome-title {
     font-size: 2em;
     font-weight: 100;
     margin-bottom: 0;
-    
-    /*-webkit-box-shadow: 0 3px 3px -3px #444;*/
-    /*-moz-box-shadow: 0 3px 3px -3px #444;*/
-    /*box-shadow: 0 3px 3px -3px #444;*/
 }
 
 p#welcome-message {
@@ -250,13 +46,6 @@ h3.other-headings {
 div.recent-pc-row {
     padding: 15px 5px;
     border-bottom: 1px solid #444;
-    
-    /*
-   -webkit-box-shadow: 0 0 3px #8282a1;
-    -moz-box-shadow: 0 0 3px #8282a1;
-    box-shadow: 0 0 3px #8282a1;
-    
-    border-radius: 10px; */
 }
 
 .pc-publish-date {
@@ -299,14 +88,3 @@ a .topic, a .topic:hover  {
 }
 
 
-
-
-
-
-/* ====== RESPONSIVENESS ====== */
-
-@media screen and (min-width: 768px) {
-    .wrapper {
-        width: calc(100% + 20px);
-    }
-}
