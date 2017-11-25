@@ -105,7 +105,6 @@ function setDuration() {
 // Load podcast from clicked row
 function loadPlayer(e) {
     var url = $(this).data('url');
-    console.log(this);
 
     player.src = url;                       // Set source of player
     $downloadButton.prop("href", url);
