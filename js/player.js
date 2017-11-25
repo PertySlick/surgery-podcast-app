@@ -18,7 +18,7 @@ var $duration = $('#progress-total');                               // Total Dur
 var $progress = $('#progress-actual');                              // Progress Indicator
 var $durationTime = $('#current-duration');                         // Duration Time Display
 var $progressTime = $('#current-position');                         // Progress Time Display
-var $podcastRow = $('.pc-title');                                   // Podcast Row Toggling Player
+var $podcastLoad = $('*').find('[data-toggle=player]');             // Podcast Row Toggling Player
 var pauseClass = 'fa fa-pause';                                     // Class For Pause Button
 var playClass = 'fa fa-play';                                       // Class For Play Button
 var t = 30;                                                         // Time Interval For Skipping
@@ -35,7 +35,7 @@ $('document').ready(function() {
     $player.on('timeupdate', updateProgress);                       // Progress Timer Functionality
     $player.on('play', { play: false }, togglePlayButton);          // Play/PAUSE Button Toggle
     $player.on('pause', { play: true }, togglePlayButton);          // PLAY/Pause Button Toggle
-    $podcastRow.on('click', loadPlayer);                            // Load Podcast From Clicked Row
+    $podcastLoad.on('click', loadPlayer);                            // Load Podcast From Clicked Row
 
 });
 
@@ -104,7 +104,7 @@ function setDuration() {
 
 // Load podcast from clicked row
 function loadPlayer(e) {
-    var url = $(this).data('url');
+    var url = $(this).parents('[data-url]').data('url');
 
     player.src = url;                       // Set source of player
     $downloadButton.prop("href", url);
