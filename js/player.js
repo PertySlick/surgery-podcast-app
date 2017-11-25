@@ -29,7 +29,7 @@ $('document').ready(function() {
     $player.on('loadeddata', setDuration);                          // Set Initial Duration Value
     $playButton.on('click', togglePlay);                            // Play Button Functionality
     $closeButton.on('click', closePlayer);                          // Close PodCast Player
-    $forwardButton.on('click', { time: t }, jumpProgress);           // Jump Ahead 10 Seconds
+    $forwardButton.on('click', { time: t }, jumpProgress);          // Jump Ahead 10 Seconds
     $backwardButton.on('click', { time: (t*-1) }, jumpProgress);    // Jump Back 10 Seconds
     $duration.on('click', seekFunction);                            // Seek Bar Functionality
     $player.on('timeupdate', updateProgress);                       // Progress Timer Functionality
@@ -104,7 +104,8 @@ function setDuration() {
 
 // Load podcast from clicked row
 function loadPlayer(e) {
-    var url = $(e.target).data('url');
+    var url = $(this).data('url');
+    console.log(this);
 
     player.src = url;                       // Set source of player
     $downloadButton.prop("href", url);
