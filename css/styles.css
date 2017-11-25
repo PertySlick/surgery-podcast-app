@@ -285,6 +285,7 @@ a .pc-row:hover {
 
 
 .pc-title {
+    display: block;
     color: #8282a1;
     text-align: left;
 }
@@ -320,6 +321,25 @@ hidden/collapsed at start*/
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap; 
+}
+
+.pc-image {
+    display: none;
+    float: left;
+    align: top;
+    margin-left: 2px;
+    margin-right: 10px;
+    padding: 5px;
+    border: 1px solid #8282a1;
+    border-radius: 10px;
+    height: 75px;
+    width: 75px;
+}
+
+.open-podcast-info {
+    display: none;
+    color: black;
+    float: left;
 }
 
 

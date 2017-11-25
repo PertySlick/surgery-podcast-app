@@ -121,19 +121,19 @@ class DbOperator {
                 
                 //Re-format publish date
                 
-                //Get current year 
-                $currentYear = date("Y");
-                
-                //Convert string date to Date object
-                $publishDateAsDateTimeInterface = date_create($publishDate);
-                
-                //If the podcast was publish this current year, only show month and day.
-                //Otherwise, also show year of publication.
-                if (date_format($publishDateAsDateTimeInterface, "Y") == $currentYear) {
-                    $publishDate = date_format($publishDateAsDateTimeInterface, "M <\b\\r> j");
-                } else {
-                    $publishDate = date_format($publishDateAsDateTimeInterface, "M j <\b\\r> Y");
-                }
+                ////Get current year 
+                //$currentYear = date("Y");
+                //
+                ////Convert string date to Date object
+                //$publishDateAsDateTimeInterface = date_create($publishDate);
+                //
+                ////If the podcast was publish this current year, only show month and day.
+                ////Otherwise, also show year of publication.
+                //if (date_format($publishDateAsDateTimeInterface, "Y") == $currentYear) {
+                //    $publishDate = date_format($publishDateAsDateTimeInterface, "M <\b\\r> j");
+                //} else {
+                //    $publishDate = date_format($publishDateAsDateTimeInterface, "M j <\b\\r> Y");
+                //}
                 
                 //Create new Podcast object and add to array
                 $newPodcast = new Podcast($title, $publishDate, $url, $image, $description, $duration);
@@ -174,21 +174,21 @@ class DbOperator {
                 $description = $record['description'];
                 $duration = $record['duration'];
                 
-                //Re-format publish date
-                
-                //Get current year 
-                $currentYear = date("Y");
-                
-                //Convert string date to Date object
-                $publishDateAsDateTimeInterface = date_create($publishDate);
-                
-                //If the podcast was publish this current year, only show month and day.
-                //Otherwise, also show year of publication.
-                if (date_format($publishDateAsDateTimeInterface, "Y") == $currentYear) {
-                    $publishDate = date_format($publishDateAsDateTimeInterface, "M <\b\\r> j");
-                } else {
-                    $publishDate = date_format($publishDateAsDateTimeInterface, "M j <\b\\r> Y");
-                }
+                ////Re-format publish date
+                //
+                ////Get current year 
+                //$currentYear = date("Y");
+                //
+                ////Convert string date to Date object
+                //$publishDateAsDateTimeInterface = date_create($publishDate);
+                //
+                ////If the podcast was publish this current year, only show month and day.
+                ////Otherwise, also show year of publication.
+                //if (date_format($publishDateAsDateTimeInterface, "Y") == $currentYear) {
+                //    $publishDate = date_format($publishDateAsDateTimeInterface, "M <\b\\r> j");
+                //} else {
+                //    $publishDate = date_format($publishDateAsDateTimeInterface, "M j <\b\\r> Y");
+                //}
                 
                 //Create new Podcast object and add to array
                 $newPodcast = new Podcast($title, $publishDate, $url, $image, $description, $duration);

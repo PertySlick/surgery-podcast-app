@@ -62,6 +62,39 @@ div.recent-pc-row {
     vertical-align: super;
 }
 
+.true-title {
+    display: inline-block;
+    
+}
+
+.pc-download-button {
+    font-size: 50px !important;
+    padding: 10px;
+    padding-left: 40px;
+}
+
+.pc-play-button {
+    font-size: 50px !important;
+    padding: 10px;
+}
+
+@media screen and (max-width: 320px) {
+    .pc-download-button {
+        font-size: 35px !important;
+        padding: 10px;
+    }
+    
+    .pc-play-button {
+        font-size: 35px !important;
+        padding: 10px;
+    }
+}
+
+.pc-title-itself {
+    display: block;
+    overflow: hidden;
+}
+
 div.search-bar {
     display: block;
     margin: auto;

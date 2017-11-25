@@ -79,11 +79,41 @@ class Podcast
      * Returns the publish date for this podcast
      * @return String publishDate
      */
-    public function getPublishDate()
+    public function getPublishDateShort()
     {
-        return $this->publishDate;
+            //Get current year 
+            $currentYear = date("Y");
+            
+            //Convert string date to Date object
+            $publishDateAsDateTimeInterface = date_create($this->publishDate);
+            
+            //If the podcast was publish this current year, only show month and day.
+            //Otherwise, also show year of publication.
+            if (date_format($publishDateAsDateTimeInterface, "Y") == $currentYear) {
+                $publishDate = date_format($publishDateAsDateTimeInterface, "M <\b\\r> j");
+            } else {
+                $publishDate = date_format($publishDateAsDateTimeInterface, "M j <\b\\r> Y");
+            }
+        
+        return $publishDate;
     }
-
+    
+    /**
+     * Returns the publish date for this podcast
+     * @return String publishDate
+     */
+    public function getPublishDateLong()
+    {
+        
+        //Convert string date to Date object
+        $publishDateAsDateTimeInterface = date_create($this->publishDate);
+        
+        $publishDate = date_format($publishDateAsDateTimeInterface, "F j Y");
+        
+        return $publishDate;
+    }
+     
+     
     /**
      * Returns the access url for this podcast
      * @return String url
