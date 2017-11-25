@@ -1,77 +1,4 @@
-<!--
- * File Name: home.html
- * Author: Timothy Roush
- * Date Created: 10/07/17
- * Assignment: Behind The Knife: The Surgery App
- * Description:  Landing page for a podcast app
--->
-
-<include href="includes/header.inc.html">
-
-<!--<h1 class="title">BTK Podcast App</h1>
-
-<a href="play">
-    <div class="newest-button">
-        <p>Listen to Newest Episode Here</p>
-        <div class="play"></div>
-    </div>
-</a>-->
-
-<!--Image of the logo-->
-<img id="btk-logo" src="{{ @IMG . 'BTK_logo_large.jpg' }}" alt="Behind the Knife Logo" />
-
-<!--Welcome Message-->
-<h2 id="welcome-title">Welcome to Behind the Knife</h2>
-
-<p id="welcome-message">These surgery podcasts are aimed for everyone interested in an in-depth look at the broad range of
-    surgical topics. Come take a "behind the scenes" look at the interesting, controversial, and humanistic side of surgery
-    from some of the giants in the field.
-</p>
-
-<!--Most Recent Episodes-->
-<h3 class="other-headings">Most Recent Episodes</h3>
-
-<repeat group="{{ @podcasts }}" value="{{ @podcast }}">
-    <div class="recent-pc-row">
-        <div class="pc-title hide-title" data-url="{{ @podcast->getUrl() }}"> 
-            <div class="pc-publish-date">{{ @podcast->getPublishDate() }}</div>
-            <span class="title-itself">{{ @podcast->getTitle() }}</span>
-        </div>
-        <div class="pc-description">
-            <div class="pc-desc">
-                {{ @podcast->getDescription() }}
-            </div>
-            <div class="pc-duration">
-                {{ @podcast->getDuration() }}
-            </div>
-        </div>
-    </div>        
-</repeat>
-
-<!--Episodes by Topic-->
-<h3 class="other-headings">Episodes by Topic</h3>
-
-<!--Search bar-->
-<div class="search-bar">
-    <input type="search" name="search-term" placeholder="Search for Topic">
-    <button type="submit">
-        <i class="fa fa-search fa-2x" aria-hidden="true"></i>
-    </button>  
-</div>
-
-
-<!--Topic Buttons-->
-<div class="topic-wrapper">
-    <repeat group="{{ @topics }}" value="{{ @topic }}">
-        <a href="{{ @BASE . '/topic/' . @topic }}">
-            <div class="topic">
-                {{ @topic }}
-            </div>
-        </a>
-    </repeat>
-</div>
-
-<!-- Begin MailChimp Signup Form -->
+]<!-- Begin MailChimp Signup Form -->
 <link href="//cdn-images.mailchimp.com/embedcode/classic-10_7.css" rel="stylesheet" type="text/css">
 <style type="text/css">
 	#mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; }
@@ -120,6 +47,3 @@
 </div>
 <script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script><script type='text/javascript'>(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';fnames[3]='BIRTHDAY';ftypes[3]='birthday';}(jQuery));var $mcj = jQuery.noConflict(true);</script>
 <!--End mc_embed_signup-->
-
-
-<include href="{{ @INC . 'footer.inc.html' }}">
