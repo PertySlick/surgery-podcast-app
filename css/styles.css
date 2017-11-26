@@ -100,7 +100,7 @@ nav.nav-header {
     /*align-items: center;*/
     /*background-color: rgba(0,0,0,.7);*/
     /*display: flex;*/
-    height: 50px; /*temprarily enlarged so i can see menu list*/
+    height: 50px; /*temprarily enlarged to 300px so i can see menu list*/
     /*max-width: inherit;*/
     /*overflow: hidden;*/
     /*position: fixed;*/
@@ -120,13 +120,13 @@ nav.nav-header {
 }
 
 div#header-search-bar {
-    display: inline-block;
+    /*display: inline-block;*/
+    display: none;
     width: 73%;
     /*height: 100%;*/
 }
 
 input[name="search-keyword"] {
-    display: inline-block;
     width: 82%;
     padding: 11px 10px 11px 10px;
     /*height: 40px;*/
@@ -169,7 +169,8 @@ div#menu h3 {
 }
 
 div#menu-items {
-    display: inline-block;
+    /*display: inline-block;*/
+    display: none;
     max-width: 100px;
     z-index: 1000;
 }
