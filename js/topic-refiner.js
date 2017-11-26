@@ -7,7 +7,7 @@
 */
 
 var $topicWrapper = $('.topic-wrapper');                        // Wrapper for entire topic list
-var $searchInput = $('input[name="search-term"]');              // Query input field TODO: More specific locator
+var $searchInput = $('input#topic-search-bar');                 // Query input field
 var initialHTML = '';                                           // Initialize variable for initial HTML of wrapper
 var noResultsMsg;
 var topicList = new Array();                                    // Initialize array for storing topics
