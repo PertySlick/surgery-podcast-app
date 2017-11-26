@@ -111,7 +111,7 @@ input[name="search-topic"] {
     vertical-align: middle;
 }
 
-button[type="submit"] {
+button#search-topic-btn {
     padding: 10px 5px 9px 5px;
     position: relative;
     left: -5px;
@@ -121,7 +121,7 @@ button[type="submit"] {
     background-color: #8282a1;
 }
 
-button[type="submit"]:active {
+button#search-topic-btn:active {
     background-color: #5c5c7a;
 }
 
