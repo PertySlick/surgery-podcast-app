@@ -13,26 +13,28 @@
 
 <!-- TOP NAVIGATION -->
 
-
 <nav class="nav-header">
-    <div class="nav-button">
-        <!--Link to homepage-->
-        <a href="home" target="iframe">
-            <i class="fa fa-home" aria-hidden="true"></i>
-        </a>
+    <!-- Keyword Search bar -->
+    <div id="header-search-bar">
+        <input type="search" id="keyword-search-bar" name="search-keyword" placeholder=" Search by Keyword(s)">
+        <button type="submit" id="search-keyword-btn">
+            <i class="fa fa-search fa-2x" aria-hidden="true"></i>
+        </button>
     </div>
-    <!--Dropdown list here-->
-    <div class="nav-button">
-        <a>
-            <i class="fa fa-th-list" aria-hidden="true"></i>
-        </a>
+    
+    <!-- Menu Button: 
+         Adapted from https://www.w3schools.com/howto/howto_js_dropdown.asp
+    -->
+    <div id="menu">
+        <h3>Menu <span><i class="fa fa-bars" aria-hidden="true"></i></span></h3>
+        <div id="menu-items">
+            <a href="home" target="iframe">Home</a>
+            <a href="home#episode-by-topic" target="iframe">Topics</a>
+            <a href="">About Us</a>
+            <a href="home#mc_embed_signup" target="iframe">Mailing List</a>
+        </div>
     </div>
-    <div class="nav-button">
-        <!--Search feature to be added here-->
-        <a>
-            <i class="fa fa-search" aria-hidden="true"></i>
-        </a>
-    </div>
+        
 </nav>
 
 <!-- MAIN IFRAME PORTAL -->
