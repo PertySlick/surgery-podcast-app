@@ -130,9 +130,9 @@ button[type="submit"]:active {
 }
 
 .no-results-msg {
-    color: #8b0000;
+    color: #ababcf;
     text-align: center;
-    font-size: 1em;
+    font-size: 0.8em;
     font-weight: 600;
     margin-top: 5px;
     margin-bottom: 10px;
