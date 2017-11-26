@@ -7,12 +7,16 @@
 */
 
 var $topicWrapper = $('.topic-wrapper');                        // Wrapper for entire topic list
-var $searchInput = $('input[name="search-term"]');
+var $searchInput = $('input[name="search-term"]');              // Query input field TODO: More specific locator
 var initialHTML = '';                                           // Initialize variable for initial HTML of wrapper
+var noResultsMsg;
 var topicList = new Array();                                    // Initialize array for storing topics
 
 $('document').ready( function() {
     initialHTML = $topicWrapper.html();                         // Save initial topics list
+    noResultsMsg = '<div class="no-results-msg">' +             // Store text HTML indicating no search results
+                    'No topics match your search' +
+                    '</div>';
 
     $searchInput.on('input', getTopics);
 });
@@ -55,7 +59,7 @@ function populateTopics() {
 
         $topicWrapper.html(newHtml);
     } else {
-        $topicWrapper.html(initialHTML);
+        $topicWrapper.html(noResultsMsg + initialHTML);
     }
 }
 
