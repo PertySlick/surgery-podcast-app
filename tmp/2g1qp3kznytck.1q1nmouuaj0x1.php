@@ -1,0 +1,18 @@
+<!--
+    * File Name: footer.inc.html
+    * Authors: Timothy Roush
+    * Date Created: 10/02/17
+    * Assignment: Behind The Knife: The Surgery Podcast
+    * Description:  Footer content for each page within the app
+-->
+
+</div> <!-- .wrapper -->
+
+    <!-- EXTERNAL JAVASCRIPTS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <!-- INTERNAL JAVASCRIPTS -->
+    <script src="<?= ($JS . 'player.js') ?>"></script>
+    <script src="<?= ($JS . 'results.js') ?>"></script>
+    <script src="<?= ($JS . 'topic-refiner.js') ?>"></script>
+</body>
+</html>
