@@ -169,9 +169,17 @@ a .topic, a .topic:hover  {
 
 .subscribe-header
 {
-    color: #8282a1;
+    color: #8282a1; /*Homepage color theme*/
     font-size: 1.7em;
-    font-weight: 500;
-   
+    margin-bottom: 10px;
+    margin-top: 40px;
+  
 }
+
+.subscribe
+{
+    /*This changes the form heading to match the homepage layout*/
+        font-weight:normal;
+}
+
 
