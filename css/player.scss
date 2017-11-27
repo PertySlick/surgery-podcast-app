@@ -50,11 +50,15 @@ $player-toggle-speed: .5s;
   //  -  Mini Player  -  \\
   .mini-player {
     display: none;
+    flex-wrap: nowrap;
     height: $mini-player-height;
     position: relative;
+    max-width: 100%;
 
     .player-title {
       margin: 0;
+      overflow: hidden;
+      width: calc(100% - 100px);
     }
   }
 
