@@ -53,7 +53,7 @@ function populateTopics() {
         var newHtml = '';
 
         topicList.forEach( function(topic) {
-            var htmlString = '<a href="/surgerypodcast/topic/' + topic + '"><div class="topic">' + topic + '</div></a>';
+            var htmlString = '<a href="topic/' + topic + '"><div class="topic">' + topic + '</div></a>';
             newHtml += htmlString;
         });
 
