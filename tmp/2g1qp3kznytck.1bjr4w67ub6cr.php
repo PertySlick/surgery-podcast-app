@@ -14,8 +14,24 @@
 <?php foreach (($podcasts?:[]) as $podcast): ?>
     <div class="pc-row">
         <div class="pc-title hide-title" data-url="<?= ($podcast->getUrl()) ?>">
-            <div class="pc-publish-date"><?= ($podcast->getPublishDate()) ?></div>
-            <span class="title-itself"><?= ($podcast->getTitle()) ?></span>
+            
+            <div class="title-itself pc-title-itself">
+                <div class="date-image-switch">
+                    <div class="pc-publish-date"><?= ($podcast->getPublishDateShort()) ?></div>
+                    <p class="true-title"><img src="<?= ($podcast->getImage()) ?>" class="pc-image"><?= ($podcast->getTitle()) ?></p>
+                </div>
+                
+                <div class="open-podcast-info">
+                    <p>Published Date: <br /><?= ($podcast->getPublishDateLong()) ?></p>
+                </div>
+                <div class="open-podcast-info">
+                    <i class="fa fa-download pc-download-button" aria-hidden="true"></i>
+                </div>
+                <div class="open-podcast-info" data-toggle="player">
+                    <i class="fa fa-play pc-play-button" aria-hidden="true"></i>
+                </div>
+            </div>
+            
         </div>
         <div class="pc-description">
             <div class="pc-desc">

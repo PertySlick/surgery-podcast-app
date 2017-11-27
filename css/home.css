@@ -170,14 +170,14 @@ a .topic, a .topic:hover  {
 .subscribe-header
 {
     color: #8282a1; /*Homepage color theme*/
- 
-  
+     margin-bottom: -20px; /*margin to accomidate space between form header*/
 }
 
 .subscribe
 {
     /*This changes the form heading to match the homepage layout*/
         font-weight:normal;
+       
 }
 
 
