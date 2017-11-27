@@ -22,7 +22,7 @@ var menuSpeed = 250;
 
 $('document').ready( function() {
     $(document).on('click', hideMenu);              // When click happens in current document - close
-    $(window).on('blur', hideMenu);                 // When click is outside cuurent window - close
+    $(window).on('blur', hideMenu);                 // When click is outside current window - close
     $menuContainer.on('click', function(event) {    // When click is inside menu - toggle menu
         event.stopPropagation();
         toggleMenu();
