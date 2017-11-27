@@ -2,11 +2,14 @@
 
 
 /* Color Settings */
-$player-background: #333;
+$debug-color: inherit; //#88f;
+$player-background: #333333;
+$player-font: #dddddd;
 $play-button-color: #3aca2d;
-$stop-button-color: #ff856f;
-$seek-progress-color: #f00;
-$seek-total-color: #fff;
+$stop-button-color: #ff4444;
+$skip-button-color: #ff4444;
+$seek-progress-color: #ff0000;
+$seek-total-color: #ffffff;
 
 /* Player Settings */
 $player-toggle-speed: .5s;
@@ -29,153 +32,151 @@ $player-toggle-speed: .5s;
 .player-wrapper {
   background-color: $player-background;
   bottom: -100vh;
+  color: $player-font;
   display: block;
   height: 100vh;
   max-width: inherit;
   overflow: hidden;
   position: fixed;
-  width: 100%;
   @include player-transition(bottom $player-toggle-speed);
 
-  .viewer-wrapper {
-    align-items: center;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: center;
+  //  -  Player Header Styles  -  \\
+  .player-header {
+    background-color: $debug-color;
+    height: 10%;
+    position: relative;
+    text-align: center;
 
-    .content {
-      margin: 0 5%;
+    #button-close {
+      float: left;
+    }
+
+    .header-title {
+      font-size: 1em;
+      margin-top: 5px;
+      width: 100%;
+
+      .header-subtitle {
+        display: block;
+        font-weight: bold;
+      }
+    }
+  }
+
+  //  -  Player Image Styles  -  \\
+  .player-image {
+      margin: auto;
       width: 50%;
 
-      .image {
-        margin: auto;
-        width: 100%;
-      }
+    img {
+      display: inline-block;
+      width: 100%;
+    }
+  }
+
+  //  -  Player Bottom Wrapper  -  \\
+  .player-bottom-wrapper {
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    width: 100%;
+  }
+
+  //  -  Player Title Styles  -  \\
+  .player-title {
+    background-color: $debug-color;
+    height: 3em;
+    line-height: 1.5em;
+    overflow: hidden;
+    text-align: center;
+  }
+
+  //  -  Player Seek Bar  -  \\
+  .player-seek {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 0 10px;
+
+
+    .progress-bar {
+      margin: auto;
+      width: 90%;
     }
 
-    .skip-button {
-      min-width: 50px;
-      width: 12%;
 
-      .skip-image {
-        width: 100%;
-      }
+    #progress-total {
+      background-color: #ddd;
+      border-radius: 15px;
+      flex-grow: 5;
+      height: 10px;
+      overflow: hidden;
+      width: 100%;
     }
-  } //.viewer-wrapper
+
+    #progress-actual {
+      background-color: red;
+      height: 100%;
+      width: 0;
+    }
+
+    .timing {
+      color: #ddd;
+      font-size: 1em;
+      text-align: center;
+      width: 25%;
+    }
+  }
+
+  //  -  Player Control Panel Styles  -  \\
+  .player-control-panel {
+    align-items: center;
+    background-color: $debug-color;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+
+  //  -  Player Button Styles  -  \\
+  .player-controls {
+    align-items: center;
+    background-color: rgba(255,255,255,.5);
+    border-radius: 100%;
+    cursor: pointer;
+    display: flex;
+    font-size: 2em;
+    justify-content: space-around;
+    position: relative;
+  }
+
+  #button-play {
+    color: $play-button-color;
+    font-size: 2.8em;
+    height: 65px;
+    width: 65px;
+  }
+
+  #button-close {
+    color: $stop-button-color;
+    font-size: 1.5em;
+    height: 45px;
+    position: absolute;
+    width: 45px;
+  }
+
+  #button-backward {
+    color: $skip-button-color;
+    font-size: 1.7em;
+    height: 45px;
+    width: 45px;
+  }
+
+  #button-forward {
+    color: $skip-button-color;
+    font-size: 1.7em;
+    height: 45px;
+    width: 45px;
+  }
 } //.player-wrapper
-
-
-
-
-/* ====== ORIGINAL PLAYER CODE ====== */
-
-#play {
-  color: $play-button-color;
-}
-
-#close, #download {
-  color: $stop-button-color;
-}
-
-#forward, #backward {
-  color: #4682b4;
-}
-
-#progress-total {
-  background-color: #ddd;
-  border-radius: 15px;
-  height: 10px;
-  overflow: hidden;
-  width: 100%;
-}
-
-#progress-actual {
-  background-color: red;
-  height: 100%;
-  width: 0;
-}
-
-.player {
-  align-items: center;
-  display: flex;
-  font-size: 2em;
-  height: 45px;
-  position: relative;
-  width: 100%;
-}
-
-.player-controls {
-  align-items: center;
-  display: flex;
-  width: 100%;
-}
-
-.timing {
-  color: #ddd;
-  font-size: .5em;
-  text-align: center;
-  width: 25%;
-}
-
-.progress-bar {
-  width: 50%;
-}
-
-
-/* ====== ORIGINAL PLAYER DESIGN ====== */
-
-.player-image {
-  box-shadow: 0 5px 15px -5px #8282cc;
-  width: 100%;
-}
-
-.player-description {
-  color: #8282a1;
-  font-size: 1.8em;
-  margin-top: 25px;
-  text-align: center;
-}
-
-.player-author {
-  color: #8282a1;
-  font-size: 1.8em;
-}
-
-.player-title {
-  color: #f00;
-  font-size: 1.8em;
-}
-
-.player-progress-full {
-  border: 1px solid #000;
-  height: 20px;
-  position: relative;
-  width: 100%;
-}
-
-.player-progress {
-  background-color: #f00;
-  height: 100%;
-  right: 0;
-  position: relative;
-  width: 35%;
-}
-
-.player-time {
-  display: flex;
-  justify-content: space-between;
-}
-
-.time-remaining {
-  color: #8282a1;
-  font-size: 1.8em;
-  text-align: left;
-}
-
-.time-total {
-  color: #8282a1;
-  font-size: 1.8em;
-  text-align: right;
-}
-

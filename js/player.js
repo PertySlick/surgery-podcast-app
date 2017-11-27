@@ -9,11 +9,11 @@
 var player = parent.document.getElementById('player');              // Audio Player
 var $player = $('#player', parent.document);                        // Audio Player jQuery
 var $playerContainer = $('.player-wrapper', parent.document);       // Container For Entire Player
-var $playButton = $('#play-button');                                // Actual Play Button
-var $closeButton = $('#close');                                     // Actual Close Button
+var $playButton = $('#button-play');                                // Actual Play Button
+var $closeButton = $('#button-close');                              // Actual Close Button
 var $downloadButton = $('#download', parent.document);              // Actual Download Button
-var $forwardButton = $('#forward');                                 // Actual Forward Button
-var $backwardButton = $('#backward');                               // Actual Backward Button
+var $forwardButton = $('#button-forward');                          // Actual Forward Button
+var $backwardButton = $('#button-backward');                        // Actual Backward Button
 var $duration = $('#progress-total');                               // Total Duration Bar
 var $progress = $('#progress-actual');                              // Progress Indicator
 var $durationTime = $('#current-duration');                         // Duration Time Display
@@ -49,9 +49,9 @@ function togglePlay() {
 function togglePlayButton(e) {
     var b = e.data.play;
     if (b) {
-        $playButton.removeClass(pauseClass).addClass(playClass);
+        $playButton.children('i').removeClass(pauseClass).addClass(playClass);
     } else {
-        $playButton.removeClass(playClass).addClass(pauseClass);
+        $playButton.children('i').removeClass(playClass).addClass(pauseClass);
     }
 }
 
