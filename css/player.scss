@@ -4,7 +4,7 @@
 /* Color Settings */
 $debug-color: inherit; //#88f;
 $player-background: #333333;
-$player-font: #dddddd;
+$player-font-color: #dddddd;
 $play-button-color: #3aca2d;
 $stop-button-color: #ff4444;
 $skip-button-color: #ff4444;
@@ -12,6 +12,7 @@ $seek-progress-color: #ff0000;
 $seek-total-color: #ffffff;
 
 /* Player Settings */
+$mini-player-height: 50px;
 $player-toggle-speed: .5s;
 
 
@@ -26,13 +27,19 @@ $player-toggle-speed: .5s;
 }
 
 
+/* ====== UTILITY ====== */
+.show {
+  display: block;
+}
+
+
 /* ====== PLAYER ====== */
 
 
 .player-wrapper {
   background-color: $player-background;
   bottom: -100vh;
-  color: $player-font;
+  color: $player-font-color;
   display: block;
   height: 100vh;
   max-width: inherit;
@@ -40,16 +47,23 @@ $player-toggle-speed: .5s;
   position: fixed;
   @include player-transition(bottom $player-toggle-speed);
 
+  //  -  Mini Player  -  \\
+  .mini-player {
+    display: none;
+    height: $mini-player-height;
+    position: relative;
+
+    .player-title {
+      margin: 0;
+    }
+  }
+
   //  -  Player Header Styles  -  \\
   .player-header {
     background-color: $debug-color;
     height: 10%;
     position: relative;
     text-align: center;
-
-    #button-close {
-      float: left;
-    }
 
     .header-title {
       font-size: 1em;
@@ -158,12 +172,31 @@ $player-toggle-speed: .5s;
     width: 65px;
   }
 
-  #button-close {
+  #button-play-2 {
+    color: $play-button-color;
+    //float: right;
+    font-size: 1.5em;
+    height: $mini-player-height;
+    //position: absolute;
+    width: $mini-player-height;
+  }
+
+  #button-shrink {
     color: $stop-button-color;
+    float: left;
     font-size: 1.5em;
     height: 45px;
     position: absolute;
     width: 45px;
+  }
+
+  #button-close {
+    color: $stop-button-color;
+    //float: left;
+    font-size: 1.5em;
+    height: $mini-player-height;
+    //position: absolute;
+    width: $mini-player-height;
   }
 
   #button-backward {

@@ -9,7 +9,11 @@
 var player = parent.document.getElementById('player');              // Audio Player
 var $player = $('#player', parent.document);                        // Audio Player jQuery
 var $playerContainer = $('.player-wrapper', parent.document);       // Container For Entire Player
+var $miniContainer = $('.mini-player');                             // Container For Mini Player
+var $miniPlayerTitle = $('.mini-player .player-title');             // Title Area of Mini Player
 var $playButton = $('#button-play');                                // Actual Play Button
+var $playButton2 = $('#button-play-2');                             // Actual Play Button (Mini)
+var $shrinkButton = $('#button-shrink');                            // Actual Shrink Button
 var $closeButton = $('#button-close');                              // Actual Close Button
 var $downloadButton = $('#download', parent.document);              // Actual Download Button
 var $forwardButton = $('#button-forward');                          // Actual Forward Button
@@ -21,6 +25,7 @@ var $progressTime = $('#current-position');                         // Progress 
 var $podcastLoad = $('*').find('[data-toggle=player]');             // Podcast Row Toggling Player
 var pauseClass = 'fa fa-pause';                                     // Class For Pause Button
 var playClass = 'fa fa-play';                                       // Class For Play Button
+var miniPlayerHeight = 50;                                          // Height setting for mini player
 var t = 30;                                                         // Time Interval For Skipping
 
 
@@ -28,6 +33,9 @@ $('document').ready(function() {
 
     $player.on('loadeddata', setDuration);                          // Set Initial Duration Value
     $playButton.on('click', togglePlay);                            // Play Button Functionality
+    $playButton2.on('click', togglePlay);                           // Play Button (Mini) Functionality
+    $shrinkButton.on('click', shrinkPlayer);                        // Shrink To Mini Player
+    $miniPlayerTitle.on('click', openPlayer);                       // Grow To Full Player
     $closeButton.on('click', closePlayer);                          // Close PodCast Player
     $forwardButton.on('click', { time: t }, jumpProgress);          // Jump Ahead 10 Seconds
     $backwardButton.on('click', { time: (t*-1) }, jumpProgress);    // Jump Back 10 Seconds
@@ -35,7 +43,7 @@ $('document').ready(function() {
     $player.on('timeupdate', updateProgress);                       // Progress Timer Functionality
     $player.on('play', { play: false }, togglePlayButton);          // Play/PAUSE Button Toggle
     $player.on('pause', { play: true }, togglePlayButton);          // PLAY/Pause Button Toggle
-    $podcastLoad.on('click', loadPlayer);                            // Load Podcast From Clicked Row
+    $podcastLoad.on('click', loadPlayer);                           // Load Podcast From Clicked Row
 
 });
 
@@ -50,8 +58,10 @@ function togglePlayButton(e) {
     var b = e.data.play;
     if (b) {
         $playButton.children('i').removeClass(pauseClass).addClass(playClass);
+        $playButton2.children('i').removeClass(pauseClass).addClass(playClass);
     } else {
         $playButton.children('i').removeClass(playClass).addClass(pauseClass);
+        $playButton2.children('i').removeClass(playClass).addClass(pauseClass);
     }
 }
 
@@ -114,14 +124,25 @@ function loadPlayer(e) {
 
 // Lift player into the screen
 function openPlayer() {
-    if ($playerContainer.css('bottom') === '-' + $(document).height() + 'px') {
-        $playerContainer.css('bottom', 0);
-    }
+    // TODO - Remove if it works without
+    // if ($playerContainer.css('bottom') === '-' + $(document).height() + 'px') {
+    //     $playerContainer.css('bottom', 0);
+    // }
+    $miniContainer.css('display', 'none');
+    $playerContainer.css('bottom', 0);
+}
+
+// Shrink the player to the mini version
+function shrinkPlayer() {
+    var value = -($(document).height()) + miniPlayerHeight;
+    $miniContainer.css('display', 'flex');
+    $playerContainer.css('bottom', value + 'px')
 }
 
 // Remove the player from the screen
 function closePlayer() {
     player.pause();
+    $miniContainer.css('display', 'none');
     $playerContainer.css('bottom', '-' + $(document).height() + 'px');
 }
 
