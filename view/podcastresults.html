@@ -13,7 +13,10 @@
 
 <repeat group="{{ @podcasts }}" value="{{ @podcast }}">
     <div class="pc-row">
-        <div class="pc-title hide-title" data-url="{{ @podcast->getUrl() }}">
+        <div class="pc-title hide-title"
+             data-url="{{ @podcast->getUrl() }}"
+             data-title="{{ @podcast->getTitle() }}"
+             data-image="{{ @podcast->getImage() }}">
             
             <div class="title-itself pc-title-itself">
                 <div class="date-image-switch">
