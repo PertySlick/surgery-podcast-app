@@ -177,6 +177,7 @@ div#menu-items {
 }
 
 div#menu-items a {
+    color: #444;
     text-decoration: none;
     display: block;
     background-color: #ddd;
