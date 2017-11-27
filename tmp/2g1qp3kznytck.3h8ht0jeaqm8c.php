@@ -65,12 +65,12 @@
 <?php endforeach; ?>
 
 <!--Episodes by Topic-->
-<h3 class="other-headings">Episodes by Topic</h3>
+<h3 id="episode-by-topic" class="other-headings">Episodes by Topic</h3>
 
 <!--Search bar-->
 <div class="search-bar">
-    <input type="search" id="topic-search-bar" name="search-term" placeholder="Search for Topic">
-    <button type="submit">
+    <input type="search" id="topic-search-bar" name="search-topic" placeholder="Search for Topic">
+    <button type="submit" id="search-topic-btn">
         <i class="fa fa-search fa-2x" aria-hidden="true"></i>
     </button>  
 </div>
@@ -99,7 +99,7 @@
 <div id="mc_embed_signup">
 <form action="https://greenrivertech.us17.list-manage.com/subscribe/post?u=5f127826b33735e960540fc04&amp;id=61ad1d819a" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
     <div id="mc_embed_signup_scroll">
-	<label for="mce-EMAIL">Subscribe to our mailing list</label>
+	<label for="mce-EMAIL" class="subscribe-header">Subscribe to our mailing list</label>
 	<input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required>
     <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
     <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_5f127826b33735e960540fc04_61ad1d819a" tabindex="-1" value=""></div>

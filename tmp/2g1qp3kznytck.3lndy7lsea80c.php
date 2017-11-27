@@ -13,26 +13,28 @@
 
 <!-- TOP NAVIGATION -->
 
-
 <nav class="nav-header">
-    <div class="nav-button">
-        <!--Link to homepage-->
-        <a href="home" target="iframe">
-            <i class="fa fa-home" aria-hidden="true"></i>
-        </a>
+    <!-- Keyword Search bar -->
+    <div id="header-search-bar">
+        <input type="search" id="keyword-search-bar" name="search-keyword" placeholder=" Search by Keyword(s)">
+        <button type="submit" id="search-keyword-btn">
+            <i class="fa fa-search fa-2x" aria-hidden="true"></i>
+        </button>
     </div>
-    <!--Dropdown list here-->
-    <div class="nav-button">
-        <a>
-            <i class="fa fa-th-list" aria-hidden="true"></i>
-        </a>
+    
+    <!-- Menu Button: 
+         Adapted from https://www.w3schools.com/howto/howto_js_dropdown.asp
+    -->
+    <div id="menu">
+        <h3>Menu <span><i id="keyword-search-icon" class="fa fa-bars" aria-hidden="true"></i></span></h3>
+        <div id="menu-items">
+            <a href="home" target="iframe">Home</a>
+            <a href="home#episode-by-topic" target="iframe">Topics</a>
+            <a href="">About Us</a>
+            <a href="home#mc_embed_signup" target="iframe">Mailing List</a>
+        </div>
     </div>
-    <div class="nav-button">
-        <!--Search feature to be added here-->
-        <a>
-            <i class="fa fa-search" aria-hidden="true"></i>
-        </a>
-    </div>
+        
 </nav>
 
 <!-- MAIN IFRAME PORTAL -->
@@ -45,64 +47,8 @@
 
 <!-- PODCAST PLAYER INTERFACE -->
 
-<div class="player-wrapper">
-    <div class="viewer-wrapper">
-        <div class="skip-button" id="backward-button">
-            <img class="skip-image" src="<?= ($IMG . 'backward-skip.svg') ?>" />
-            <!--TODO: REMOVE IF DOESN'T WORK OUT-->
-            <!--<object class="skip-image"  data="<?= ($IMG . 'backward-skip.svg') ?>" type="image/svg+xml">-->
-                <!--X-->
-            <!--</object>-->
-        </div>
-        <div class="content">
-            <img class="image" src="http://static.libsyn.com/p/assets/e/3/f/8/e3f81ea492e04af3/LOGO_BIG_1.jpg" />
-        </div>
-        <div class="skip-button" id="forward-button">
-            <img class="skip-image" src="<?= ($IMG . 'forward-skip.svg') ?>" />
-            <!--TODO: REMOVE IF DOESN'T WORK OUT-->
-            <!--<object class="skip-image" data="<?= ($IMG . 'forward-skip.svg') ?>" type="image/svg+xml">-->
-                <!--X-->
-            <!--</object>-->
-        </div>
-    </div>
-
- <div class="player">
-     <div class="player-controls">
-         <div id="current-position" class="timing">
-             00:00:00
-         </div>
-         <div id="progress" class="progress-bar">
-             <div id="progress-total">
-                 <div id="progress-actual"></div>
-             </div>
-         </div>
-         <div id="current-duration" class="timing">
-             00:00:00
-         </div>
-
-     </div>
-     <audio id="player" class="podcast-player">
-         <source src="<?= ($IMG . 'eagles-take-it-to-the-limit.mp3') ?>" type="audio/mpeg">
-     </audio>
- </div>
- <nav class="nav-footer">
-     <a href="home" class="nav-button" id="download" download>
-         <i class="fa fa-download" aria-hidden="true"></i>
-     </a>
-     <div class="nav-button" id="backward">
-         <i class="fa fa-backward" aria-hidden="true"></i>
-     </div>
-     <div class="nav-button" id="play">
-         <i class="fa fa-play" id="play-button" aria-hidden="true"></i>
-     </div>
-     <div class="nav-button" id="forward">
-         <i class="fa fa-forward" aria-hidden="true"></i>
-     </div>
-     <div class="nav-button" id="close">
-         <i class="fa fa-times" aria-hidden="true"></i>
-     </div>
- </nav>
-</div>
-
+    <!-- TODO - Temporary to avoid git work conflicts -->
+    <!-- TODO - Replace with actual code during deployment -->
+    <?php echo $this->render($INC . 'player.inc.html',NULL,get_defined_vars(),0); ?>
     <?php echo $this->render($INC . 'footer.inc.html',NULL,get_defined_vars(),0); ?>
 

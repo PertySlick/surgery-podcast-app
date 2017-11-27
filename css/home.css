@@ -167,4 +167,13 @@ a .topic, a .topic:hover  {
     color: #eee;
 }
 
+.subscribe-header
+{
+    color: #8282a1;
+    text-align: center;
+    font-size: 1.7em;
+    font-weight: 500;
+   
+}
+
 
