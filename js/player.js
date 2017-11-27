@@ -10,6 +10,7 @@ var player = parent.document.getElementById('player');              // Audio Pla
 var $player = $('#player', parent.document);                        // Audio Player jQuery
 var $playerContainer = $('.player-wrapper', parent.document);       // Container For Entire Player
 var $miniContainer = $('.mini-player');                             // Container For Mini Player
+var $miniContainerRemote = $('.mini-player', parent.document);      // Container For Mini Player
 var $miniPlayerTitle = $('.mini-player .player-title');             // Title Area of Mini Player
 var $playButton = $('#button-play');                                // Actual Play Button
 var $playButton2 = $('#button-play-2');                             // Actual Play Button (Mini)
@@ -18,6 +19,8 @@ var $closeButton = $('#button-close');                              // Actual Cl
 var $downloadButton = $('#download', parent.document);              // Actual Download Button
 var $forwardButton = $('#button-forward');                          // Actual Forward Button
 var $backwardButton = $('#button-backward');                        // Actual Backward Button
+var $playerTitle = $('.player-title', parent.document);             // Player Title Area
+var $playerImage = $('.player-image img', parent.document);         // Player Display Image Area
 var $duration = $('#progress-total');                               // Total Duration Bar
 var $progress = $('#progress-actual');                              // Progress Indicator
 var $durationTime = $('#current-duration');                         // Duration Time Display
@@ -113,22 +116,24 @@ function setDuration() {
 }
 
 // Load podcast from clicked row
-function loadPlayer(e) {
+function loadPlayer() {
     var url = $(this).parents('[data-url]').data('url');
+    var title = $(this).parents('[data-title]').data('title');
+    var image = $(this).parents('[data-image]').data('image');
 
+    $miniContainer.css('display', 'none');
     player.src = url;                       // Set source of player
-    $downloadButton.prop("href", url);
+    $downloadButton.prop('href', url);      // Set Download URL  TODO - Remove?
+    $playerImage.attr('src', image);        // Set Player Display Image
+    $playerTitle.html(title);               // Set Main Player Title
     player.load();
     openPlayer();
 }
 
 // Lift player into the screen
 function openPlayer() {
-    // TODO - Remove if it works without
-    // if ($playerContainer.css('bottom') === '-' + $(document).height() + 'px') {
-    //     $playerContainer.css('bottom', 0);
-    // }
     $miniContainer.css('display', 'none');
+    $miniContainerRemote.css('display', 'none');
     $playerContainer.css('bottom', 0);
 }
 

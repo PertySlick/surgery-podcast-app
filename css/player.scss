@@ -45,10 +45,12 @@ $player-toggle-speed: .5s;
   max-width: inherit;
   overflow: hidden;
   position: fixed;
+  width: 100%;
   @include player-transition(bottom $player-toggle-speed);
 
   //  -  Mini Player  -  \\
   .mini-player {
+    align-items: center;
     display: none;
     flex-wrap: nowrap;
     height: $mini-player-height;
@@ -104,7 +106,7 @@ $player-toggle-speed: .5s;
   //  -  Player Title Styles  -  \\
   .player-title {
     background-color: $debug-color;
-    height: 3em;
+    max-height: 3em;
     line-height: 1.5em;
     overflow: hidden;
     text-align: center;
