@@ -47,7 +47,9 @@
                     <p>Published Date: <br />{{ @podcast->getPublishDateLong() }}</p>
                 </div>
                 <div class="open-podcast-info">
-                    <i class="fa fa-download pc-download-button" aria-hidden="true"></i>
+                    <a href="{{ @podcast->getUrl() }}" download>
+                        <i class="fa fa-download pc-download-button" aria-hidden="true"></i>
+                    </a>
                 </div>
                 <div class="open-podcast-info" data-toggle="player">
                     <i class="fa fa-play pc-play-button" aria-hidden="true"></i>

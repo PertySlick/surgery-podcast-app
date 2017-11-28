@@ -414,8 +414,8 @@ hidden/collapsed at start*/
     display: none;
     color: black;
     float: left;
+    font-size: 15px; 
 }
-
 
 /* ====== RESPONSIVENESS ====== */
 

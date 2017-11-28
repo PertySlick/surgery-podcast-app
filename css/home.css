@@ -78,25 +78,30 @@ div.recent-pc-row {
 }
 
 .pc-download-button {
-    font-size: 50px !important;
-    padding: 10px;
+    font-size: 45px !important;
+    padding: 15px;
     padding-left: 40px;
+    color: black;
+}
+
+.pc-download-button a:visited {
+    color: grey;
 }
 
 .pc-play-button {
-    font-size: 50px !important;
-    padding: 10px;
+    font-size: 45px !important;
+    padding: 15px;
 }
 
 @media screen and (max-width: 320px) {
     .pc-download-button {
         font-size: 35px !important;
-        padding: 10px;
+        padding: 15px;
     }
     
     .pc-play-button {
         font-size: 35px !important;
-        padding: 10px;
+        padding: 15px;
     }
 }
 
