@@ -31,6 +31,7 @@ h2#welcome-title {
 
 p#welcome-message {
     margin-top: 5px;
+    margin-bottom: 0;
     font-size: 0.8em;
 }
 
@@ -39,8 +40,17 @@ h3.other-headings {
     text-align: center;
     font-size: 1.7em;
     font-weight: 500;
+    margin-top: 0px;
+}
+
+h3#most-recent-episodes {
+    padding-top: 40px;
     margin-bottom: 10px;
-    margin-top: 40px;
+}
+
+h3#episode-by-topic {
+    padding-top: 50px;
+    margin-bottom: 10px;
 }
 
 div.recent-pc-row {
