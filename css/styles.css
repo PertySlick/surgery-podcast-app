@@ -104,7 +104,7 @@ nav.nav-header {
     /*max-width: inherit;*/
     /*overflow: hidden;*/
     /*color: #000000 !important;*/
-    position: fixed;
+    position: absolute;
     top: 0;
     -webkit-transition: height .5s ease-out;
     transition: height 2s ease;
