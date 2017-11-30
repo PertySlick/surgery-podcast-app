@@ -1,0 +1,31 @@
+<!--
+ * File Name: about.html
+ * Author: Marlene Leano
+ * Date Created: 11/30/2017
+ * Assignment: Behind The Knife: The Surgery App
+ * Description:  The About Us page for Behind the Knife
+-->
+
+<include href="includes/header.inc.html">
+    
+    <div class="profile-pic">
+        <img src="{{ @IMG . 'Kevin-R-Kniery.jpg' }}" alt="Picture of Dr. Kevin Kniery" />
+    </div>
+    <div class="about">
+        <div class="name">
+            <p>Kevin Kniery</p>
+        </div>
+        <div class="bio">
+            <p>
+                Kevin is a general surgery resident in Washington State going into his third
+                clinical year. He is finishing up a year in the lab where he worked on improving
+                functional outcomes in Â limb transplants using a rat model, and also started
+                a project evaluating novel compounds to prevent abdominal adhesions. He went to
+                the United States Military Academy at West Point, NY, for his undergraduate degree
+                and Tulane for his MD and MPH. His fellowship interests include transplant, colorectal,
+                and vascular surgery.
+            </p>
+        </div>
+    </div>
+        
+<include href="{{ @INC . 'footer.inc.html' }}">

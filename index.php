@@ -84,9 +84,16 @@ $f3->route('GET /newtopic', function($f3) use ($controller) {
     echo Template::instance()->render('view/newtopic.html');
 });
 
+// Route to the About Us page
+$f3->route('GET /about', function($f3) use ($controller) {
+    //$f3->set('fontAwesome', true);
+    $controller->about($f3);
+    echo Template::instance()->render('view/about.html');
+});
+
 // Route to admin login
 $f3->route('GET|POST /login', function($f3) use ($controller) {
-    $f3->set('fontAwesome', true);
+    //$f3->set('fontAwesome', true);
     $controller->login($f3);
     echo Template::instance()->render('view/login.html');
 });
