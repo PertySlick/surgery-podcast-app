@@ -84,5 +84,12 @@ $f3->route('GET /newtopic', function($f3) use ($controller) {
     echo Template::instance()->render('view/newtopic.html');
 });
 
+// Route to admin login
+$f3->route('GET|POST /login', function($f3) use ($controller) {
+    $f3->set('fontAwesome', true);
+    $controller->login($f3);
+    echo Template::instance()->render('view/login.html');
+});
+
 //Run fat free
 $f3->run();

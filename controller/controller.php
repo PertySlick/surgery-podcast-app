@@ -91,6 +91,14 @@ class Controller {
         $db = new DbOperator();
         $f3->set('podcasts', $db->getPodcastByTag($params['tag']));
     }
+    
+    public function login($f3)
+    {
+        $f3->mSet(array(
+            'title' => 'BTK Podcasts By Topic',
+            'description' => 'Behind The Knife:  Browse podcasts by topic'
+        ));
+    }
 
 
 // METHODS - SUB-ROUTINES
