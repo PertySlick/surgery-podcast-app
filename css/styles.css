@@ -426,7 +426,11 @@ h1#about-us-heading {
     text-align: center;
     font-size: 2em;
     font-weight: 100;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
+}
+
+div.podcasthost {
+    overflow: auto;
 }
 
 h2.name {
