@@ -442,6 +442,7 @@ img.profile-pic {
     margin-right: 10px;
     max-height: 300px;
     max-width: 175px;
+    border-radius: 5px;
 }
 
 p.bio {
