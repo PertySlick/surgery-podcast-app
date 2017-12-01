@@ -128,6 +128,7 @@ function loadPlayer() {
     $playerTitle.html(title);               // Set Main Player Title
     player.load();
     openPlayer();
+    player.play();
 }
 
 // Lift player into the screen
