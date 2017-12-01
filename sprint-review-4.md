@@ -11,14 +11,13 @@
 
 ### Sprint User Testing Report
 
-[Sprint 3 User Testing Report.pdf](https://mailgreenriver-my.sharepoint.com/personal/troush_mail_greenriver_edu/_layouts/15/guestaccess.aspx?docid=104d4ee9840b24a35b0aeda963d445430&authkey=Ad73jrjm4jnWbTTCsEowae8&e=04b0b00ec3824f19873af9bebd8abe42)
+[Sprint 4 User Testing Report.pdf](https://mailgreenriver-my.sharepoint.com/personal/troush_mail_greenriver_edu/_layouts/15/guestaccess.aspx?docid=104d4ee9840b24a35b0aeda963d445430&authkey=Ad73jrjm4jnWbTTCsEowae8&e=12d6a87166a04622a8629ef8c7ed0118)
 
 ### Sprint User Stories
 
 1. **Add Mailing List Functionality** - 2
   - *As a user I want to be able to sign up for email announcements or notifications of new podcast content.*
   - *As a product owner I want to be able to collect user data for communication and future monetary purposes.*
-  - 
   - **Definition Of Done**
     - [x] Sign up for a MailChimp account
     - [x] Insert simple sign-up form code into new home page design
