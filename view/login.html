@@ -11,7 +11,34 @@
     <!--Login Form-->
     <form action="" method="post">
         <input id="username" type="text" name="username" placeholder="enter username" />
+        
+        <!--If client-side username validation fails-->
+        <div class="client-side-error">
+            <strong>Error: </strong><span id="username-error"></span>
+        </div>
+
         <input id="password" type="password" name="password" placeholder="enter password"/>
+        
+        <!--If client-side password validation fails-->
+        <div class="client-side-error">
+            <strong>Error: </strong><span id="password-error"></span>
+        </div>
+        
+        <!--If client-side login validation fails-->
+        <div class="client-side-error">
+            <strong>Error: </strong><span id="login-error"></span>
+        </div>
+        
+        <!--If server-side validation fails-->
+        <check if="{{ @errors }}">
+            <div class="server-side-error">
+                <strong>Error: </strong>
+                <repeat group="{{ @errors }}" value="{{ @error }}">
+                    <p>- {{ @error }}</p>
+                </repeat>
+            </div>  
+        </check>
+        
         <button id="login-btn" type="submit">LOGIN</button>
     </form>
         

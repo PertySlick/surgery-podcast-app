@@ -489,6 +489,18 @@ button#login-btn:active {
     background-color: #5c5c7a;
 }
 
+div.client-side-error {
+    width: 60%;
+    margin: 4px auto;
+    padding: 15px 10px;
+    color: #a94442;
+    background-color: #f2dede;
+    border-color: #ebccd1;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    display: none; /*so invisible at start*/
+}
+
 
 /* ====== RESPONSIVENESS ====== */
 
