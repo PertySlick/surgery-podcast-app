@@ -10,9 +10,8 @@
 /* ====== HOME ====== */
 
 img#btk-logo {
-    width: 85%;
+    width: 100%;
     display: block;
-    padding-top: 8px;
     margin: auto;
     margin-top: 20px;
     
@@ -30,9 +29,10 @@ h2#welcome-title {
 }
 
 p#welcome-message {
+    color: #8282a1;
     margin-top: 5px;
     margin-bottom: 0;
-    font-size: 0.8em;
+    font-size: 1em;
 }
 
 h3.other-headings {
@@ -40,7 +40,7 @@ h3.other-headings {
     text-align: center;
     font-size: 1.7em;
     font-weight: 500;
-    margin-top: 0px;
+    margin-top: 0;
 }
 
 h3#most-recent-episodes {
