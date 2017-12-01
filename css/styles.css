@@ -452,6 +452,13 @@ img.profile-pic {
 p.bio {
     margin-top: 0;
     font-size: 0.8em;
+    
+    /*break long words with hyphens*/
+    word-wrap: break-word;
+    /*-webkit-hyphens: auto;*/
+    /*-moz-hyphens: auto;*/
+    /*-ms-hyphens: auto;*/
+    /*hyphens: auto;*/
 }
 
 
