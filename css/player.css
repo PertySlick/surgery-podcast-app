@@ -26,10 +26,30 @@
     height: 50px;
     position: relative;
     max-width: 100%; }
-    .player-wrapper .mini-player .player-title {
+    .player-wrapper .mini-player #main-player-restore {
+      cursor: pointer;
       margin: 0;
       overflow: hidden;
+      position: relative;
       width: calc(100% - 100px); }
+    .player-wrapper .mini-player #main-player-restore:hover .restore-overlay {
+      opacity: .5; }
+    .player-wrapper .mini-player .restore-overlay {
+      align-items: center;
+      color: #ff4444;
+      display: flex;
+      font-size: 2em;
+      height: 100%;
+      justify-content: center;
+      left: 0;
+      opacity: 0;
+      position: absolute;
+      top: 0;
+      width: 100%;
+      transition: opacity .2s ease-in-out; }
+    .player-wrapper .mini-player .show-overlay {
+      opacity: .5;
+      transition: opacity .2s ease-in-out; }
   .player-wrapper .player-header {
     background-color: inherit;
     height: 10%;
@@ -70,7 +90,7 @@
       margin: auto;
       width: 90%; }
     .player-wrapper .player-seek #progress-total {
-      background-color: #ddd;
+      background-color: #dddddd;
       border-radius: 15px;
       flex-grow: 5;
       height: 10px;
@@ -81,7 +101,7 @@
       height: 100%;
       width: 0; }
     .player-wrapper .player-seek .timing {
-      color: #ddd;
+      color: #dddddd;
       font-size: 1em;
       text-align: center;
       width: 25%; }
@@ -115,6 +135,14 @@
     font-size: 1.5em;
     height: 45px;
     position: absolute;
+    width: 45px; }
+  .player-wrapper #button-download {
+    color: #dddddd;
+    font-size: 1.5em;
+    height: 45px;
+    position: absolute;
+    right: 0;
+    top: 0;
     width: 45px; }
   .player-wrapper #button-close {
     color: #ff4444;

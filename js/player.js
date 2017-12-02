@@ -11,12 +11,12 @@ var $player = $('#player', parent.document);                        // Audio Pla
 var $playerContainer = $('.player-wrapper', parent.document);       // Container For Entire Player
 var $miniContainer = $('.mini-player');                             // Container For Mini Player
 var $miniContainerRemote = $('.mini-player', parent.document);      // Container For Mini Player
-var $miniPlayerTitle = $('.mini-player .player-title');             // Title Area of Mini Player
+var $mainPlayerRestore = $('#main-player-restore');                 // Click Area To Restore Main Player
 var $playButton = $('#button-play');                                // Actual Play Button
 var $playButton2 = $('#button-play-2');                             // Actual Play Button (Mini)
 var $shrinkButton = $('#button-shrink');                            // Actual Shrink Button
 var $closeButton = $('#button-close');                              // Actual Close Button
-var $downloadButton = $('#download', parent.document);              // Actual Download Button
+var $downloadButton = $('#button-download', parent.document);              // Actual Download Button
 var $forwardButton = $('#button-forward');                          // Actual Forward Button
 var $backwardButton = $('#button-backward');                        // Actual Backward Button
 var $playerTitle = $('.player-title', parent.document);             // Player Title Area
@@ -38,7 +38,7 @@ $('document').ready(function() {
     $playButton.on('click', togglePlay);                            // Play Button Functionality
     $playButton2.on('click', togglePlay);                           // Play Button (Mini) Functionality
     $shrinkButton.on('click', shrinkPlayer);                        // Shrink To Mini Player
-    $miniPlayerTitle.on('click', openPlayer);                       // Grow To Full Player
+    $mainPlayerRestore.on('click', openPlayer);                     // Grow To Full Player
     $closeButton.on('click', closePlayer);                          // Close PodCast Player
     $forwardButton.on('click', { time: t }, jumpProgress);          // Jump Ahead 10 Seconds
     $backwardButton.on('click', { time: (t*-1) }, jumpProgress);    // Jump Back 10 Seconds
@@ -123,7 +123,7 @@ function loadPlayer() {
 
     $miniContainer.css('display', 'none');
     player.src = url;                       // Set source of player
-    $downloadButton.prop('href', url);      // Set Download URL  TODO - Remove?
+    $downloadButton.prop('href', url);      // Set Download URL
     $playerImage.attr('src', image);        // Set Player Display Image
     $playerTitle.html(title);               // Set Main Player Title
     player.load();
