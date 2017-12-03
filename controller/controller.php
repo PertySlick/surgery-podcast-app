@@ -35,14 +35,28 @@ class Controller {
      * object.
      */
     public function __construct() {
-        //TODO:  Empty Operator?
+        // Empty Operator
     }
 
 
 // METHODS - MAIN ROUTE OPERATIONS
 
 
-/**
+    /**
+     * Handles all logic for the initial IFrame display page.
+     * @param $f3 Object Fat Free object
+     */
+    public function iframe($f3)
+    {
+        // Set environment tokens
+        $f3->mSet(array(
+            'title' => 'BTK Surgery Podcast',
+            'description' => 'Behind The Knife:  The Surgery Podcast',
+            'iframe' => true
+        ));
+    }
+
+    /**
      * Handles all logic for the main home page.
      * @param $f3 Object Fat Free object
      */
@@ -63,17 +77,7 @@ class Controller {
         // Store topics for building links
         $f3->set('topics', $db->getTopics());
     }
-    
-    public function iframe($f3)
-    {
-        // Set environment tokens
-        $f3->mSet(array(
-            'title' => 'BTK Surgery Podcast',
-            'description' => 'Behind The Knife:  The Surgery Podcast',
-            'iframe' => true
-        ));
-    }
-    
+
     /**
      * Fetches all podcast records that match the supplied tag and assigns the
      * results to an F3 variable.
@@ -105,6 +109,20 @@ class Controller {
         $f3->mSet(array(
             'title' => 'BTK Podcasts By Topic',
             'description' => 'Behind The Knife:  Browse podcasts by topic'
+        ));
+    }
+
+    /**
+     * Handles all logic for the admin portal page.
+     * @param $f3 Object Fat Free object
+     */
+    public function admin($f3)
+    {
+        // Set environment tokens
+        $f3->mSet(array(
+            'title' => 'BTK Surgery Podcast',
+            'description' => 'The Surgery Podcast - Admin Portal',
+            'iframe' => true
         ));
     }
 

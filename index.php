@@ -38,9 +38,6 @@ $f3->set('iframe', false);                         // Set Initial IFrame Toggle 
 $f3->set('fontAwesome', true);                     // Initialize FontAwesome Toggle
 $controller = new Controller();                    // MVC Controller object
 
-//Instantiate the ? class
-//   $DB = new DB();
-
 
 /* ====== BEGIN ROUTE DEFINITIONS ====== */
 
@@ -66,36 +63,39 @@ $f3->route('GET /topic/@tag', function($f3, $params) use ($controller) {
     echo Template::instance()->render('view/podcastresults.html');
 });
 
+////
+//$f3->route('GET /topic', function($f3, $params) use ($controller) {
+//    //$controller->topic($f3, $params);
+//    echo Template::instance()->render('view/topic.html');
+//});
 //
-$f3->route('GET /topic', function($f3, $params) use ($controller) {
-    //$controller->topic($f3, $params);
-    echo Template::instance()->render('view/topic.html');
-});
-
-// Podcast player route
-// TODO: Route needs to be completed with functionality
-$f3->route('GET /play', function($f3) use ($controller) {
-    echo Template::instance()->render('view/player.html');
-});
-
-// Alternate Topics Page
-$f3->route('GET /newtopic', function($f3) use ($controller) {
-    $f3->set('fontAwesome', true);
-    echo Template::instance()->render('view/newtopic.html');
-});
+//// Podcast player route
+//$f3->route('GET /play', function($f3) use ($controller) {
+//    echo Template::instance()->render('view/player.html');
+//});
+//
+//// Alternate Topics Page
+//$f3->route('GET /newtopic', function($f3) use ($controller) {
+//    $f3->set('fontAwesome', true);
+//    echo Template::instance()->render('view/newtopic.html');
+//});
 
 // Route to the About Us page
 $f3->route('GET /about', function($f3) use ($controller) {
-    //$f3->set('fontAwesome', true);
     $controller->about($f3);
     echo Template::instance()->render('view/about.html');
 });
 
 // Route to admin login
 $f3->route('GET|POST /login', function($f3) use ($controller) {
-    //$f3->set('fontAwesome', true);
     $controller->login($f3);
     echo Template::instance()->render('view/login.html');
+});
+
+// Route to admin portal
+$f3->route('GET|POST /admin', function($f3) use ($controller) {
+    $controller->admin($f3);
+    echo Template::instance()->render('view/admin.html');
 });
 
 //Run fat free
