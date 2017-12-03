@@ -40,6 +40,12 @@ a, a:hover, .pc-title:hover {
 /* ====== IFRAME ====== */
 
 
+.iphone-fix {
+    height: 100%;
+    overflow: hidden;
+    -webkit-overflow-scrolling: touch;
+}
+
 iframe {
     border: 0;
     height: 100%;
