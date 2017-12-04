@@ -296,24 +296,23 @@ class DbOperator {
     }
 
 
-    public function getTopics() {
+    /**
+     * Return a list of all available podcast topics/tags
+     * @param $limit
+     * @return array|null
+     */
+    public function getAllTopics() {
         $topics = array();
 
-        $stmt = $this->_conn->prepare('
-            SELECT tag_name as topic
-            FROM podcast_tags 
-            NATURAL JOIN podcast_tag_join 
-            WHERE tag_name <> \'\'
-            GROUP BY tag_id 
-            ORDER BY COUNT(tag_name) DESC
-            LIMIT 20
-        ');
+        $sqlStatement = 'SELECT tag_name as topic
+                         FROM podcast_tags
+                         NATURAL JOIN podcast_tag_join
+                         WHERE tag_name <> \'\'
+                         GROUP BY tag_id
+                         ORDER BY tag_name ASC';
 
-        try {
-            $stmt->execute();
-        } catch (PDOException $error) {
-            die ("(!) There was an retrieving topics from the database... " . $error);
-        }
+        $stmt = $this->_conn->prepare($sqlStatement);
+        $stmt->execute();
 
         if ($stmt->rowCount() > 0) {
             while ($record = $stmt->fetch(PDO::FETCH_ASSOC)) {
@@ -322,6 +321,72 @@ class DbOperator {
             return $topics;
         }
         return null;
+    }
+
+    /**
+     * Return a list of all available priority podcast topics/tags
+     * @param $limit
+     * @return array|null
+     */
+    public function getPriorityTopics() {
+        $topics = $this->getPriorities();
+
+        return $topics;
+    }
+
+    /**
+     * Returns an array of all the current priority topic records
+     * @return array Array of priorities
+     */
+    public function getPriorities() {
+        $priorities = array();
+        $stmt = $this->_conn->prepare('SELECT tag_string as tag
+                                       FROM tag_priority');
+        try {
+            $stmt->execute();
+        } catch (PDOException $error) {
+            die ("(!) There was an retrieving topics from the database... " . $error);
+        }
+
+        if ($stmt->rowCount() > 0) {
+            while ($record = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                $priorities[] = $record['tag'];
+            }
+            return $priorities;
+        }
+        return null;
+    }
+
+    public function writePriorities() {
+        $this->resetPriorities();
+
+        $stmt = $this->_conn->prepare('INSERT INTO tag_priority VALUES 
+                                       (:priority, :topic)');
+
+        for($i = 1; $i <= $_POST['count']; $i++) {
+//            echo 'Topic ' . $i . ': ' . $_POST['priority-' . $i];
+            $stmt->bindParam(':priority', $i, PDO::PARAM_INT);
+            $stmt->bindParam(':topic', $_POST['priority-' . $i], PDO::PARAM_STR);
+            $stmt->execute();
+        }
+    }
+
+
+// METHODS - SUB-ROUTINES
+
+
+    /**
+     * Wipes all data from the tag_priority table.
+     * @return bool true if successful, false otherwise
+     */
+    private function resetPriorities() {
+        $stmt = $this->_conn->prepare('TRUNCATE TABLE tag_priority');
+        try {
+            $stmt->execute();
+            return true;
+        } catch (Exception $e) {
+            return false;
+        }
     }
 
 }

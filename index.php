@@ -93,8 +93,14 @@ $f3->route('GET|POST /login', function($f3) use ($controller) {
 });
 
 // Route to admin portal
-$f3->route('GET|POST /admin', function($f3) use ($controller) {
+$f3->route('GET /admin', function($f3) use ($controller) {
     $controller->admin($f3);
+    echo Template::instance()->render('view/admin.html');
+});
+
+// Route to admin portal upon submission
+$f3->route('POST /admin', function($f3) use ($controller) {
+    $controller->adminSubmit($f3);
     echo Template::instance()->render('view/admin.html');
 });
 

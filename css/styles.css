@@ -42,7 +42,7 @@ a, a:hover, .pc-title:hover {
 
 .iphone-fix {
     height: 100%;
-    overflow: hidden;
+    overflow: auto;
     -webkit-overflow-scrolling: touch;
 }
 
@@ -50,7 +50,9 @@ iframe {
     border: 0;
     height: 100%;
     overflow: hidden;
-    width: 100%;
+    width: 1px;
+    min-width: 100%;
+    *width: 100%;
 }
 
 .iframe-wrapper {
@@ -512,6 +514,16 @@ div.client-side-error {
     border: 1px solid transparent;
     border-radius: 4px;
     display: none; /*so invisible at start*/
+}
+
+
+/* ====== ADMIN PORTAL ====== */
+
+
+.priority-row {
+    align-items: center;
+    display: flex;
+    flex-wrap: nowrap;
 }
 
 

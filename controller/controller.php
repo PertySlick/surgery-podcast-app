@@ -75,7 +75,7 @@ class Controller {
         $f3->set('podcasts', $db->retrieveRecentPodcasts());
         
         // Store topics for building links
-        $f3->set('topics', $db->getTopics());
+        $f3->set('topics', $db->getPriorityTopics());
     }
 
     /**
@@ -124,6 +124,25 @@ class Controller {
             'description' => 'The Surgery Podcast - Admin Portal',
             'iframe' => true
         ));
+
+        $db = new DbOperator();
+
+        // Get and store list of all topics
+        $f3->set('topics', $db->getAllTopics());
+
+        // Get and store list of tag priorities
+        $f3->set('priorities', $db->getPriorities());
+    }
+
+    public function adminSubmit($f3)
+    {
+        $db = new DbOperator();
+
+        if ($_POST['action'] === 'priority') {
+            $db->writePriorities();
+        }
+
+        $this->admin($f3);
     }
 
 
