@@ -63,3 +63,35 @@ function getTopicsByQuery($conn) {
         echo json_encode('');
     }
 }
+
+
+/*
+ * Validated login credientials (used in validation via JavaScript)
+ */
+function validateLogin($conn) {
+    $user = $_POST['username'];
+    $inputPassword = $_POST['password'];
+    
+    $stmt = $conn->prepare('SELECT username, password ' .
+                            'FROM users ' .
+                            'WHERE username = :user');
+    $stmt->bindParam(':user', $user, PDO::PARAM_STR);
+    
+    try {
+        $stmt->execute();
+    } catch (PDOException $error) {
+        echo ('Error connecting to the database: ' . $error);
+    }
+    
+    if ($stmt->rowCount() > 0) {
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+        
+        $passwordInDb = $row['password'];
+        
+        $doPasswordsMatch = password_verify($inputPassword, $passwordInDb);
+        
+        echo json_encode($doPasswordsMatch);
+    } else { //user not found
+        echo json_encode(false);
+    }
+}
