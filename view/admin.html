@@ -12,23 +12,34 @@
     <h1>The Surgery Podcast - Admin Portal</h1>
     <h2>Database Refresh</h2>
     <h2>Topic Priorities</h2>
-    <form action="{{ @BASE . '/admin' }}" method="POST">
-        <repeat group="{{ @priorities }}" value="{{ @record }}" counter="{{ @ctr }}">
-            <div class="priority-row">
-                <div class="priority-number">{{ @ctr }}</div>
-                <div class="priority-topic">
-                    <select name="{{ 'priority-' . @ctr }}" id="{{ 'priority-' . @ctr }}">
-                        <repeat group="{{ @topics }}" value="{{ @topic }}">
-                            <option value="{{ @topic }}" {{ @topic==@record?'selected="selected"':'' }}>{{ @topic }}</option>
-                        </repeat>
-                    </select>
+
+                <!-- TODO: REMOVE INLINE STYLE -->
+                <div class="hidden" id="priority-option-template" style="display:none;">
+                    <repeat group="{{ @topics }}" value="{{ @topic }}">
+                        <option value="{{ @topic }}">{{ @topic }}</option>
+                    </repeat>
                 </div>
-                <div class="priority-up"><i class="fa fa-arrow-up"></i></div>
-                <div class="priority-down"><i class="fa fa-arrow-down"></i></div>
-                <div class="priority-remove"><i class="fa fa-times"></i></div>
-            </div>
-        </repeat>
+
+    <form action="{{ @BASE . '/admin' }}" method="POST">
+        <div class="priority-container">
+            <repeat group="{{ @priorities }}" value="{{ @record }}" counter="{{ @ctr }}">
+                <div class="priority-row" data-row="{{ @ctr }}">
+                    <div class="priority-number">{{ @ctr }}</div>
+                    <div class="priority-topic">
+                        <select name="{{ 'priority-' . @ctr }}" id="{{ 'priority-' . @ctr }}">
+                            <repeat group="{{ @topics }}" value="{{ @topic }}">
+                                <option value="{{ @topic }}" {{ @topic==@record?'selected="selected"':'' }}>{{ @topic }}</option>
+                            </repeat>
+                        </select>
+                    </div>
+                    <div class="priority-up"><i class="fa fa-arrow-up"></i></div>
+                    <div class="priority-down"><i class="fa fa-arrow-down"></i></div>
+                    <div class="priority-remove"><i class="fa fa-times"></i></div>
+                </div>
+            </repeat>
+        </div>
         <input type="hidden" id="priority-count" name="count" value="{{ @ctr }}" />
+        <button type="button" name="add" id="button-add">Add</button>
         <button type="submit" name="action" value="priority">Save</button>
     </form>
 
