@@ -11,17 +11,15 @@
 
 
 var $priorityContainer = $('.priority-container');                                  // Container For All Priority Rows
-var $priorityRow = $('.priority-row');                                              // Selector For Every Priority Row
-var $lastPriorityRow = $('.priority-row:last-child');                               // Selector For Last Priority Row
-var $prioritySelect = $('.priority-select');                                        // Selector For All Priority Select Elements
 var $counter = $('input#priority-count');                                           // Stored Priority Counter For Submission
-var $buttonUp = $('[data-toggle=button-up]');                                       // Button For Promoting A Priority
-var $buttonDown = $('[data-toggle=button-down]');                                                // Button For Demoting A Priority
 var $buttonAdd = $('#button-add');                                                  // Button For Adding A Priority
-var $buttonDelete = $('.button-delete');                                            // Button For Deleting A Priority
+
+var buttonUp = '[data-toggle=button-up]';                                           // Button For Promoting A Priority
+var buttonDown = '[data-toggle=button-down]';                                       // Button For Demoting A Priority
+var buttonDelete = '[data-toggle=button-delete]';                                   // Button For Deleting A Priority
 
 var optionTemplate = $('#priority-option-template').html();                         // HTML Template For Select Options
-var count = parseInt($counter.val(), 10);                                                         // Initial Priority Count
+var count = parseInt($counter.val(), 10);                                           // Initial Priority Count
 
 
 // INITIATORS
@@ -29,8 +27,9 @@ var count = parseInt($counter.val(), 10);                                       
 
 $('document').ready(function() {
     $buttonAdd.on('click', addNewPriority);
-    $buttonUp.on('click', promotePriority);
-    $buttonDown.on('click', demotePriority);
+    $('body').on('click', buttonUp, promotePriority);
+    $('body').on('click', buttonDown, demotePriority);
+    $('body').on('click', buttonDelete, deletePriority);
 });
 
 
@@ -39,6 +38,7 @@ $('document').ready(function() {
 
 function addNewPriority() {
     $priorityContainer.append(newPriorityRow(++count));
+    //refreshSelectors();
     $counter.val(count);
 }
 
@@ -68,6 +68,20 @@ function demotePriority() {
     }
 }
 
+function deletePriority() {
+    var $currentRow = $(event.target).parents('[data-row]')
+    var $targetValue = $currentRow.find('select');
+
+    $currentRow.nextAll().each( function() {
+        var $currentValue = $(this).find('select');
+        $targetValue.val($currentValue.val());
+        $targetValue = $currentValue;
+    });
+
+    $('[data-row]:last-child').remove();
+    $counter.val(--count);
+}
+
 
 // METHODS - SUBROUTINES
 
@@ -81,9 +95,9 @@ function newPriorityRow(num) {
                     optionTemplate +
                 '</select>\n' +
             '</div>\n' +
-            '<div class="priority-up"><i class="fa fa-arrow-up"></i></div>\n' +
-            '<div class="priority-down"><i class="fa fa-arrow-down"></i></div>\n' +
-            '<div class="priority-remove"><i class="fa fa-times"></i></div>\n' +
+            '<div class="priority-up" data-toggle="button-up"><i class="fa fa-arrow-up"></i></div>\n' +
+            '<div class="priority-down" data-toggle="button-down"><i class="fa fa-arrow-down"></i></div>\n' +
+            '<div class="priority-remove" data-toggle="button-delete"><i class="fa fa-times"></i></div>\n' +
         '</div>');
 
     return $newRow;
