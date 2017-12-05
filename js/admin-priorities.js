@@ -15,13 +15,13 @@ var $priorityRow = $('.priority-row');                                          
 var $lastPriorityRow = $('.priority-row:last-child');                               // Selector For Last Priority Row
 var $prioritySelect = $('.priority-select');                                        // Selector For All Priority Select Elements
 var $counter = $('input#priority-count');                                           // Stored Priority Counter For Submission
-var $buttonUp = $('#button-up');                                                    // Button For Promoting A Priority
-var $buttonDown = $('#button-down');                                                // Button For Demoting A Priority
+var $buttonUp = $('[data-toggle=button-up]');                                       // Button For Promoting A Priority
+var $buttonDown = $('[data-toggle=button-down]');                                                // Button For Demoting A Priority
 var $buttonAdd = $('#button-add');                                                  // Button For Adding A Priority
 var $buttonDelete = $('.button-delete');                                            // Button For Deleting A Priority
 
 var optionTemplate = $('#priority-option-template').html();                         // HTML Template For Select Options
-var count = $lastPriorityRow.data('row');                                           // Initial Priority Count
+var count = parseInt($counter.val(), 10);                                                         // Initial Priority Count
 
 
 // INITIATORS
@@ -29,6 +29,8 @@ var count = $lastPriorityRow.data('row');                                       
 
 $('document').ready(function() {
     $buttonAdd.on('click', addNewPriority);
+    $buttonUp.on('click', promotePriority);
+    $buttonDown.on('click', demotePriority);
 });
 
 
@@ -37,7 +39,33 @@ $('document').ready(function() {
 
 function addNewPriority() {
     $priorityContainer.append(newPriorityRow(++count));
-    $counter.val(parseInt($counter.val(), 10) + 1);
+    $counter.val(count);
+}
+
+function promotePriority() {
+    var $currentRow = $(event.target).parents('[data-row]');
+
+    if($currentRow.data('row') > 1) {
+        var $currentValue = $currentRow.find('select');
+        var $targetValue = $currentRow.prev().find('select');
+        var tempValue = $currentValue.val();
+
+        $currentValue.val($targetValue.val());
+        $targetValue.val(tempValue);
+    }
+}
+
+function demotePriority() {
+    var $currentRow = $(event.target).parents('[data-row]');
+
+    if($currentRow.data('row') < count) {
+        var $currentValue = $currentRow.find('select');
+        var $targetValue = $currentRow.next().find('select');
+        var tempValue = $currentValue.val();
+
+        $currentValue.val($targetValue.val());
+        $targetValue.val(tempValue);
+    }
 }
 
 
