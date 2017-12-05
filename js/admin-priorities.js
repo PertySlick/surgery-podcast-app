@@ -95,9 +95,9 @@ function newPriorityRow(num) {
                     optionTemplate +
                 '</select>\n' +
             '</div>\n' +
-            '<div class="priority-up" data-toggle="button-up"><i class="fa fa-arrow-up"></i></div>\n' +
-            '<div class="priority-down" data-toggle="button-down"><i class="fa fa-arrow-down"></i></div>\n' +
-            '<div class="priority-remove" data-toggle="button-delete"><i class="fa fa-times"></i></div>\n' +
+            '<div class="priority-button priority-up" data-toggle="button-up"><i class="fa fa-arrow-up"></i></div>\n' +
+            '<div class="priority-button priority-down" data-toggle="button-down"><i class="fa fa-arrow-down"></i></div>\n' +
+            '<div class="priority-button priority-remove" data-toggle="button-delete"><i class="fa fa-times"></i></div>\n' +
         '</div>');
 
     return $newRow;

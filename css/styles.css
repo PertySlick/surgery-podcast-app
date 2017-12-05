@@ -524,6 +524,51 @@ div.client-side-error {
     align-items: center;
     display: flex;
     flex-wrap: nowrap;
+    height: 50px;
+    margin: auto;
+    max-width: 500px;
+}
+
+.priority-number {
+    align-items: center;
+    display: flex;
+    height: 100%;
+    justify-content: space-around;
+    width: 45px;
+}
+
+.priority-topic {
+    align-items: center;
+    display: flex;
+    flex-grow: 2;
+    justify-content: center;
+}
+
+.priority-topic select {
+    border: 1px solid #ccc;
+    font-size: 1em;
+    padding: 10px 10px 10px 5px;
+    width: 100%;
+}
+
+.priority-button {
+    align-items: center;
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    width: 45px;
+}
+
+.priority-up {
+    color: green;
+}
+
+.priority-down {
+    color: #556b2f;
+}
+
+.priority-remove {
+    color: red;
 }
 
 
