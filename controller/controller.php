@@ -111,6 +111,55 @@ class Controller {
             'description' => 'Behind The Knife:  Browse podcasts by topic'
         ));
     }
+    
+    public function verifyLogin($f3)
+    {   
+        //If form was submitted
+        if($_SERVER['REQUEST_METHOD'] == 'POST') {
+            //initialize errors array
+            $errors = [];
+                    
+            //Make sure username and password were entered
+            if(isset($_POST['username']) && isset($_POST['password'])) {
+                //Get form data
+                $enteredUsername = $_POST['username'];
+                $enteredPassword = $_POST['password'];
+                      
+                //Validate login information
+                
+                if (strlen($enteredUsername) < 1) {
+                    $errors[] = 'Please enter your username';
+                }
+                
+                if (strlen($enteredPassword) < 1) {
+                    $errors[] = 'Please enter your password';
+                }
+                
+                //Initialize variable
+                $loginSuccess = false;
+                
+                //If username and password were entered, verify
+                if(count($errors) == 0) {
+                    $db = new DbOperator();
+                    
+                    $loginSuccess =
+                        $db->areCredentialsValidated
+                            ($enteredUsername, $enteredPassword);  
+                }
+                
+                if($loginSuccess == false) {
+                    $errors[] = 'Incorrect username or password.';
+                }
+            } else {
+                $errors[] = 'Username or password was not entered.';
+            }
+            
+            //If no login errors, store session variable
+            if(count($errors) == 0) {
+                $_SESSION['user'] = $enteredUsername;
+            }
+        } 
+    }
 
     /**
      * Handles all logic for the admin portal page.
