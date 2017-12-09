@@ -86,20 +86,41 @@ $f3->route('GET /about', function($f3) use ($controller) {
     echo Template::instance()->render('view/about.html');
 });
 
-// Route to admin login
-$f3->route('GET|POST /login', function($f3) use ($controller) {
-    $controller->login($f3);
-    echo Template::instance()->render('view/login.html');
+// Route to admin login or to admin portal
+$f3->route('GET /admin', function($f3) use ($controller) {
+    //If user is already logged in
+    if(isset($_SESSION['user'])) {
+        $controller->admin($f3);
+        echo Template::instance()->render('view/admin.html');
+    } else { //user is not logged in
+        $controller->login($f3);
+        echo Template::instance()->render('view/login.html'); 
+    }
+});
+
+// Validate login info then route to appropriate page
+$f3->route('POST /admin', function($f3) use ($controller) {
+    //Verify login info
+    $controller->verifyLogin($f3);
+    
+    //If verified, route to admin page
+    if(isset($_SESSION['user'])) {
+        $controller->admin($f3);
+        echo Template::instance()->render('view/admin.html');
+    } else { //Login failed, return to login page
+        $controller->login($f3);
+        echo Template::instance()->render('view/login.html'); 
+    }
 });
 
 // Route to admin portal
-$f3->route('GET /admin', function($f3) use ($controller) {
-    $controller->admin($f3);
-    echo Template::instance()->render('view/admin.html');
-});
+//$f3->route('GET /admin', function($f3) use ($controller) {
+//    $controller->admin($f3);
+//    echo Template::instance()->render('view/admin.html');
+//});
 
 // Route to admin portal upon submission
-$f3->route('POST /admin', function($f3) use ($controller) {
+$f3->route('POST /priority', function($f3) use ($controller) {
     $controller->adminSubmit($f3);
     echo Template::instance()->render('view/admin.html');
 });

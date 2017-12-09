@@ -79,7 +79,7 @@ function validate(event)
       
     //If no errors, submit data
     if (!isError) {
-        //$("form").submit();
+        $("form").submit();
     }
 }
 
@@ -93,7 +93,7 @@ function report(id, message)
     $('#' + id).parent().show();
 }
 
-//Clear any previour error messages
+//Clear any previous error messages
 function removeErrors()
 {
     $("#username-error").parent().hide();

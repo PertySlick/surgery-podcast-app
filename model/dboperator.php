@@ -246,27 +246,35 @@ class DbOperator {
      * database.  If a record is found with a matching username, the data
      * for that record is retrieved.  The password values are then compared. If
      * they match, an array of user data is then returned for Controller use.
-     * @param $email String email used in login attempt
-     * @param $password String hashed value of password used in login attempt
-     * @return array of user data if validated, null otherwise
+     * @param $username String uername used in login attempt
+     * @param $password String password used in login attempt
+     * @return true if credentials are validated, false otherwise
      */
-    public function checkAdminCredentials($user, $password)
+    public function areCredentialsValidated($username, $enteredPassword)
     {
-        $stmt = $this->_conn->prepare("SELECT * FROM users WHERE username=:username");
-        $stmt->bindParam(":username", $user);
+        $stmt = $this->_conn->prepare("SELECT password FROM users WHERE username=:username");
+        $stmt->bindParam(":username", $username);
         $stmt->execute();
-    
+        
+        //User found
         if ($stmt->rowCount() > 0) {
-        $result = $stmt->fetch(PDO::FETCH_ASSOC);
-            if ($password === $result['password']) {
-                return array(
-                'username' => $result['username'],
-                'user_id' => $result['user_id'],
-                'email' => $result['email']
-                );
-            }
+            $result = $stmt->fetch(PDO::FETCH_ASSOC);
+            
+            $passwordFromDB = $result['password'];
+            
+            return password_verify($enteredPassword, $passwordFromDB); 
+            
+            //if ($password === $result['password']) {
+            //    return array(
+            //    'username' => $result['username'],
+            //    'user_id' => $result['user_id'],
+            //    'email' => $result['email']
+            //    );
+            //}
         }
-        return null;
+        
+        //User not found
+        return false;
     }
 
     /**
