@@ -571,11 +571,11 @@ div.server-side-error {
 }
 
 .priority-up {
-    color: green;
+    color: #4476eb;
 }
 
 .priority-down {
-    color: #556b2f;
+    color: #4476eb;
 }
 
 .priority-remove {
