@@ -609,6 +609,10 @@ tr {
     padding: 15px 0;
 }
 
+button#new-host-btn {
+    margin-top: 15px;
+}
+
 
 /* ====== RESPONSIVENESS ====== */
 
