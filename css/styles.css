@@ -582,6 +582,13 @@ div.server-side-error {
     color: red;
 }
 
+button#logout-btn {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    padding: 5px;
+}
+
 
 /* ====== RESPONSIVENESS ====== */
 
