@@ -125,5 +125,16 @@ $f3->route('POST /priority', function($f3) use ($controller) {
     echo Template::instance()->render('view/admin.html');
 });
 
+//Log out admin
+$f3->route('GET /logout', function($f3) {
+    
+        //Delete previous session variables
+        unset($_SESSION);
+        session_destroy();
+        
+        //load a template
+        echo Template::instance()->render('view/login.html');
+});
+
 //Run fat free
 $f3->run();

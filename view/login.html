@@ -10,14 +10,14 @@
     
     <!--Login Form-->
     <form action="" method="post">
-        <input id="username" type="text" name="username" placeholder="enter username" />
+        <input id="username" type="text" name="username" placeholder="enter username" value="{{ @username }}"/>
         
         <!--If client-side username validation fails-->
         <div class="client-side-error">
             <strong>Error: </strong><span id="username-error"></span>
         </div>
 
-        <input id="password" type="password" name="password" placeholder="enter password"/>
+        <input id="password" type="password" name="password" placeholder="enter password" value="{{ @password }}"/>
         
         <!--If client-side password validation fails-->
         <div class="client-side-error">

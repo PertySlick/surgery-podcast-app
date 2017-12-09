@@ -124,6 +124,12 @@ class Controller {
                 //Get form data
                 $enteredUsername = $_POST['username'];
                 $enteredPassword = $_POST['password'];
+                
+                //Make for sticky
+                $f3->mSet(array(
+                    'username' => $enteredUsername,
+                    'password' => $enteredPassword
+                ));
                       
                 //Validate login information
                 
@@ -134,10 +140,7 @@ class Controller {
                 if (strlen($enteredPassword) < 1) {
                     $errors[] = 'Please enter your password';
                 }
-                
-                //Initialize variable
-                $loginSuccess = false;
-                
+                                
                 //If username and password were entered, verify
                 if(count($errors) == 0) {
                     $db = new DbOperator();
@@ -145,10 +148,10 @@ class Controller {
                     $loginSuccess =
                         $db->areCredentialsValidated
                             ($enteredUsername, $enteredPassword);  
-                }
                 
-                if($loginSuccess == false) {
-                    $errors[] = 'Incorrect username or password.';
+                    if($loginSuccess == false) {
+                        $errors[] = 'Incorrect username or password.';
+                    }
                 }
             } else {
                 $errors[] = 'Username or password was not entered.';
@@ -157,6 +160,8 @@ class Controller {
             //If no login errors, store session variable
             if(count($errors) == 0) {
                 $_SESSION['user'] = $enteredUsername;
+            } else { //login failed
+                $f3->set('errors', $errors);
             }
         } 
     }
