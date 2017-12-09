@@ -102,6 +102,11 @@ class Controller {
             'title' => 'BTK Podcasts By Topic',
             'description' => 'Behind The Knife:  Browse podcasts by topic'
         ));
+        
+        $db = new DbOperator();
+        
+        // Get and store list of podcast hosts
+        $f3->set('hosts', $db->getPodcastHosts());
     }
     
     public function login($f3)
@@ -186,6 +191,9 @@ class Controller {
 
         // Get and store list of tag priorities
         $f3->set('priorities', $db->getPriorities());
+        
+        // Get and store list of podcast hosts
+        $f3->set('hosts', $db->getPodcastHosts());
     }
 
     public function adminSubmit($f3)

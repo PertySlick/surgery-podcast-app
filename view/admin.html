@@ -46,6 +46,30 @@
     </form>
 
     <h2>About Us Content</h2>
+    <table id="hosts-table">
+        <thead>
+            <th class="name">Name</th>
+            <th class="edit">Update</th>
+            <th class="delete">Delete</th>
+        </thead>
+        <tbody>
+            <repeat group="{{ @hosts }}" value="{{ @host }}">
+                <tr>
+                    <td class="name">{{ @host->getFirstName() }} {{ @host->getLastName() }}</td>
+                    <td class="edit">
+                        <a href="{{ @BASE }}/editHost/{{ @host->getHostId() }}">
+                            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                        </a>
+                    </td>
+                    <td class="delete">
+                        <a href="{{ @BASE }}/deleteHost/{{ @host->getHostId() }}">
+                            <i class="fa fa-times" aria-hidden="true"></i>
+                        </a>
+                    </td>
+                </tr>
+            </repeat>
+        </tbody>
+    </table> <!--End American Favorites table-->
 
 </div>
 <include href="{{ @INC . 'footer.inc.html' }}" />

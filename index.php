@@ -90,6 +90,7 @@ $f3->route('GET /about', function($f3) use ($controller) {
 $f3->route('GET /admin', function($f3) use ($controller) {
     //If user is already logged in
     if(isset($_SESSION['user'])) {
+        $f3->set('fontAwesome', true);
         $controller->admin($f3);
         echo Template::instance()->render('view/admin.html');
     } else { //user is not logged in
@@ -104,7 +105,8 @@ $f3->route('POST /admin', function($f3) use ($controller) {
     $controller->verifyLogin($f3);
     
     //If verified, route to admin page
-    if(isset($_SESSION['user'])) {
+    if(isset($_SESSION['user'])) { 
+        $f3->set('fontAwesome', true);
         $controller->admin($f3);
         echo Template::instance()->render('view/admin.html');
     } else { //Login failed, return to login page

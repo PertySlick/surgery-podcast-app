@@ -10,6 +10,20 @@
     
     <h1 id="about-us-heading">About Us</h1>
     
+    <repeat group="{{ @hosts }}" value="{{ @host }}">
+        <div class="podcasthost">
+            <h2 class="name">{{ @host->getFirstName() }} {{ @host->getLastName() }}</h2>
+            
+            <img class="profile-pic" src="{{ @BASE }}/img/{{ @host->getImage() }}"
+                 alt="Picture of {{ @host->getFirstName() }} {{ @host->getLastName() }}" />
+            
+            <p class="bio">
+                {{ @host->getBio() }} 
+            </p>
+        </div>
+    </repeat>
+ 
+ <!--   
     <div class="podcasthost">
         <h2 class="name">Kevin Kniery</h2>
         
@@ -70,5 +84,6 @@
             dedicated to colorectal disease, and currently is an editor on 4 textbooks in colorectal surgery.
         </p>
     </div>
+-->
         
 <include href="{{ @INC . 'footer.inc.html' }}">

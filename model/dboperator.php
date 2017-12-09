@@ -247,7 +247,7 @@ class DbOperator {
      * for that record is retrieved.  The password values are then compared. If
      * they match, an array of user data is then returned for Controller use.
      * @param $username String uername used in login attempt
-     * @param $password String password used in login attempt
+     * @param $enteredPassword String password used in login attempt
      * @return true if credentials are validated, false otherwise
      */
     public function areCredentialsValidated($username, $enteredPassword)
@@ -376,6 +376,39 @@ class DbOperator {
             $stmt->bindParam(':priority', $i, PDO::PARAM_INT);
             $stmt->bindParam(':topic', $_POST['priority-' . $i], PDO::PARAM_STR);
             $stmt->execute();
+        }
+    }
+    
+    
+    /**
+     * Retrieves all podcast host. Returns results in an array of
+     * Podcast Host objects.
+     * 
+     * @return array Array of Podcast Host object results
+     */
+    public function getPodcastHosts() {
+        $stmt = $this->_conn->prepare("
+            SELECT host_id, first_name, last_name, image, bio
+            FROM podcasthost
+            ORDER BY host_id
+            ");
+
+        if($stmt->execute()) {
+            $podcastHosts = [];
+
+            while ($record = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                $hostId = $record['host_id'];
+                $firstName = $record['first_name'];
+                $lastName = $record['last_name'];
+                $image = $record['image'];
+                $bio = $record['bio'];
+                                
+                //Create new Podcast Host object and add to array
+                $newPodcastHost = new PodcastHost($hostId, $firstName, $lastName, $image, $bio);
+                $podcastHosts[] = $newPodcastHost;
+            }
+
+            return  $podcastHosts;
         }
     }
 

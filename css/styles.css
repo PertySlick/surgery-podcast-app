@@ -589,6 +589,26 @@ button#logout-btn {
     padding: 5px;
 }
 
+table#hosts-table {
+    width: 100%;
+}
+
+tr {
+    box-shadow: 0 6px 6px -6px #444;
+}
+
+.name {
+    width: 50%;
+    text-align: left;
+    padding: 15px 0px 15px 5px;
+}
+
+.edit, .delete {
+    width: 25%;
+    text-align: center;
+    padding: 15px 0;
+}
+
 
 /* ====== RESPONSIVENESS ====== */
 
