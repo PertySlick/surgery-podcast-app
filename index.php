@@ -127,7 +127,14 @@ $f3->route('POST /priority', function($f3) use ($controller) {
     echo Template::instance()->render('view/admin.html');
 });
 
-//Log out admin
+// Delete podcast host
+$f3->route('GET /deleteHost/@hostId',
+           function($f3, $params) use ($controller) {
+    $controller->deleteHost($f3, $params);
+    echo Template::instance()->render('view/admin.html');
+});
+
+// Log out admin
 $f3->route('GET /logout', function($f3) {
     
         //Delete previous session variables

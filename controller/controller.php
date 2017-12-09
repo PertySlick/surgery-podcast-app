@@ -206,6 +206,21 @@ class Controller {
 
         $this->admin($f3);
     }
+    
+ /**
+   * Deletes a podcast host from the database
+   * 
+   * @param $f3 Object F3 object
+   * @param $params host id for the host to be deleted
+   */
+    public function deleteHost($f3, $params)
+    {
+        $db = new DbOperator();
+        
+        $db->deletePodcastHost($params['hostId']);
+        
+        $this->admin($f3);
+    }
 
 
 // METHODS - SUB-ROUTINES

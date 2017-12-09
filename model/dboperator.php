@@ -411,6 +411,22 @@ class DbOperator {
             return  $podcastHosts;
         }
     }
+    
+    /**
+     * Deletes the specified host from the database
+     *
+     * @param int $id the host id 
+     */
+    public function deletePodcastHost($hostId) {
+        $stmt = $this->_conn->prepare("
+            DELETE FROM podcasthost
+            WHERE host_id=:hostId
+            ");
+        
+        $stmt->bindParam(':hostId', $hostId, PDO::PARAM_INT);
+
+        $stmt->execute();
+    }
 
 
 // METHODS - SUB-ROUTINES
