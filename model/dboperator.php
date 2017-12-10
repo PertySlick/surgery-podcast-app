@@ -384,6 +384,8 @@ class DbOperator {
      * Retrieves all podcast host. Returns results in an array of
      * Podcast Host objects.
      * 
+     * @access public
+     * 
      * @return array Array of Podcast Host object results
      */
     public function getPodcastHosts() {
@@ -415,6 +417,8 @@ class DbOperator {
     /**
      * Deletes the specified host from the database
      *
+     * @access public
+     * 
      * @param int $id the host id 
      */
     public function deletePodcastHost($hostId) {
@@ -424,6 +428,33 @@ class DbOperator {
             ");
         
         $stmt->bindParam(':hostId', $hostId, PDO::PARAM_INT);
+
+        $stmt->execute();
+    }
+    
+    
+    /**
+     * Adds a new podcast host to the database'
+     *
+     * @access public
+     *
+     * @param String $firstName the podcast host's first name
+     * @param String $lastName the podcast host's last name
+     * @param String $bio the podcast host's biography
+     * @param String $image the podcast host's photo
+     *
+     * @return the host id of the last inserted podcast host
+     */
+    public function addPodcastHost($firstName, $lastName, $bio, $image) {
+        $stmt = $this->_conn->prepare("
+            INSERT INTO podcasthost (first_name, last_name, bio, image)
+            VALUES (:first_name, :last_name, :bio, :image)
+            ");
+        
+        $stmt->bindParam(':first_name', $firstName, PDO::PARAM_STR);
+        $stmt->bindParam(':last_name', $lastName, PDO::PARAM_STR);
+        $stmt->bindParam(':bio', $bio, PDO::PARAM_STR);
+        $stmt->bindParam(':image', $image, PDO::PARAM_STR);
 
         $stmt->execute();
     }

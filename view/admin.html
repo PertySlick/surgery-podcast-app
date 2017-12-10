@@ -72,7 +72,7 @@
     </table>
     <button id="show-new-host-form-btn" type="button">CLICK TO ADD PODCAST HOST</button>
     
-    <form id="podcast-host-form" action="{{ @BASE . '/newHost' }}" method="POST" enctype="multipart/form-data">
+    <form id="podcast-host-form" action="{{ @BASE . '/addPodcastHost' }}" method="POST" enctype="multipart/form-data">
         <label for="firstName">First Name:</label>
         <input type="text" id="firstName" name="first-name" maxlength="50" />  
         

@@ -111,41 +111,11 @@ function validatePodcastHost(event)
         report("photo-error", "Please select a photo.");
         isError = true;
     }
-    
-    //if username and password were entered, verify credentials
-    //with database data
-    if (!isError) {
-        //Validate username - check that it is not already in use        
-        $.ajax({
-            url: 'model/ajaxoperator.php',
-            method: 'POST',
-            data: {
-                action: 'validateLogin',
-                username: user,
-                password: inputPassword
-            },
-            success: function (result) {
-                
-                console.log('result: ' + result);
-                
-                if (result == false) {
-                    report("login-error", "The username or password is incorrect");
-                    isError = true;
-                } else {
-                    $('form#about-us-form').submit();
-                }
-            },
-            error: function () {
-                console.log('No results from database.');
-            },
-            dataType: 'json'
-        });
-    }
-      
+         
     //If no errors, submit data
-    //if (!isError) {
-    //    $("form").submit();
-    //} 
+    if (!isError) {
+        $("form#podcast-host-form").submit();
+    } 
 }
 
 //Update for to display error message

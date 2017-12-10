@@ -127,6 +127,12 @@ $f3->route('POST /priority', function($f3) use ($controller) {
     echo Template::instance()->render('view/admin.html');
 });
 
+// Route to add a new podcast host
+$f3->route('POST /addPodcastHost', function($f3) use ($controller) {
+    $controller->addPodcastHost($f3);
+    echo Template::instance()->render('view/admin.html');
+});
+
 // Delete podcast host
 $f3->route('GET /deleteHost/@hostId',
            function($f3, $params) use ($controller) {

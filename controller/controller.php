@@ -209,6 +209,8 @@ class Controller {
     
  /**
    * Deletes a podcast host from the database
+   *
+   * @access public
    * 
    * @param $f3 Object F3 object
    * @param $params host id for the host to be deleted
@@ -220,6 +222,42 @@ class Controller {
         $db->deletePodcastHost($params['hostId']);
         
         $this->admin($f3);
+    }
+    
+    
+    /**
+     * Adds a podcast cost into the database
+     *
+     * @access public
+     * @param $f3 Object F3 object
+     */
+    public function addPodcastHost($f3)
+    {
+        //Check if form was submitted
+        if($_SERVER['REQUEST_METHOD'] == 'POST') {
+            
+            if(isset($_POST['first-name']) && isset($_POST['last-name'])
+               && isset($_POST['bio']) && isset($_FILES["photo"]["name"])) {
+                
+                //Store info from post
+                $firstName = trim($_POST['first-name']);
+                $lastName = trim($_POST['last-name']);
+                $bio = trim($_POST['bio']);
+                $imageFileName = basename($_FILES["photo"]["name"]);
+                
+                //Move image to img directory
+                move_uploaded_file($_FILES["photo"]["tmp_name"],
+                    "./img/" . basename($_FILES["photo"]["name"]));
+                
+                //Add to database
+                $db = new DbOperator();
+                
+                $db->addPodcastHost($firstName, $lastName,
+                                    $bio, $imageFileName);
+                
+                $this->admin($f3);
+            }
+        }
     }
 
 
