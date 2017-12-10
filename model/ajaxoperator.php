@@ -95,3 +95,34 @@ function validateLogin($conn) {
         echo json_encode(false);
     }
 }
+
+
+/*
+ * Validated image (used in validation via JavaScript)
+ */
+function validateImage($conn) {
+    $imageFileName = $_POST['imageFileName'];
+    
+    $stmt = $conn->prepare('SELECT * ' .
+                            'FROM podcasthost ' .
+                            'WHERE image = :image');
+    $stmt->bindParam(':image', $imageFileName, PDO::PARAM_STR);
+    
+    try {
+        $stmt->execute();
+    } catch (PDOException $error) {
+        echo ('Error connecting to the database: ' . $error);
+    }
+    
+    if ($stmt->rowCount() > 0) {
+        //$row = $stmt->fetch(PDO::FETCH_ASSOC);
+        //
+        //$passwordInDb = $row['password'];
+        //
+        //$doPasswordsMatch = password_verify($inputPassword, $passwordInDb);
+        
+        echo json_encode(true);
+    } else { //user not found
+        echo json_encode(false);
+    }
+}

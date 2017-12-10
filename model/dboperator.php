@@ -388,7 +388,8 @@ class DbOperator {
      * 
      * @return array Array of Podcast Host object results
      */
-    public function getPodcastHosts() {
+    public function getPodcastHosts()
+    {
         $stmt = $this->_conn->prepare("
             SELECT host_id, first_name, last_name, image, bio
             FROM podcasthost
@@ -423,7 +424,8 @@ class DbOperator {
      * @return image file name for the specified podcast host, "image
      * does not exist" otherwise
      */
-    public function getPodcastHostImageFileName($hostId) {
+    public function getPodcastHostImageFileName($hostId)
+    {
         $stmt = $this->_conn->prepare("
             SELECT image FROM podcasthost
             WHERE host_id = :host_id
@@ -447,7 +449,8 @@ class DbOperator {
      * 
      * @param int $id the host id 
      */
-    public function deletePodcastHost($hostId) {
+    public function deletePodcastHost($hostId)
+    {
         $stmt = $this->_conn->prepare("
             DELETE FROM podcasthost
             WHERE host_id=:hostId
@@ -471,7 +474,8 @@ class DbOperator {
      *
      * @return the host id of the last inserted podcast host
      */
-    public function addPodcastHost($firstName, $lastName, $bio, $image) {
+    public function addPodcastHost($firstName, $lastName, $bio, $image)
+    {
         $stmt = $this->_conn->prepare("
             INSERT INTO podcasthost (first_name, last_name, bio, image)
             VALUES (:first_name, :last_name, :bio, :image)

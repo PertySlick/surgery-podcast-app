@@ -636,12 +636,16 @@ form#podcast-host-form label {
 
 form#podcast-host-form input, textarea {
     display: block;
-    margin-bottom: 18px;
+    margin-bottom: 20px;
     margin-top: 5px;
     padding: 3% 2%;
     width: 95%;
     border: 1px solid #444;
     border-radius: 5px;
+}
+
+textarea {
+    overflow: auto;
 }
 
 button#submit-host-btn {
@@ -651,7 +655,7 @@ button#submit-host-btn {
 
 div.about-client-side-error {
     width: 95%;
-    margin: -15px auto 18px auto;
+    margin: -10px auto 18px auto;
     padding: 3% 2%;
     color: #a94442;
     background-color: #f2dede;
@@ -659,6 +663,17 @@ div.about-client-side-error {
     border: 1px solid transparent;
     border-radius: 4px;
     display: none; /*so invisible at start*/
+}
+
+div.about-server-side-error {
+    width: 95%;
+    margin: -10px auto 18px auto;
+    padding: 3% 2%;
+    color: #a94442;
+    background-color: #f2dede;
+    border-color: #ebccd1;
+    border: 1px solid transparent;
+    border-radius: 4px;
 }
 
 

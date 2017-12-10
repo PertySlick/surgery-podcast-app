@@ -228,13 +228,10 @@ class Controller {
             
             //Delete podcast host info from database
             $db->deletePodcastHost($params['hostId']);
-            
-            //Refresh admin page
-            $this->admin($f3);
-        } else {
-            //Refresh admin page
-            $this->admin($f3);
         }
+        
+        //Refresh admin page
+        $this->admin($f3);
     }
     
     

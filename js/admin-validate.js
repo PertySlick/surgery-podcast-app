@@ -42,7 +42,7 @@ function validateLogin(event)
     
     //if username and password were entered, verify credentials
     //with database data
-    if (!isError) {        
+    if (!isError) {       
         $.ajax({
             url: 'model/ajaxoperator.php',
             method: 'POST',
@@ -75,6 +75,22 @@ function validatePodcastHost(event)
     //Prevent the form from submitting
     event.preventDefault();
     
+    //Get URL from browser (check if coming from delete or edit)
+    var currentUrl = window.location.href;
+    var urlToOperator;
+    
+    console.log('currentUrl: ' + currentUrl);
+    
+    if (currentUrl.indexOf("deleteHost") >= 0 ||
+        currentUrl.indexOf("editHost") >= 0) {
+        
+        urlToOperator = '../model/ajaxoperator.php';
+    } else {
+        urlToOperator = 'model/ajaxoperator.php';
+    }
+    
+    console.log('urlToOperator: ' + urlToOperator);
+    
     //Remove old podcast host error messages
     removeHostErrors();
     
@@ -86,8 +102,7 @@ function validatePodcastHost(event)
     var lastName = $('input[name="last-name"]').val();
     var bio = $('textarea#biography').val();
     var photo = $('input[type="file"]').val();
-    
-    console.log('photo: ' + photo);
+    var filename = $('input[type=file]').val().split('\\').pop();
     
     //Validate first name - check that a first name was entered
     if (firstName.length < 1 || firstName == ' ') {
@@ -113,37 +128,32 @@ function validatePodcastHost(event)
         isError = true;
     }
     
-    //If all fields were filled, check if image file already exists
-    //if (!isError) {      
-    //    $.ajax({
-    //        url: 'model/ajaxoperator.php',
-    //        method: 'POST',
-    //        data: {
-    //            action: 'isImageAlreadyOnFile',
-    //            imageFileName: user,
-    //            password: inputPassword
-    //        },
-    //        success: function (result) {
-    //            
-    //            console.log('result: ' + result);
-    //            
-    //            if (result == false) {
-    //                report("login-error", "The username or password is incorrect");
-    //                isError = true;
-    //            } else {
-    //                $("form#login-form").submit();
-    //            }
-    //        },
-    //        error: function () {
-    //            console.log('No results from database.');
-    //        },
-    //        dataType: 'json'
-    //    });
-    //}
-         
-    //If no errors, submit data
-    if (!isError) {
-        $("form#podcast-host-form").submit();
+    //if username and password were entered, verify credentials
+    //with database data
+    if (!isError) {       
+        $.ajax({
+            url: urlToOperator,
+            method: 'POST',
+            data: {
+                action: 'validateImage',
+                imageFileName: filename
+            },
+            success: function (result) {
+                
+                console.log('result: ' + result);
+                
+                if (result == true) {
+                    report("photo-error", "The image is already in use. Please select another image or change its filename.");
+                    isError = true;
+                } else {
+                        $("form#podcast-host-form").submit();
+                }
+            },
+            error: function () {
+                console.log('No results from database.');
+            },
+            dataType: 'json'
+        });
     } 
 }
 
@@ -167,7 +177,7 @@ function removeLoginErrors()
 
 function removeHostErrors()
 {
-    $("#firstnamt-error").parent().hide();
+    $("#firstname-error").parent().hide();
     $("#lastname-error").parent().hide();
     $("#bio-error").parent().hide();
     $("#photo-error").parent().hide();
