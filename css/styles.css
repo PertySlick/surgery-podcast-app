@@ -504,7 +504,7 @@ button#login-btn:active {
     background-color: #5c5c7a;
 }
 
-div.client-side-error {
+div.login-client-side-error {
     width: 60%;
     margin: 4px auto;
     padding: 15px 10px;
@@ -516,7 +516,7 @@ div.client-side-error {
     display: none; /*so invisible at start*/
 }
 
-div.server-side-error {
+div.login-server-side-error {
     width: 60%;
     margin: 4px auto;
     padding: 15px 10px 0px 10px;
@@ -589,7 +589,7 @@ button#logout-btn {
     padding: 5px;
 }
 
-h2#about-us-heading {
+h2#admin-about-us-heading {
     margin-top: 50px;
     margin-bottom: 5px;
 }
@@ -614,35 +614,51 @@ tr {
     padding: 15px 0;
 }
 
-button#new-host-btn {
+button#show-new-host-form-btn {
     margin-top: 15px;
     width: 100%;
+    padding: 15px 0px;
 }
 
 a.delete-host {
     color: red;
 }
 
-form#about-us-form {
+form#podcast-host-form {
     margin-top: 15px;
+    display: none;
 }
 
-form#about-us-form label {
+form#podcast-host-form label {
     font-size: 0.9em;
     font-weight: bolder;
 }
 
-form#about-us-form input, textarea {
+form#podcast-host-form input, textarea {
     display: block;
     margin-bottom: 18px;
     margin-top: 5px;
-    width: 100%;
+    padding: 3% 2%;
+    width: 95%;
     border: 1px solid #444;
     border-radius: 5px;
 }
 
 button#submit-host-btn {
     float: right;
+    padding: 8px;
+}
+
+div.about-client-side-error {
+    width: 95%;
+    margin: -15px auto 18px auto;
+    padding: 3% 2%;
+    color: #a94442;
+    background-color: #f2dede;
+    border-color: #ebccd1;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    display: none; /*so invisible at start*/
 }
 
 

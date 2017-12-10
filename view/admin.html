@@ -45,7 +45,7 @@
         <button type="submit" name="action" value="priority">Save</button>
     </form>
 
-    <h2 id="about-us-heading">About Us Content</h2>
+    <h2 id="admin-about-us-heading">About Us Content</h2>
     <table id="hosts-table">
         <thead>
             <th class="name">Name</th>
@@ -70,14 +70,14 @@
             </repeat>
         </tbody>
     </table>
-    <a href="{{ @BASE }}/new-host"><button id="new-host-btn" type="button">CLICK TO ADD PODCAST HOST</button></a>
+    <button id="show-new-host-form-btn" type="button">CLICK TO ADD PODCAST HOST</button>
     
-    <form id="about-us-form" action="{{ @BASE . '/newHost' }}" method="POST" enctype="multipart/form-data">
+    <form id="podcast-host-form" action="{{ @BASE . '/newHost' }}" method="POST" enctype="multipart/form-data">
         <label for="firstName">First Name:</label>
         <input type="text" id="firstName" name="first-name" maxlength="50" />  
         
         <!--If client-side first name validation fails-->
-        <div class="client-side-error">
+        <div class="about-client-side-error">
             <strong>Error: </strong><span id="firstname-error"></span>
         </div> 
         
@@ -85,7 +85,7 @@
         <input type="text" id="lastName" name="last-name" maxlength="50" />
         
         <!--If client-side last name validation fails-->
-        <div class="client-side-error">
+        <div class="about-client-side-error">
             <strong>Error: </strong><span id="lastname-error"></span>
         </div>
         
@@ -93,7 +93,7 @@
         <textarea rows="5" id="biography" name="bio" maxlength="2000" placeholder="max 2000 characters"></textarea>  
         
         <!--If client-side bio validation fails-->
-        <div class="client-side-error">
+        <div class="about-client-side-error">
             <strong>Error: </strong><span id="bio-error"></span>
         </div>
         
@@ -101,7 +101,7 @@
         <input id="photo" type="file" name="photo" accept="image/*" />
         
         <!--If client-side photo selection validation fails-->
-        <div class="client-side-error">
+        <div class="about-client-side-error">
             <strong>Error: </strong><span id="photo-error"></span>
         </div>
         

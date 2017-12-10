@@ -9,10 +9,27 @@
 
 $(document).ready(function() {
     $('a.delete-host').on('click', confirmDeletion);
+    $('button#show-new-host-form-btn').on('click', toggleAddPodcastHostForm);
 });
 
 //Function that asks user for confirmation before proceeding with deletion
 function confirmDeletion()
 {
     return confirm('Continuing will remove the podcast host from the About Us page.');
+}
+
+//Function that toggles (shows/hides) the form to add a new podcast
+//host to the About Us page
+function toggleAddPodcastHostForm()
+{
+    var podcastHostForm = $('form#podcast-host-form');
+    var showFormBtn = $('button#show-new-host-form-btn');
+    
+    podcastHostForm.toggle('fast');
+    
+    if (showFormBtn.text() == 'HIDE FORM') {
+        showFormBtn.text('CLICK TO ADD PODCAST HOST');
+    } else {
+        showFormBtn.text('HIDE FORM');
+    }
 }

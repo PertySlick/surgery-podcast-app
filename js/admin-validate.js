@@ -9,7 +9,7 @@
 //Add click event to submit function
 $(document).ready(function() {
     $('button#login-btn').on('click', validateLogin);
-    $('submit-host-btn').on('click', validatePodcastHost);
+    $('button#submit-host-btn').on('click', validatePodcastHost);
 });
 
 //Function that validates form inputs
