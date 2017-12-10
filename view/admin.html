@@ -62,7 +62,7 @@
                         </a>
                     </td>
                     <td class="delete">
-                        <a href="{{ @BASE }}/deleteHost/{{ @host->getHostId() }}">
+                        <a class="delete-host" href="{{ @BASE }}/deleteHost/{{ @host->getHostId() }}">
                             <i class="fa fa-times" aria-hidden="true"></i>
                         </a>
                     </td>
@@ -70,7 +70,9 @@
             </repeat>
         </tbody>
     </table>
-    <a href="{{ @BASE }}/new-host"><button id="new-host-btn" type="button">ADD PODCAST HOST</button></a>
+    <a href="{{ @BASE }}/new-host"><button id="new-host-btn" type="button">ADD HOST</button></a>
+    
+
 
 </div>
 <include href="{{ @INC . 'footer.inc.html' }}" />
