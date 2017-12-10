@@ -73,7 +73,17 @@
     <a href="{{ @BASE }}/new-host"><button id="new-host-btn" type="button">ADD HOST</button></a>
     
     <form action="{{ @BASE . '/newHost' }}" method="POST">
-        <input type="text" name="first-name" maxlength="40" />  
+        <label for="firstName">
+            <input type="text" id="firstName" name="first-name" maxlength="50" />   
+        </label>
+        
+        <label for="lastName">
+            <input type="text" id="lastName" name="last-name" maxlength="50" />   
+        </label>
+        
+        <label for="biography">
+            <textarea rows="5" id="biography" name="bio" maxlength="2000" placeholder="max 2000 characters"></textarea>   
+        </label> 
     </form>
 
 </div>
