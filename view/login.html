@@ -9,7 +9,7 @@
 <include href="includes/header.inc.html">
     
     <!--Login Form-->
-    <form action="{{ @BASE }}/admin" method="post">
+    <form id="login-form" action="{{ @BASE }}/admin" method="post">
         <input id="username" type="text" name="username" placeholder="enter username" value="{{ @username }}"/>
         
         <!--If client-side username validation fails-->
