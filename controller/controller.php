@@ -219,9 +219,22 @@ class Controller {
     {
         $db = new DbOperator();
         
-        $db->deletePodcastHost($params['hostId']);
+        //Get image file name from database
+        $imageFileName = $db->getPodcastHostImageFileName($params['hostId']);
         
-        $this->admin($f3);
+        if ($imageFileName != 'image does not exist') {   
+            //Delete image from server (from img directory)
+            unlink("./img/$imageFileName");
+            
+            //Delete podcast host info from database
+            $db->deletePodcastHost($params['hostId']);
+            
+            //Refresh admin page
+            $this->admin($f3);
+        } else {
+            //Refresh admin page
+            $this->admin($f3);
+        }
     }
     
     

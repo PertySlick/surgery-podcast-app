@@ -415,6 +415,32 @@ class DbOperator {
     }
     
     /**
+     * Retrieves the image filename for the specified podcast host
+     * 
+     * @access public
+     *
+     * @param int $hostId the host id for the specified podcast host
+     * @return image file name for the specified podcast host, "image
+     * does not exist" otherwise
+     */
+    public function getPodcastHostImageFileName($hostId) {
+        $stmt = $this->_conn->prepare("
+            SELECT image FROM podcasthost
+            WHERE host_id = :host_id
+            ");
+
+        $stmt->bindParam(':host_id', $hostId, PDO::PARAM_INT);
+        $stmt->execute();
+        
+        if ($stmt->rowCount() > 0) {
+            $row = $stmt->fetch(PDO::FETCH_ASSOC);
+            return $row['image'];
+        } else {
+            return 'image does not exist';
+        }
+    }
+    
+    /**
      * Deletes the specified host from the database
      *
      * @access public

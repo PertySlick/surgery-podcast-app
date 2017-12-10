@@ -42,8 +42,7 @@ function validateLogin(event)
     
     //if username and password were entered, verify credentials
     //with database data
-    if (!isError) {
-        //Validate username - check that it is not already in use        
+    if (!isError) {        
         $.ajax({
             url: 'model/ajaxoperator.php',
             method: 'POST',
@@ -88,6 +87,8 @@ function validatePodcastHost(event)
     var bio = $('textarea#biography').val();
     var photo = $('input[type="file"]').val();
     
+    console.log('photo: ' + photo);
+    
     //Validate first name - check that a first name was entered
     if (firstName.length < 1 || firstName == ' ') {
         report("firstname-error", "Please enter the first name.");
@@ -111,6 +112,34 @@ function validatePodcastHost(event)
         report("photo-error", "Please select a photo.");
         isError = true;
     }
+    
+    //If all fields were filled, check if image file already exists
+    //if (!isError) {      
+    //    $.ajax({
+    //        url: 'model/ajaxoperator.php',
+    //        method: 'POST',
+    //        data: {
+    //            action: 'isImageAlreadyOnFile',
+    //            imageFileName: user,
+    //            password: inputPassword
+    //        },
+    //        success: function (result) {
+    //            
+    //            console.log('result: ' + result);
+    //            
+    //            if (result == false) {
+    //                report("login-error", "The username or password is incorrect");
+    //                isError = true;
+    //            } else {
+    //                $("form#login-form").submit();
+    //            }
+    //        },
+    //        error: function () {
+    //            console.log('No results from database.');
+    //        },
+    //        dataType: 'json'
+    //    });
+    //}
          
     //If no errors, submit data
     if (!isError) {
