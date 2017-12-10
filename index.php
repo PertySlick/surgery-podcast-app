@@ -127,13 +127,25 @@ $f3->route('POST /priority', function($f3) use ($controller) {
     echo Template::instance()->render('view/admin.html');
 });
 
-// Route to add a new podcast host
+// Route to add a new podcast host to the About Us 
 $f3->route('POST /addPodcastHost', function($f3) use ($controller) {
     $controller->addPodcastHost($f3);
     echo Template::instance()->render('view/admin.html');
 });
 
-// Delete podcast host
+// Route to edit podcast host for About Us 
+$f3->route('GET /editHost/@hostId',
+           function($f3, $params) use ($controller) {
+    $controller->getHostInfo($f3, $params);
+    echo Template::instance()->render('view/edit.html');
+});
+
+$f3->route('POST /editHost', function($f3) use ($controller) {
+    $controller->updateHostInfo($f3);
+    echo Template::instance()->render('view/admin.html');
+});
+
+// Delete podcast host from the About Us 
 $f3->route('GET /deleteHost/@hostId',
            function($f3, $params) use ($controller) {
     $controller->deleteHost($f3, $params);

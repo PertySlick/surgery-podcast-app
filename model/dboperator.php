@@ -424,7 +424,48 @@ class DbOperator {
      * @return image file name for the specified podcast host, "image
      * does not exist" otherwise
      */
-    public function getPodcastHostImageFileName($hostId)
+    public function getPodcastHostById($hostId)
+    {
+        $stmt = $this->_conn->prepare("
+            SELECT * FROM podcasthost
+            WHERE host_id = :host_id
+            ");
+
+        $stmt->bindParam(':host_id', $hostId, PDO::PARAM_INT);
+        $stmt->execute();
+        
+        //Initialize podcast host object
+        $podcastHost = null;
+        
+        if ($stmt->rowCount() > 0) {
+            $row = $stmt->fetch(PDO::FETCH_ASSOC);
+            
+            $hostId = $row['host_id'];
+            $firstName = $row['first_name'];
+            $lastName = $row['last_name'];
+            $image = $row['image'];
+            $bio = $row['bio'];
+                            
+            //Create new Podcast Host object and add to array
+            $podcastHost = new PodcastHost($hostId, $firstName, $lastName, $image, $bio);
+            
+            return $podcastHost;
+        } else {
+            return null;
+        }
+    }
+
+    
+    /**
+     * Retrieves the image filename for the specified podcast host
+     * 
+     * @access public
+     *
+     * @param int $hostId the host id for the specified podcast host
+     * @return image file name for the specified podcast host, "image
+     * does not exist" otherwise
+     */
+/*    public function getPodcastHostImageFileName($hostId)
     {
         $stmt = $this->_conn->prepare("
             SELECT image FROM podcasthost
@@ -441,7 +482,8 @@ class DbOperator {
             return 'image does not exist';
         }
     }
-    
+*/
+
     /**
      * Deletes the specified host from the database
      *
@@ -481,6 +523,39 @@ class DbOperator {
             VALUES (:first_name, :last_name, :bio, :image)
             ");
         
+        $stmt->bindParam(':first_name', $firstName, PDO::PARAM_STR);
+        $stmt->bindParam(':last_name', $lastName, PDO::PARAM_STR);
+        $stmt->bindParam(':bio', $bio, PDO::PARAM_STR);
+        $stmt->bindParam(':image', $image, PDO::PARAM_STR);
+
+        $stmt->execute();
+    }
+    
+    
+    /**
+     * Updates podcast host info in the database'
+     *
+     * @access public
+     *
+     * @param String $firstName the podcast host's first name
+     * @param String $lastName the podcast host's last name
+     * @param String $bio the podcast host's biography
+     * @param String $image the podcast host's photo
+     *
+     * @return the host id of the last inserted podcast host
+     */
+    public function updatePodcastHost($hostId, $firstName, $lastName, $bio, $image)
+    {
+        $stmt = $this->_conn->prepare("
+            UPDATE podcasthost
+            SET first_name = :first_name,
+                last_name = :last_name,
+                bio = :bio,
+                image = :image
+            WHERE host_id = :host_id
+            ");
+        
+        $stmt->bindParam(':host_id', $hostId, PDO::PARAM_INT);
         $stmt->bindParam(':first_name', $firstName, PDO::PARAM_STR);
         $stmt->bindParam(':last_name', $lastName, PDO::PARAM_STR);
         $stmt->bindParam(':bio', $bio, PDO::PARAM_STR);

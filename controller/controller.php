@@ -206,6 +206,7 @@ class Controller {
 
         $this->admin($f3);
     }
+ 
     
  /**
    * Deletes a podcast host from the database
@@ -220,7 +221,7 @@ class Controller {
         $db = new DbOperator();
         
         //Get image file name from database
-        $imageFileName = $db->getPodcastHostImageFileName($params['hostId']);
+/*        $imageFileName = $db->getPodcastHostImageFileName($params['hostId']);
         
         if ($imageFileName != 'image does not exist') {   
             //Delete image from server (from img directory)
@@ -228,7 +229,10 @@ class Controller {
             
             //Delete podcast host info from database
             $db->deletePodcastHost($params['hostId']);
-        }
+        } */
+        
+        //Delete podcast host info from database
+        $db->deletePodcastHost($params['hostId']);
         
         //Refresh admin page
         $this->admin($f3);
@@ -265,9 +269,97 @@ class Controller {
                 $db->addPodcastHost($firstName, $lastName,
                                     $bio, $imageFileName);
                 
+                //Refresh admin page
                 $this->admin($f3);
             }
         }
+    }
+    
+       
+ /**
+   * Retrieves info for the specified podcast host
+   *
+   * @access public
+   * 
+   * @param $f3 Object F3 object
+   * @param $params host id for the host to be deleted
+   */
+    public function getHostInfo($f3, $params)
+    {
+        //Store hostId in session
+        $_SESSION['hostId'] = $params['hostId'];
+        
+        $db = new DbOperator();
+        
+        //Get podcast host info from database (used to make the
+        //form sticky)
+        $f3->set('podcastHost', $db->getPodcastHostById($params['hostId']));
+    }
+    
+    
+ /**
+   * Updates podcast host info in database
+   *
+   * @access public
+   * 
+   * @param $f3 Object F3 object
+   */
+    public function updateHostInfo($f3)
+    {
+        //Initialize all variables
+        $firstName = '';
+        $lastName = '';
+        $bio = '';
+        $imageFileName = '';
+        $hostId = $_SESSION['hostId'];
+        
+        if (isset($_FILES["photo"]["name"]) && $_FILES["photo"]["name"] != '') {
+            $imageFileName = basename($_FILES["photo"]["name"]);
+                
+            //Move image to img directory
+            move_uploaded_file($_FILES["photo"]["tmp_name"],
+                "./img/" . basename($_FILES["photo"]["name"]));
+        } else {
+            $imageFileName = $_POST['orig-photo'];
+        }
+            
+        if(isset($_POST['first-name']) && isset($_POST['last-name'])
+           && isset($_POST['bio'])) {
+            
+            $firstName = trim($_POST['first-name']);
+            $lastName = trim($_POST['last-name']);
+            $bio = trim($_POST['bio']);
+        }
+        
+        //echo '<pre>';
+        //print_r($_POST);
+        //print_r($_SESSION);
+        //print_r($_FILES);
+        //
+        //var_dump($hostId);
+        //
+        //var_dump($firstName);
+        //
+        //var_dump($lastName);
+        //var_dump($bio);
+        //
+        //var_dump($imageFileName);
+        //echo '<pre>';
+        
+        if ($firstName != '' && $lastName != '' && $bio != ''
+            && $imageFileName != '') {
+            
+            //Add to database
+            $db = new DbOperator();
+            
+            $db->updatePodcastHost($hostId, $firstName, $lastName,
+                                $bio, $imageFileName);
+        } else {
+            echo 'Error: Could not update podcast host.';
+        }
+             
+        //Refresh admin page
+        $this->admin($f3); 
     }
 
 

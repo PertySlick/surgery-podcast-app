@@ -629,28 +629,57 @@ form#podcast-host-form {
     display: none;
 }
 
-form#podcast-host-form label {
+h1#edit-form-heading {
+    text-align: center;
+    font-size: 1.5em;
+}
+
+form#podcast-host-edit-form {
+    margin-top: 30px;
+}
+
+form#podcast-host-form label, form#podcast-host-edit-form label,
+h3#img-preview-heading {
     font-size: 0.9em;
     font-weight: bolder;
 }
 
-form#podcast-host-form input, textarea {
+h3#img-preview-heading {
+    margin-bottom: 10px;
+}
+
+form#podcast-host-form input, form#podcast-host-form textarea,
+form#podcast-host-edit-form input, form#podcast-host-edit-form textarea {
     display: block;
     margin-bottom: 20px;
     margin-top: 5px;
     padding: 3% 2%;
     width: 95%;
-    border: 1px solid #444;
+    border: 1px solid #8282a1;
     border-radius: 5px;
 }
 
-textarea {
+form#podcast-host-form textarea {
     overflow: auto;
 }
 
-button#submit-host-btn {
+button#submit-host-btn, button#submit-edit-host-btn {
     float: right;
-    padding: 8px;
+    padding: 8px 25px;
+    margin-top: 40px;
+}
+
+button#reset-edit-host-btn {
+    padding: 8px 10px;
+    margin-top: 40px;
+}
+
+img#preview-pic {
+    display: block;
+    margin: 0px auto 30px auto;
+    max-height: 300px;
+    max-width: 175px;
+    border-radius: 5px;
 }
 
 div.about-client-side-error {
