@@ -72,7 +72,9 @@
     </table>
     <a href="{{ @BASE }}/new-host"><button id="new-host-btn" type="button">ADD HOST</button></a>
     
-
+    <form action="{{ @BASE . '/newHost' }}" method="POST">
+        <input type="text" name="first-name" maxlength="40" />  
+    </form>
 
 </div>
 <include href="{{ @INC . 'footer.inc.html' }}" />

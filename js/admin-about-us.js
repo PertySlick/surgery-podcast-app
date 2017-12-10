@@ -11,8 +11,8 @@ $(document).ready(function() {
     $('a.delete-host').on('click', confirmDeletion);
 });
 
-//Function that validates form inputs
-function confirmDeletion(event)
+//Function that asks user for confirmation before proceeding with deletion
+function confirmDeletion()
 {
     return confirm('Continuing will remove the podcast host from the About Us page.');
 }
