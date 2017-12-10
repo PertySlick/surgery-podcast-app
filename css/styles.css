@@ -589,6 +589,11 @@ button#logout-btn {
     padding: 5px;
 }
 
+h2#about-us-heading {
+    margin-top: 50px;
+    margin-bottom: 5px;
+}
+
 table#hosts-table {
     width: 100%;
 }
@@ -616,6 +621,28 @@ button#new-host-btn {
 
 a.delete-host {
     color: red;
+}
+
+form#about-us-form {
+    margin-top: 15px;
+}
+
+form#about-us-form label {
+    font-size: 0.9em;
+    font-weight: bolder;
+}
+
+form#about-us-form input, textarea {
+    display: block;
+    margin-bottom: 18px;
+    margin-top: 5px;
+    width: 100%;
+    border: 1px solid #444;
+    border-radius: 5px;
+}
+
+button#submit-host-btn {
+    float: right;
 }
 
 

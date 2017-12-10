@@ -45,7 +45,7 @@
         <button type="submit" name="action" value="priority">Save</button>
     </form>
 
-    <h2>About Us Content</h2>
+    <h2 id="about-us-heading">About Us Content</h2>
     <table id="hosts-table">
         <thead>
             <th class="name">Name</th>
@@ -70,20 +70,42 @@
             </repeat>
         </tbody>
     </table>
-    <a href="{{ @BASE }}/new-host"><button id="new-host-btn" type="button">ADD HOST</button></a>
+    <a href="{{ @BASE }}/new-host"><button id="new-host-btn" type="button">CLICK TO ADD PODCAST HOST</button></a>
     
-    <form action="{{ @BASE . '/newHost' }}" method="POST">
-        <label for="firstName">
-            <input type="text" id="firstName" name="first-name" maxlength="50" />   
-        </label>
+    <form id="about-us-form" action="{{ @BASE . '/newHost' }}" method="POST" enctype="multipart/form-data">
+        <label for="firstName">First Name:</label>
+        <input type="text" id="firstName" name="first-name" maxlength="50" />  
         
-        <label for="lastName">
-            <input type="text" id="lastName" name="last-name" maxlength="50" />   
-        </label>
+        <!--If client-side first name validation fails-->
+        <div class="client-side-error">
+            <strong>Error: </strong><span id="firstname-error"></span>
+        </div> 
         
-        <label for="biography">
-            <textarea rows="5" id="biography" name="bio" maxlength="2000" placeholder="max 2000 characters"></textarea>   
-        </label> 
+        <label for="lastName">Last Name:</label>
+        <input type="text" id="lastName" name="last-name" maxlength="50" />
+        
+        <!--If client-side last name validation fails-->
+        <div class="client-side-error">
+            <strong>Error: </strong><span id="lastname-error"></span>
+        </div>
+        
+        <label for="biography">Biography:</label>
+        <textarea rows="5" id="biography" name="bio" maxlength="2000" placeholder="max 2000 characters"></textarea>  
+        
+        <!--If client-side bio validation fails-->
+        <div class="client-side-error">
+            <strong>Error: </strong><span id="bio-error"></span>
+        </div>
+        
+        <label for="photo">Select Image:</label>
+        <input id="photo" type="file" name="photo" accept="image/*" />
+        
+        <!--If client-side photo selection validation fails-->
+        <div class="client-side-error">
+            <strong>Error: </strong><span id="photo-error"></span>
+        </div>
+        
+        <button id="submit-host-btn" type="submit">ADD NEW HOST</button>
     </form>
 
 </div>
