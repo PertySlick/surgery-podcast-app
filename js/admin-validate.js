@@ -8,17 +8,18 @@
 
 //Add click event to submit function
 $(document).ready(function() {
-    $('button#login-btn').on('click', validate);
+    $('button#login-btn').on('click', validateLogin);
+    $('submit-host-btn').on('click', validatePodcastHost);
 });
 
 //Function that validates form inputs
-function validate(event)
+function validateLogin(event)
 {
     //Prevent the form from submitting
     event.preventDefault();
     
-    //Remove old error messages
-    removeErrors();
+    //Remove old login error messages
+    removeLoginErrors();
     
     //Track errors
     var isError = false;
@@ -42,17 +43,7 @@ function validate(event)
     //if username and password were entered, verify credentials
     //with database data
     if (!isError) {
-        //Validate username - check that it is not already in use
-/*        $.post("model/ajaxoperator.php", { username : user }, function(result) {
-            
-            console.log("password result: " + result);
-            
-            if (result.trim() != inputPassword) {
-                report("login-error", "The username or password is incorrect");
-                isError = true;
-            } 
-        });
-*/        
+        //Validate username - check that it is not already in use        
         $.ajax({
             url: 'model/ajaxoperator.php',
             method: 'POST',
@@ -68,6 +59,80 @@ function validate(event)
                 if (result == false) {
                     report("login-error", "The username or password is incorrect");
                     isError = true;
+                } else {
+                    $("form#login-form").submit();
+                }
+            },
+            error: function () {
+                console.log('No results from database.');
+            },
+            dataType: 'json'
+        });
+    }
+}
+
+function validatePodcastHost(event)
+{
+    //Prevent the form from submitting
+    event.preventDefault();
+    
+    //Remove old podcast host error messages
+    removeHostErrors();
+    
+    //Track errors
+    var isError = false;
+    
+    //Cache entered podcast host info
+    var firstName = $('input[name="first-name"]').val();
+    var lastName = $('input[name="last-name"]').val();
+    var bio = $('textarea#biography').val();
+    var photo = $('input[type="file"]').val();
+    
+    //Validate first name - check that a first name was entered
+    if (firstName.length < 1 || firstName == ' ') {
+        report("firstname-error", "Please enter the first name.");
+        isError = true;
+    }
+    
+    //Validate last name - make sure last name was entered
+    if (lastName.length < 1 || lastName == ' ') {
+        report("lastname-error", "Please enter the last name.");
+        isError = true;
+    }
+    
+    //Validate bio - make sure bio was entered
+    if (bio.length < 1 || bio == ' ') {
+        report("bio-error", "Please enter a short biography.");
+        isError = true;
+    }
+    
+    //Validate photo - make a photo was selected
+    if (photo == '') {
+        report("photo-error", "Please select a photo.");
+        isError = true;
+    }
+    
+    //if username and password were entered, verify credentials
+    //with database data
+    if (!isError) {
+        //Validate username - check that it is not already in use        
+        $.ajax({
+            url: 'model/ajaxoperator.php',
+            method: 'POST',
+            data: {
+                action: 'validateLogin',
+                username: user,
+                password: inputPassword
+            },
+            success: function (result) {
+                
+                console.log('result: ' + result);
+                
+                if (result == false) {
+                    report("login-error", "The username or password is incorrect");
+                    isError = true;
+                } else {
+                    $('form#about-us-form').submit();
                 }
             },
             error: function () {
@@ -78,9 +143,9 @@ function validate(event)
     }
       
     //If no errors, submit data
-    if (!isError) {
-        $("form").submit();
-    }
+    //if (!isError) {
+    //    $("form").submit();
+    //} 
 }
 
 //Update for to display error message
@@ -93,10 +158,18 @@ function report(id, message)
     $('#' + id).parent().show();
 }
 
-//Clear any previous error messages
-function removeErrors()
+//Clear any previous login error messages
+function removeLoginErrors()
 {
     $("#username-error").parent().hide();
     $("#password-error").parent().hide();
     $("#login-error").parent().hide();
+}
+
+function removeHostErrors()
+{
+    $("#firstnamt-error").parent().hide();
+    $("#lastname-error").parent().hide();
+    $("#bio-error").parent().hide();
+    $("#photo-error").parent().hide();
 }
