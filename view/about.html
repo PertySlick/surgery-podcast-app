@@ -8,11 +8,11 @@
 
 <include href="includes/header.inc.html">
     
-    <h1 id="about-us-heading">About Us</h1>
+    <h1 id="about-us-heading" class="title">about us</h1>
     
     <repeat group="{{ @hosts }}" value="{{ @host }}">
         <div class="podcasthost">
-            <h2 class="name">{{ @host->getFirstName() }} {{ @host->getLastName() }}</h2>
+            <h2 class="host-name">{{ @host->getFirstName() }} {{ @host->getLastName() }}</h2>
             
             <img class="profile-pic" src="{{ @BASE }}/img/{{ @host->getImage() }}"
                  alt="Picture of {{ @host->getFirstName() }} {{ @host->getLastName() }}" />
