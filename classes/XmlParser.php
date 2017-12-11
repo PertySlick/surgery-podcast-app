@@ -57,54 +57,55 @@
     {
       
       $this->clearTables();
-     
-      // For the number of items record Title, link, Published Date, Description, Duration and Keywords.
-      for($i = 0; $i < $this->_podcastCount; $i++)
-      {
-                        
-        $title = $this->_xml->channel->item[$i]->title;
-        $url = $this->_xml->channel->item[$i]->enclosure['url'];
-        $publish_date = $this->_xml->channel->item[$i]->pubDate;
-        $description = $this->_xml->channel->item[$i]->description;
-        
-        //Grab Publish Date and reformat to a way the Database can take date
-        $publish_date = strtotime($publish_date);
-        $publish_date = gmdate("Y-m-d H:i:s", $publish_date);
-        
-        // Descriptions includes HTML. Removed these for storing in database
-        $description = strip_tags($description);
-        
-        // To reach the SimpleXMl of the SimpeXML Tree the tree must be reset on Itunes XML and then grabbed
-        $newtree = $this->_xml->channel->item[$i]->children('http://www.itunes.com/dtds/podcast-1.0.dtd');
-        
-        $duration = $newtree->duration;
-        
-        $durationStringLength = strlen($duration);
-        
-        if ( $durationStringLength < 6 )
-        {
-          
-          if($durationStringLength == 5)
-          {
-            $duration = "00:" . $duration;
+
+      try {
+          // For the number of items record Title, link, Published Date, Description, Duration and Keywords.
+          for($i = 0; $i < $this->_podcastCount; $i++) {
+
+              $title = $this->_xml->channel->item[$i]->title;
+              $url = $this->_xml->channel->item[$i]->enclosure['url'];
+              $publish_date = $this->_xml->channel->item[$i]->pubDate;
+              $description = $this->_xml->channel->item[$i]->description;
+
+              //Grab Publish Date and reformat to a way the Database can take date
+              $publish_date = strtotime($publish_date);
+              $publish_date = gmdate("Y-m-d H:i:s", $publish_date);
+
+              // Descriptions includes HTML. Removed these for storing in database
+              $description = strip_tags($description);
+
+              // To reach the SimpleXMl of the SimpeXML Tree the tree must be reset on Itunes XML and then grabbed
+              $newtree = $this->_xml->channel->item[$i]->children('http://www.itunes.com/dtds/podcast-1.0.dtd');
+
+              $duration = $newtree->duration;
+
+              $durationStringLength = strlen($duration);
+
+              if ($durationStringLength < 6) {
+
+                  if ($durationStringLength == 5) {
+                      $duration = "00:" . $duration;
+                  }
+
+              }
+              $keyWords = $newtree->keywords;
+
+              $splitKeyWords = explode(",", $keyWords);
+
+              //Hard coded information until These might change or be useful
+              $image = "http://static.libsyn.com/p/assets/e/3/f/8/e3f81ea492e04af3/LOGO_BIG_1.jpg";
+              $author = "Kevin Kniery, Jason Bingham, John McClellan, Scott Steele";
+
+              //Add the Podcast to the Podcast table with the broken apart information above
+              $this->addToPodcastTable($title, $description, $image, $author, $url, $duration, $publish_date);
+
+              //Add the keywords of the current Title and then add them to join table
+              $this->addKeywords($splitKeyWords, $title);
           }
-          
+          return true;
+      } catch (Exception $e) {
+          return false;
         }
-        $keyWords = $newtree->keywords;
-        
-        $splitKeyWords = explode(",", $keyWords);
-        
-        //Hard coded information until These might change or be useful
-        $image = "http://static.libsyn.com/p/assets/e/3/f/8/e3f81ea492e04af3/LOGO_BIG_1.jpg";
-        $author = "Kevin Kniery, Jason Bingham, John McClellan, Scott Steele";
-        
-        //Add the Podcast to the Podcast table with the broken apart information above
-        $this->addToPodcastTable($title, $description, $image, $author, $url, $duration, $publish_date);
-        
-        //Add the keywords of the current Title and then add them to join table
-        $this->addKeywords($splitKeyWords, $title);
-        
-      }
     }
     
     /**

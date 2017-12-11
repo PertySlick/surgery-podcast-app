@@ -60,36 +60,39 @@ class DbOperator {
 
 
 // METHODS - USER OPERATIONS
+
+
+//TODO - Is this even used???
 /**
  *Checks the most recent podcast/record found within the database.
  *GROUPS DATA BY podcast id in a descending list
  *LIMIT 1 - the most recent record to be pulled.
  *
  */
-    public function checkMostRecentUpload($id)
-    {
-        
-        $stmt = $this->_conn->prepare("SELECT podcast_id, MAX(:title) AS most_recent_podcast FROM podcasts
-                                  GROUP BY podcast_id ORDER BY podcast_id DESC LIMIT 1");
-        $stmt->bindParam(":pod_castid", $id);
-        $stmt-execute();
-    
-    
-    }
-    
+//    public function checkMostRecentUpload($id)
+//    {
+//
+//        $stmt = $this->_conn->prepare("SELECT podcast_id, MAX(:title) AS most_recent_podcast FROM podcasts
+//                                  GROUP BY podcast_id ORDER BY podcast_id DESC LIMIT 1");
+//        $stmt->bindParam(":pod_castid", $id);
+//        $stmt-execute();
+//
+//
+//    }
+
+    //TODO - Is this even used???
     /*
      *This function searches the database and returns a list of podcast titles in order.
      *
      */
-     public function checkAllPodcasts($id)
-    {
-        
-        $stmt = $this->_conn->prepare("SELECT title AS list_of_titles FROM podcasts
-                                  ORDER BY title ASC");
-        $stmt->bindParam(":pod_castid", $id);
-        $stmt-execute();
-    
-    }
+//     public function checkAllPodcasts($id)
+//    {
+//
+//        $stmt = $this->_conn->prepare("SELECT title AS list_of_titles FROM podcasts
+//                                  ORDER BY title ASC");
+//        $stmt->bindParam(":pod_castid", $id);
+//        $stmt->execute();
+//    }
 
     /**
      * Retrieves all podcast records that include the supplied tag word.
@@ -119,38 +122,15 @@ class DbOperator {
                 $description = $record['description'];
                 $duration = $record['duration'];
                 
-                //Re-format publish date
-                
-                ////Get current year 
-                //$currentYear = date("Y");
-                //
-                ////Convert string date to Date object
-                //$publishDateAsDateTimeInterface = date_create($publishDate);
-                //
-                ////If the podcast was publish this current year, only show month and day.
-                ////Otherwise, also show year of publication.
-                //if (date_format($publishDateAsDateTimeInterface, "Y") == $currentYear) {
-                //    $publishDate = date_format($publishDateAsDateTimeInterface, "M <\b\\r> j");
-                //} else {
-                //    $publishDate = date_format($publishDateAsDateTimeInterface, "M j <\b\\r> Y");
-                //}
-                
                 //Create new Podcast object and add to array
                 $newPodcast = new Podcast($title, $publishDate, $url, $image, $description, $duration);
                 $podcasts[] = $newPodcast;
             }
-
             return  $podcasts;
         }
-
-
+        return null;
     }
-    
-    public function searchByKeyword($tag_name,$title,$description)
-    {
-        
-    }
-    
+
 /**
  * Retrieves the 3 most recent podcasts.
  * Returns results in an array of Podcast objects.
@@ -174,22 +154,6 @@ class DbOperator {
                 $description = $record['description'];
                 $duration = $record['duration'];
                 
-                ////Re-format publish date
-                //
-                ////Get current year 
-                //$currentYear = date("Y");
-                //
-                ////Convert string date to Date object
-                //$publishDateAsDateTimeInterface = date_create($publishDate);
-                //
-                ////If the podcast was publish this current year, only show month and day.
-                ////Otherwise, also show year of publication.
-                //if (date_format($publishDateAsDateTimeInterface, "Y") == $currentYear) {
-                //    $publishDate = date_format($publishDateAsDateTimeInterface, "M <\b\\r> j");
-                //} else {
-                //    $publishDate = date_format($publishDateAsDateTimeInterface, "M j <\b\\r> Y");
-                //}
-                
                 //Create new Podcast object and add to array
                 $newPodcast = new Podcast($title, $publishDate, $url, $image, $description, $duration);
                 $podcasts[] = $newPodcast;
@@ -197,6 +161,7 @@ class DbOperator {
 
             return  $podcasts;
         }
+        return null;
     }
     
     
@@ -218,25 +183,20 @@ class DbOperator {
 
 
 /**
- *Checks to see if podcast exists within the database.
- *@param $title, the title we are searching for in the db
+ * Checks to see if podcast exists within the database.
+ * @param $title, the title we are searching for in the db
+ * @return boolean true if podcast was found, false otherwise.
  */
-    public function checkPodcastExists($title)
-    {
+    public function checkPodcastExists($title) {
         $stmt = $this->_conn->prepare("SELECT COUNT(*) as count FROM podcasts WHERE title=:title");
         $stmt->bindParam("title", $title);
-        $stmt-execute();
+        $stmt->execute();
     
         $results = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    if ($results['count'] > 0) {
-        return true;
-    }
-    else {
+        if ($results['count'] > 0) { return true; }
         return false;
     }
-    
-}
 
 
 
@@ -278,8 +238,16 @@ class DbOperator {
     }
 
     /**
-     * Creates a new user record in the database with the supplied information.
-     *///userName,email,password
+     * Adds a podcast record into the database using supplied parameter data.
+     * @param $title String podcast title
+     * @param $description String podcast description
+     * @param $image String podcast display image
+     * @param $author String podcast author
+     * @param $url String podcast file url
+     * @param $duration String podcast duration
+     * @param $publish_date datetime podcast publish date
+     * @return String id of last inserted row in database
+     */
     public function addPodcast($title, $description, $image,$author,$url,$duration,$publish_date)
     {
         $stmt = $this->_conn->prepare('INSERT INTO podcasts ' .
@@ -291,7 +259,9 @@ class DbOperator {
         $stmt->bindParam(':author', $author, PDO::PARAM_STR);
         $stmt->bindParam(':url', $url, PDO::PARAM_STR);
         $stmt->bindParam(':duration', $duration, PDO::PARAM_STR);
-        $stmt->bindParam(':publish_date', $duration, PDO::PARAM_STR);
+        //TODO - Using duration for publish date?
+        //$stmt->bindParam(':publish_date', $duration, PDO::PARAM_STR);
+        $stmt->bindParam(':publish_date', $publish_date, PDO::PARAM_STR);
 
 
         try {
@@ -306,7 +276,6 @@ class DbOperator {
 
     /**
      * Return a list of all available podcast topics/tags
-     * @param $limit
      * @return array|null
      */
     public function getAllTopics() {
@@ -333,12 +302,10 @@ class DbOperator {
 
     /**
      * Return a list of all available priority podcast topics/tags
-     * @param $limit
      * @return array|null
      */
     public function getPriorityTopics() {
         $topics = $this->getPriorities();
-
         return $topics;
     }
 
@@ -450,9 +417,8 @@ class DbOperator {
             $podcastHost = new PodcastHost($hostId, $firstName, $lastName, $image, $bio);
             
             return $podcastHost;
-        } else {
-            return null;
         }
+        return null;
     }
 
     
@@ -562,6 +528,21 @@ class DbOperator {
         $stmt->bindParam(':image', $image, PDO::PARAM_STR);
 
         $stmt->execute();
+    }
+
+
+// METHODS - DATABASE UPDATE OPERATIONS
+
+
+    /**
+     * Returns the number of podcast records currently stored in the database.
+     * @return string Count of all records in podcast table
+     */
+    public function getPodcastCount() {
+        $stmt = $this->_conn->prepare('SELECT COUNT(*) as count FROM podcasts');
+        $stmt->execute();
+        $record = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $record['count'];
     }
 
 

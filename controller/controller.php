@@ -185,6 +185,13 @@ class Controller {
         ));
 
         $db = new DbOperator();
+        $rss = new XmlParser();
+
+        // Get and store a count of all podcasts in database
+        $f3->set('db_count', $db->getPodcastCount());
+
+        // Get and store a count of all podcasts in RSS feed
+        $f3->set('rss_count', $rss->getPodcastCount());
 
         // Get and store list of all topics
         $f3->set('topics', $db->getAllTopics());
@@ -202,6 +209,10 @@ class Controller {
 
         if ($_POST['action'] === 'priority') {
             $db->writePriorities();
+        } else if ($_POST['action'] === 'rss') {
+            $rss = new XmlParser();
+            $result = $rss->addData();
+            $f3->set('rssResult', $result);
         }
 
         $this->admin($f3);

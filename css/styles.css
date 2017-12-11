@@ -228,9 +228,10 @@ nav.nav-footer {
 }
 
 .hidden {
-    height: 0;
-    transition: height 2s;
-    -webkit-transition: height 2s;
+    /*height: 0;*/
+    /*transition: height 2s;*/
+    /*-webkit-transition: height 2s;*/
+    display: none;
 }
 
 .nav-footer .nav-button {
@@ -552,6 +553,14 @@ h3.admin {
     text-align: center;
 }
 
+.error {
+    color: #a94442;
+}
+
+.success {
+    color: #8f8;
+}
+
 
 .priority-row {
     align-items: center;
@@ -603,14 +612,14 @@ h3.admin {
     width: 45px;
 }
 
-.priority-button-panel {
+.admin-button-panel {
     align-items: center;
     display: flex;
     flex-wrap: nowrap;
     justify-content: space-between;
 }
 
-.priority-button-panel button {
+.admin-button-panel button, .admin-button-panel [type="submit"] {
     flex-grow: 1;
     padding: 15px 0;
     margin: 15px 5px 0 5px;

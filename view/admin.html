@@ -14,10 +14,36 @@
     <h1 class="admin">The Surgery Podcast</h1>
     <h3 class="admin">Admin Portal</h3>
     <h2 class="admin">Database Refresh</h2>
+    <div class="admin-db-specs">
+        <p class="admin-rss-status">
+            Current RSS Podcast Count: <span class="admin-rss-count">{{ @rss_count }}</span>
+        </p>
+        <p class="admin-db-status">
+            Current Database Podcast Count: <span class="admin-db-count">{{ @db_count }}</span>
+        </p>
+    </div>
+    <div class="db-operation-message">
+        <check if="{{ @rssResult===true }}">
+            <true>
+                <span class="success">Database successfully updated</span>
+            </true>
+            <false>
+                <check if="@rssResult!=null">
+                    <span class="error">Could not update the database</span>
+                </check>
+            </false>
+        </check>
+    </div>
+    <form action="{{ @BASE . '/priority' }}" method="POST">
+        <div class="admin-button-panel">
+            <button type="submit" name="action" value="rss" id="rss-update">Update Podcast Database</button>
+        </div>
+    </form>
+
     <h2 class="admin">Topic Priorities</h2>
 
-                <!-- TODO: REMOVE INLINE STYLE -->
-                <div class="hidden" id="priority-option-template" style="display:none;">
+                <!-- Hidden row template -->
+                <div class="hidden" id="priority-option-template">
                     <repeat group="{{ @topics }}" value="{{ @topic }}">
                         <option value="{{ @topic }}">{{ @topic }}</option>
                     </repeat>
@@ -42,9 +68,9 @@
             </repeat>
         </div>
         <input type="hidden" id="priority-count" name="count" value="{{ @ctr }}" />
-        <div class="priority-button-panel">
-            <button type="button" name="add" id="button-add">Add Priority</button>
-            <button type="submit" name="action" value="priority">Save Changes</button>
+        <div class="admin-button-panel">
+            <button type="button" name="add" class="admin-button" id="button-add">Add Priority</button>
+            <button type="submit" name="action" class="admin-button" value="priority">Save Changes</button>
         </div>
     </form>
 
