@@ -185,9 +185,8 @@
       $podcasts = "podcasts";
       $podcast_tags = "podcast_tags";
       $podcast_tag_join = "podcast_tag_join";
-      $users = "users";
-      
-      $tables = array(podcasts, podcast_tags, podcast_tag_join, users);
+
+      $tables = array(podcasts, podcast_tags, podcast_tag_join);
       
       foreach ($tables as $tableName)
       {

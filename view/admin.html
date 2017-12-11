@@ -34,7 +34,7 @@
             </false>
         </check>
     </div>
-    <form action="{{ @BASE . '/priority' }}" method="POST">
+    <form action="{{ @BASE . '/admin' }}" method="POST">
         <div class="admin-button-panel">
             <button type="submit" name="action" value="rss" id="rss-update">Update Podcast Database</button>
         </div>
@@ -49,7 +49,7 @@
                     </repeat>
                 </div>
 
-    <form action="{{ @BASE . '/priority' }}" method="POST">
+    <form action="{{ @BASE . '/admin' }}" method="POST">
         <div class="priority-container">
             <repeat group="{{ @priorities }}" value="{{ @record }}" counter="{{ @ctr }}">
                 <div class="priority-row" data-row="{{ @ctr }}">

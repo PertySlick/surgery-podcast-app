@@ -222,15 +222,7 @@ class DbOperator {
             
             $passwordFromDB = $result['password'];
             
-            return password_verify($enteredPassword, $passwordFromDB); 
-            
-            //if ($password === $result['password']) {
-            //    return array(
-            //    'username' => $result['username'],
-            //    'user_id' => $result['user_id'],
-            //    'email' => $result['email']
-            //    );
-            //}
+            return password_verify($enteredPassword, $passwordFromDB);
         }
         
         //User not found

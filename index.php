@@ -106,8 +106,7 @@ $f3->route('POST /admin', function($f3) use ($controller) {
     
     //If verified, route to admin page
     if(isset($_SESSION['user'])) { 
-        $f3->set('fontAwesome', true);
-        $controller->admin($f3);
+        $controller->adminSubmit($f3);
         echo Template::instance()->render('view/admin.html');
     } else { //Login failed, return to login page
         $controller->login($f3);
@@ -115,19 +114,7 @@ $f3->route('POST /admin', function($f3) use ($controller) {
     }
 });
 
-// Route to admin portal
-//$f3->route('GET /admin', function($f3) use ($controller) {
-//    $controller->admin($f3);
-//    echo Template::instance()->render('view/admin.html');
-//});
-
-// Route to admin portal upon submission
-$f3->route('POST /priority', function($f3) use ($controller) {
-    $controller->adminSubmit($f3);
-    echo Template::instance()->render('view/admin.html');
-});
-
-// Route to add a new podcast host to the About Us 
+// Route to add a new podcast host to the About Us
 $f3->route('POST /addPodcastHost', function($f3) use ($controller) {
     $controller->addPodcastHost($f3);
     echo Template::instance()->render('view/admin.html');
