@@ -676,6 +676,10 @@ a.delete-host {
     color: red;
 }
 
+a.edit-host {
+    color: #4476eb;
+}
+
 form#podcast-host-form {
     margin-top: 15px;
     display: none;
