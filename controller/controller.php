@@ -331,21 +331,6 @@ class Controller {
             $bio = trim($_POST['bio']);
         }
         
-        //echo '<pre>';
-        //print_r($_POST);
-        //print_r($_SESSION);
-        //print_r($_FILES);
-        //
-        //var_dump($hostId);
-        //
-        //var_dump($firstName);
-        //
-        //var_dump($lastName);
-        //var_dump($bio);
-        //
-        //var_dump($imageFileName);
-        //echo '<pre>';
-        
         if ($firstName != '' && $lastName != '' && $bio != ''
             && $imageFileName != '') {
             
