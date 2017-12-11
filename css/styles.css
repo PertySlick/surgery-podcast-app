@@ -505,9 +505,10 @@ button#login-btn:active {
 }
 
 div.login-client-side-error {
+    font-size: 0.7em;
     width: 60%;
     margin: 4px auto;
-    padding: 15px 10px;
+    padding: 5px 10px;
     color: #a94442;
     background-color: #f2dede;
     border-color: #ebccd1;
@@ -517,14 +518,19 @@ div.login-client-side-error {
 }
 
 div.login-server-side-error {
+    font-size: 0.7em;
     width: 60%;
     margin: 4px auto;
-    padding: 15px 10px 0px 10px;
+    padding: 5px 10px;
     color: #a94442;
     background-color: #f2dede;
     border-color: #ebccd1;
     border: 1px solid transparent;
     border-radius: 4px;
+}
+
+p.error-msg {
+    margin: 0px;
 }
 
 

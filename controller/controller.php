@@ -139,11 +139,11 @@ class Controller {
                 //Validate login information
                 
                 if (strlen($enteredUsername) < 1) {
-                    $errors[] = 'Please enter your username';
+                    $errors[] = 'Please enter username';
                 }
                 
                 if (strlen($enteredPassword) < 1) {
-                    $errors[] = 'Please enter your password';
+                    $errors[] = 'Please enter password';
                 }
                                 
                 //If username and password were entered, verify
@@ -155,11 +155,11 @@ class Controller {
                             ($enteredUsername, $enteredPassword);  
                 
                     if($loginSuccess == false) {
-                        $errors[] = 'Incorrect username or password.';
+                        $errors[] = 'Incorrect username or password';
                     }
                 }
             } else {
-                $errors[] = 'Username or password was not entered.';
+                $errors[] = 'Username or password was not entered';
             }
             
             //If no login errors, store session variable

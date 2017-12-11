@@ -31,13 +31,13 @@ function validateLogin(event)
     
     //Validate username - check that a username was entered
     if (user.length < 1) {
-        report("username-error", "Please enter your user name.");
+        report("username-error", "Please enter username");
         isError = true;
     }
     
     //Validate password - make sure it was entered
     if (inputPassword.length < 1) {
-        report("password-error", "Please enter your password.");
+        report("password-error", "Please enter password");
         isError = true;
     }
     
@@ -57,7 +57,7 @@ function validateLogin(event)
                 console.log('result: ' + result);
                 
                 if (result == false) {
-                    report("login-error", "The username or password is incorrect");
+                    report("login-error", "Incorrect username or password");
                     isError = true;
                 } else {
                     $("form#login-form").submit();
@@ -75,23 +75,7 @@ function validatePodcastHost(event)
 {
     //Prevent the form from submitting
     event.preventDefault();
-    
-    //Get URL from browser (check if coming from delete or edit)
-/*    var currentUrl = window.location.href;
-    var urlToOperator;
-    
-    console.log('currentUrl: ' + currentUrl);
-    
-    if (currentUrl.indexOf("deleteHost") >= 0 ||
-        currentUrl.indexOf("editHost") >= 0) {
-        
-        urlToOperator = '../model/ajaxoperator.php';
-    } else {
-        urlToOperator = 'model/ajaxoperator.php';
-    }
-    
-    console.log('urlToOperator: ' + urlToOperator);
-*/    
+       
     //Remove old podcast host error messages
     removeHostErrors();
     
@@ -103,7 +87,6 @@ function validatePodcastHost(event)
     var lastName = $('input[name="last-name"]').val();
     var bio = $('textarea#biography').val();
     var photo = $('input[type="file"]').val();
-  //  var filename = $('input[type=file]').val().split('\\').pop();
     
     //Validate first name - check that a first name was entered
     if (firstName.length < 1 || firstName == ' ') {
@@ -128,34 +111,6 @@ function validatePodcastHost(event)
         report("photo-error", "Please select a photo.");
         isError = true;
     }
-    
-    //if username and password were entered, verify credentials
-    //with database data
-/*    if (!isError) {       
-        $.ajax({
-            url: urlToOperator,
-            method: 'POST',
-            data: {
-                action: 'validateImage',
-                imageFileName: filename
-            },
-            success: function (result) {
-                
-                console.log('result: ' + result);
-                
-                if (result == true) {
-                    report("photo-error", "The image is already in use. Please select another image or change its filename.");
-                    isError = true;
-                } else {
-                        $("form#podcast-host-form").submit();
-                }
-            },
-            error: function () {
-                console.log('No results from database.');
-            },
-            dataType: 'json'
-        });
-    } */
 
     if (!isError) {
         $("form#podcast-host-form").submit();
@@ -164,25 +119,9 @@ function validatePodcastHost(event)
 
 
 //Function that validates the form for editing the podcast host
-function validateUpdatedHost() {
+function validateUpdatedHost(event) {
     //Prevent the form from submitting
     event.preventDefault();
-    
-    //Get URL from browser (check if coming from delete or edit)
-/*    var currentUrl = window.location.href;
-    var urlToOperator;
-    
-    console.log('currentUrl: ' + currentUrl);
-    
-    if (currentUrl.indexOf("deleteHost") >= 0 ||
-        currentUrl.indexOf("editHost") >= 0) {
-        
-        urlToOperator = '../model/ajaxoperator.php';
-    } else {
-        urlToOperator = 'model/ajaxoperator.php';
-    }
-    
-    console.log('urlToOperator: ' + urlToOperator); */
     
     //Remove old podcast host error messages
     removeEditErrors();
@@ -194,8 +133,6 @@ function validateUpdatedHost() {
     var firstName = $('input[name="first-name"]').val();
     var lastName = $('input[name="last-name"]').val();
     var bio = $('textarea#editBiography').val();
-    //var photo = $('input[type="file"]').val();
-    //var filename = $('input[type=file]').val().split('\\').pop();
     
     //Validate first name - check that a first name was entered
     if (firstName.length < 1 || firstName == ' ') {
@@ -214,41 +151,7 @@ function validateUpdatedHost() {
         report("edit-bio-error", "Please enter a short biography.");
         isError = true;
     }
-    
-    //Validate photo - make a photo was selected
-    //if (photo == '') {
-    //    report("edit-photo-error", "Please select a photo.");
-    //    isError = true;
-    //}
-    
-    //if username and password were entered, verify credentials
-    //with database data
- /*   if (!isError) {       
-        $.ajax({
-            url: urlToOperator,
-            method: 'POST',
-            data: {
-                action: 'validateImage',
-                imageFileName: filename
-            },
-            success: function (result) {
-                
-                console.log('result: ' + result);
-                
-                if (result == true) {
-                    report("photo-error", "The image is already in use. Please select another image or change its filename.");
-                    isError = true;
-                } else {
-                        $("form#podcast-host-edit-form").submit();
-                }
-            },
-            error: function () {
-                console.log('No results from database.');
-            },
-            dataType: 'json'
-        });
-    }   */
-    
+       
     if (!isError) {
         console.log("error free!");
         $("form#podcast-host-edit-form").submit();
