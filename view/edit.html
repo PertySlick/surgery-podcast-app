@@ -7,56 +7,51 @@
 -->
 
 <include href="includes/header.inc.html">
+      
+<h1 id="edit-form-heading">Edit {{ @podcastHost->getFirstName() }} {{ @podcastHost->getLastName() }}</h1>
+
+<form id="podcast-host-edit-form" action="{{ @BASE }}/editHost" method="POST" enctype="multipart/form-data">
+    <label for="firstName">First Name:</label>
+    <input type="text" id="editFirstName" name="first-name" maxlength="50" value="{{ @podcastHost->getFirstName() }}" />  
     
-<div class="wrapper">
+    <!--If client-side first name validation fails-->
+    <div class="about-client-side-error">
+        <strong>Error: </strong><span id="edit-firstname-error"></span>
+    </div> 
     
-    <h1 id="edit-form-heading">Edit {{ @podcastHost->getFirstName() }} {{ @podcastHost->getLastName() }}</h1>
+    <label for="lastName">Last Name:</label>
+    <input type="text" id="editLastName" name="last-name" maxlength="50" value="{{ @podcastHost->getLastName() }}" />
     
-    <form id="podcast-host-edit-form" action="{{ @BASE }}/editHost" method="POST" enctype="multipart/form-data">
-        <label for="firstName">First Name:</label>
-        <input type="text" id="editFirstName" name="first-name" maxlength="50" value="{{ @podcastHost->getFirstName() }}" />  
-        
-        <!--If client-side first name validation fails-->
-        <div class="about-client-side-error">
-            <strong>Error: </strong><span id="edit-firstname-error"></span>
-        </div> 
-        
-        <label for="lastName">Last Name:</label>
-        <input type="text" id="editLastName" name="last-name" maxlength="50" value="{{ @podcastHost->getLastName() }}" />
-        
-        <!--If client-side last name validation fails-->
-        <div class="about-client-side-error">
-            <strong>Error: </strong><span id="edit-lastname-error"></span>
-        </div>
-        
-        <label for="biography">Biography:</label>
-        <textarea rows="5" id="editBiography" name="bio" maxlength="2000"
-                  placeholder="max 2000 characters">{{ @podcastHost->getBio() }}</textarea>  
-        
-        <!--If client-side bio validation fails-->
-        <div class="about-client-side-error">
-            <strong>Error: </strong><span id="edit-bio-error"></span>
-        </div>
-        
-        <h3 id="img-preview-heading">Current Image</h3>
-        <img id="preview-pic" src="{{ @BASE }}/img/{{ @podcastHost->getImage() }}"
-                 alt="Picture of {{ @podcastHost->getFirstName() }} {{ @podcastHost->getLastName() }}" />
-        
-        <label for="photo">Select Replacement Image (if applicable):</label>
-        <input id="editPhoto" type="file" name="photo" accept="image/*" />
-        
-        <input type="hidden" name="orig-photo" value="{{ @podcastHost->getImage() }}" />
-        
-        <!--If client-side photo selection validation fails-->
-        <div class="about-client-side-error">
-            <strong>Error: </strong><span id="edit-photo-error"></span>
-        </div>
-        
-        <button id="reset-edit-host-btn" type="reset">RESET FORM</button>
-        <button id="submit-edit-host-btn" type="submit">UPDATE</button>
-    </form>
+    <!--If client-side last name validation fails-->
+    <div class="about-client-side-error">
+        <strong>Error: </strong><span id="edit-lastname-error"></span>
+    </div>
     
-</div>
- 
+    <label for="biography">Biography:</label>
+    <textarea rows="5" id="editBiography" name="bio" maxlength="2000"
+              placeholder="max 2000 characters">{{ @podcastHost->getBio() }}</textarea>  
+    
+    <!--If client-side bio validation fails-->
+    <div class="about-client-side-error">
+        <strong>Error: </strong><span id="edit-bio-error"></span>
+    </div>
+    
+    <h3 id="img-preview-heading">Current Image</h3>
+    <img id="preview-pic" src="{{ @BASE }}/img/{{ @podcastHost->getImage() }}"
+             alt="Picture of {{ @podcastHost->getFirstName() }} {{ @podcastHost->getLastName() }}" />
+    
+    <label for="photo">Select Replacement Image (if applicable):</label>
+    <input id="editPhoto" type="file" name="photo" accept="image/*" />
+    
+    <input type="hidden" name="orig-photo" value="{{ @podcastHost->getImage() }}" />
+    
+    <!--If client-side photo selection validation fails-->
+    <div class="about-client-side-error">
+        <strong>Error: </strong><span id="edit-photo-error"></span>
+    </div>
+    
+    <button id="reset-edit-host-btn" type="reset">RESET FORM</button>
+    <button id="submit-edit-host-btn" type="submit">UPDATE</button>
+</form>
         
 <include href="{{ @INC . 'footer.inc.html' }}">
