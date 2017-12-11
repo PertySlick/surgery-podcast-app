@@ -90,25 +90,25 @@ function validatePodcastHost(event)
     
     //Validate first name - check that a first name was entered
     if (firstName.length < 1 || firstName == ' ') {
-        report("firstname-error", "Please enter the first name.");
+        report("firstname-error", "Please enter first name");
         isError = true;
     }
     
     //Validate last name - make sure last name was entered
     if (lastName.length < 1 || lastName == ' ') {
-        report("lastname-error", "Please enter the last name.");
+        report("lastname-error", "Please enter last name");
         isError = true;
     }
     
     //Validate bio - make sure bio was entered
     if (bio.length < 1 || bio == ' ') {
-        report("bio-error", "Please enter a short biography.");
+        report("bio-error", "Please enter a short biography");
         isError = true;
     }
     
     //Validate photo - make a photo was selected
     if (photo == '') {
-        report("photo-error", "Please select a photo.");
+        report("photo-error", "Please select a photo");
         isError = true;
     }
 
@@ -136,19 +136,19 @@ function validateUpdatedHost(event) {
     
     //Validate first name - check that a first name was entered
     if (firstName.length < 1 || firstName == ' ') {
-        report("edit-firstname-error", "Please enter the first name.");
+        report("edit-firstname-error", "Please enter first name");
         isError = true;
     }
     
     //Validate last name - make sure last name was entered
     if (lastName.length < 1 || lastName == ' ') {
-        report("edit-lastname-error", "Please enter the last name.");
+        report("edit-lastname-error", "Please enter last name");
         isError = true;
     }
     
     //Validate bio - make sure bio was entered
     if (bio.length < 1 || bio == ' ') {
-        report("edit-bio-error", "Please enter a short biography.");
+        report("edit-bio-error", "Please enter a short biography");
         isError = true;
     }
        

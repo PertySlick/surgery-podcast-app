@@ -735,9 +735,10 @@ img#preview-pic {
 }
 
 div.about-client-side-error {
+    font-size: 0.7em;
     width: 95%;
-    margin: -10px auto 18px auto;
-    padding: 3% 2%;
+    margin: -15px auto 18px auto;
+    padding: 1% 2%;
     color: #a94442;
     background-color: #f2dede;
     border-color: #ebccd1;
@@ -747,6 +748,7 @@ div.about-client-side-error {
 }
 
 div.about-server-side-error {
+    font-size: 0.7em;
     width: 95%;
     margin: -10px auto 18px auto;
     padding: 3% 2%;
@@ -756,6 +758,7 @@ div.about-server-side-error {
     border: 1px solid transparent;
     border-radius: 4px;
 }
+
 
 
 /* ====== RESPONSIVENESS ====== */

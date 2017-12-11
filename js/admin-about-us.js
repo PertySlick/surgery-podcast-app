@@ -41,15 +41,3 @@ function toggleAddPodcastHostForm()
     }
 }
 
-//Function that changes the 'add new podcast host' form to an
-//'edit podcast host info' form 
-/*function editHost(event)
-{
-    event.preventDefault();
-    //Show form
-    var podcastHostForm = $('form#podcast-host-form');
-    podcastHostForm.slideDown('fast');
-    
-    var showFormBtn = $('button#show-new-host-form-btn');
-    showFormBtn.text('CANCEL EDIT');
-}*/
