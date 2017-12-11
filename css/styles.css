@@ -531,6 +531,26 @@ div.login-server-side-error {
 /* ====== ADMIN PORTAL ====== */
 
 
+h1.admin {
+    margin: 0 auto;
+    text-align: center;
+}
+
+h2.admin {
+    background-color: #a00;
+    color: #fff;
+    margin-left: -20px;
+    padding: 5px 0px 5px 20px;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+}
+
+h3.admin {
+    margin: 0 auto;
+    text-align: center;
+}
+
+
 .priority-row {
     align-items: center;
     box-shadow: 0 6px 6px -5px #444;
