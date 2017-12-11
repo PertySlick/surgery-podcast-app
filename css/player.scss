@@ -122,9 +122,10 @@ $player-toggle-speed: .5s;
   //  -  Player Image Styles  -  \\
   .player-image {
       margin: auto;
-      width: 50%;
+      width: 90%;
 
     img {
+      border-radius: 10px;
       display: inline-block;
       width: 100%;
     }
