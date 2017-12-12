@@ -20,19 +20,13 @@ img#btk-logo {
     box-shadow: 0 0 3px #444;
 }
 
-h2#welcome-title {
-    color: #8282a1;
-    text-align: center;
+h2#site-slogan {    
+    font-family: "Telex", sans-serif;
     font-size: 2em;
-    font-weight: 100;
-    margin-bottom: 0;
-}
-
-p#welcome-message {
-    color: #8282a1;
-    margin-top: 5px;
-    margin-bottom: 0;
-    font-size: 1em;
+    font-weight: bold;
+    letter-spacing: .1em;
+    margin: 15px 0 20px 0;
+    text-align: center;
 }
 
 h3.other-headings {

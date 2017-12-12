@@ -434,6 +434,13 @@ h1#about-us-heading {
     margin-bottom: 30px;
 }
 
+p#about-msg {
+    color: #8282a1;
+    margin-top: 5px;
+    margin-bottom: 20px;
+    font-size: 1em;
+}
+
 div.podcasthost {
     overflow: auto;
 }
