@@ -19,6 +19,7 @@ if (isset($_POST['action']) && !empty($_POST['action'])) {
 function constructPDO() {
     // Require Configuration File
     require_once '/home/troush/secure/credentials_surgerypodcast.inc.php';
+    //require_once '../../../credentials/credentials_surgerypodcast.inc.php';
 
     // Establish Database Connection And Set Attributes
     try {

@@ -8,7 +8,8 @@
    * Description: A class that on construction will reach for the rss feed read it, grab the relevant information and print this as a string
    */
   
-  require_once '/home/nstrand/SurgeryPodcast/config.php';
+    require_once '/home/nstrand/SurgeryPodcast/config.php';
+    //require_once '../../credentials/credentials_surgerypodcast.inc.php';
   
   class XmlParser{
     
