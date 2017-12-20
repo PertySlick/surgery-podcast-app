@@ -198,9 +198,7 @@ class DbOperator {
         return false;
     }
 
-
-
-
+    //TODO: Clean up this portion and make use of verify subroutine
     /**
      * Checks the supplied credential against the records stored in th users
      * database.  If a record is found with a matching username, the data
@@ -221,8 +219,11 @@ class DbOperator {
             $result = $stmt->fetch(PDO::FETCH_ASSOC);
             
             $passwordFromDB = $result['password'];
-            
-            return password_verify($enteredPassword, $passwordFromDB);
+
+            $input = hash('sha256', $enteredPassword);
+
+            return $input === $passwordFromDB;
+            //return passwordVerify($enteredPassword, $passwordFromDB);
         }
         
         //User not found
@@ -264,7 +265,6 @@ class DbOperator {
 
         return $this->_conn->lastInsertId();
     }
-
 
     /**
      * Return a list of all available podcast topics/tags
@@ -553,6 +553,12 @@ class DbOperator {
         } catch (Exception $e) {
             return false;
         }
+    }
+
+    public function passwordVerify($input, $stored) {
+        $input = hash('sha256', $input);
+
+        return ($input == $stored);
     }
 
 }

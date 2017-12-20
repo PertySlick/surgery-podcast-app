@@ -89,12 +89,18 @@ function validateLogin($conn) {
         
         $passwordInDb = $row['password'];
         
-        $doPasswordsMatch = password_verify($inputPassword, $passwordInDb);
-        
+        //$doPasswordsMatch = password_verify($inputPassword, $passwordInDb);
+        $doPasswordsMatch = passwordVerify($inputPassword, $passwordInDb);
         echo json_encode($doPasswordsMatch);
     } else { //user not found
         echo json_encode(false);
     }
+}
+
+function passwordVerify($input, $stored) {
+    $input = hash('sha256', $input);
+
+    return ($input == $stored);
 }
 
 
