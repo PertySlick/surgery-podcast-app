@@ -8,8 +8,8 @@
    * Description: A class that on construction will reach for the rss feed read it, grab the relevant information and print this as a string
    */
   
-    require_once '/home/nstrand/SurgeryPodcast/config.php';
-    //require_once '../../credentials/credentials_surgerypodcast.inc.php';
+    //require_once '/home/nstrand/SurgeryPodcast/config.php';
+    require_once '/home/troush/secure/credentials_surgerypodcast.inc.php';
   
   class XmlParser{
     
@@ -126,9 +126,8 @@
       // The following takes in the feed from the hosted site and will then parse this into a
       // readable string for the SimpleXML object to take
      
-      $url = "http://behindtheknife.libsyn.com/rss";
       $ch = curl_init();
-      curl_setopt($ch, CURLOPT_URL, $url);
+      curl_setopt($ch, CURLOPT_URL, RSS_FEED);
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
       $xmlresponse = curl_exec($ch);
       $xml=simplexml_load_string($xmlresponse);
