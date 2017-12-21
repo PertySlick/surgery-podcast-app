@@ -15,11 +15,13 @@
  * SQL queries and statements to sanitize inputs as they are entered into the
  * database.
  *
- * @author Brent Taylor
+ * @author Marlene Leano
+ * @author Nathan Strand
  * @author Timothy Roush
  * @copyright 2017
  * @version 1.0
  * @see Podcast.java
+ * @see PodcastHost.java
  */
 class DbOperator {
 
@@ -59,40 +61,8 @@ class DbOperator {
     }
 
 
-// METHODS - USER OPERATIONS
+// METHODS - MAIN SITE OPERATIONS
 
-
-//TODO - Is this even used???
-/**
- *Checks the most recent podcast/record found within the database.
- *GROUPS DATA BY podcast id in a descending list
- *LIMIT 1 - the most recent record to be pulled.
- *
- */
-//    public function checkMostRecentUpload($id)
-//    {
-//
-//        $stmt = $this->_conn->prepare("SELECT podcast_id, MAX(:title) AS most_recent_podcast FROM podcasts
-//                                  GROUP BY podcast_id ORDER BY podcast_id DESC LIMIT 1");
-//        $stmt->bindParam(":pod_castid", $id);
-//        $stmt-execute();
-//
-//
-//    }
-
-    //TODO - Is this even used???
-    /*
-     *This function searches the database and returns a list of podcast titles in order.
-     *
-     */
-//     public function checkAllPodcasts($id)
-//    {
-//
-//        $stmt = $this->_conn->prepare("SELECT title AS list_of_titles FROM podcasts
-//                                  ORDER BY title ASC");
-//        $stmt->bindParam(":pod_castid", $id);
-//        $stmt->execute();
-//    }
 
     /**
      * Retrieves all podcast records that include the supplied tag word.
@@ -131,11 +101,11 @@ class DbOperator {
         return null;
     }
 
-/**
- * Retrieves the 3 most recent podcasts.
- * Returns results in an array of Podcast objects.
- * @return array Array of Podcast object results
- */
+    /**
+     * Retrieves the 3 most recent podcasts.
+     * Returns results in an array of Podcast objects.
+     * @return array Array of Podcast object results
+     */
     public function retrieveRecentPodcasts()
     {
         $stmt = $this->_conn->prepare("
@@ -162,108 +132,6 @@ class DbOperator {
             return  $podcasts;
         }
         return null;
-    }
-    
-    
-    public function addPodcastTag($tag_name)
-    {
-        $stmt = $this->_conn->prepare('INSERT INTO podcast_tags ' .
-                                      '(tag_name) ' .
-                                      'VALUES (:tag_name) ');
-        $stmt->bindParam(':tag_name', $tag_name, PDO::PARAM_STR);
-
-        try {
-            $stmt->execute();
-        } catch (PDOException $error) {
-            die ("(!) There was an error adding " . $tag_name . " to the database... " . $error);
-        }
-
-        return $this->_conn->lastInsertId();
-    }
-
-
-/**
- * Checks to see if podcast exists within the database.
- * @param $title, the title we are searching for in the db
- * @return boolean true if podcast was found, false otherwise.
- */
-    public function checkPodcastExists($title) {
-        $stmt = $this->_conn->prepare("SELECT COUNT(*) as count FROM podcasts WHERE title=:title");
-        $stmt->bindParam("title", $title);
-        $stmt->execute();
-    
-        $results = $stmt->fetch(PDO::FETCH_ASSOC);
-
-        if ($results['count'] > 0) { return true; }
-        return false;
-    }
-
-    //TODO: Clean up this portion and make use of verify subroutine
-    /**
-     * Checks the supplied credential against the records stored in th users
-     * database.  If a record is found with a matching username, the data
-     * for that record is retrieved.  The password values are then compared. If
-     * they match, an array of user data is then returned for Controller use.
-     * @param $username String uername used in login attempt
-     * @param $enteredPassword String password used in login attempt
-     * @return true if credentials are validated, false otherwise
-     */
-    public function areCredentialsValidated($username, $enteredPassword)
-    {
-        $stmt = $this->_conn->prepare("SELECT password FROM users WHERE username=:username");
-        $stmt->bindParam(":username", $username);
-        $stmt->execute();
-        
-        //User found
-        if ($stmt->rowCount() > 0) {
-            $result = $stmt->fetch(PDO::FETCH_ASSOC);
-            
-            $passwordFromDB = $result['password'];
-
-            $input = hash('sha256', $enteredPassword);
-
-            return $input === $passwordFromDB;
-            //return passwordVerify($enteredPassword, $passwordFromDB);
-        }
-        
-        //User not found
-        return false;
-    }
-
-    /**
-     * Adds a podcast record into the database using supplied parameter data.
-     * @param $title String podcast title
-     * @param $description String podcast description
-     * @param $image String podcast display image
-     * @param $author String podcast author
-     * @param $url String podcast file url
-     * @param $duration String podcast duration
-     * @param $publish_date datetime podcast publish date
-     * @return String id of last inserted row in database
-     */
-    public function addPodcast($title, $description, $image,$author,$url,$duration,$publish_date)
-    {
-        $stmt = $this->_conn->prepare('INSERT INTO podcasts ' .
-                                      '(title, description, image, author, url, duration, publish_date) ' .
-                                      'VALUES (:title, :description, :image, :author, :url, :duration, :publish_date) ');
-        $stmt->bindParam(':title', $title, PDO::PARAM_STR);
-        $stmt->bindParam(':description', $description, PDO::PARAM_STR);
-        $stmt->bindParam(':image', $image, PDO::PARAM_STR);
-        $stmt->bindParam(':author', $author, PDO::PARAM_STR);
-        $stmt->bindParam(':url', $url, PDO::PARAM_STR);
-        $stmt->bindParam(':duration', $duration, PDO::PARAM_STR);
-        //TODO - Using duration for publish date?
-        //$stmt->bindParam(':publish_date', $duration, PDO::PARAM_STR);
-        $stmt->bindParam(':publish_date', $publish_date, PDO::PARAM_STR);
-
-
-        try {
-            $stmt->execute();
-        } catch (PDOException $error) {
-            die ("(!) There was an error adding " . $title . " to the database... " . $error);
-        }
-
-        return $this->_conn->lastInsertId();
     }
 
     /**
@@ -301,6 +169,216 @@ class DbOperator {
         return $topics;
     }
 
+
+// METHODS - PODCAST HOST OPERATIONS (Team Members)
+
+
+    /**
+     * Retrieves all podcast host. Returns results in an array of
+     * Podcast Host objects.
+     *
+     * @access public
+     *
+     * @return array Array of Podcast Host object results
+     */
+    public function getPodcastHosts()
+    {
+        $stmt = $this->_conn->prepare("
+            SELECT host_id, first_name, last_name, image, bio
+            FROM podcasthost
+            ORDER BY host_id
+            ");
+
+        if($stmt->execute()) {
+            $podcastHosts = [];
+
+            while ($record = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                $hostId = $record['host_id'];
+                $firstName = $record['first_name'];
+                $lastName = $record['last_name'];
+                $image = $record['image'];
+                $bio = $record['bio'];
+
+                //Create new Podcast Host object and add to array
+                $newPodcastHost = new PodcastHost($hostId, $firstName, $lastName, $image, $bio);
+                $podcastHosts[] = $newPodcastHost;
+            }
+
+            return  $podcastHosts;
+        }
+        return null;
+    }
+
+    /**
+     * Retrieves the image filename for the specified podcast host
+     *
+     * @access public
+     *
+     * @param int $hostId the host id for the specified podcast host
+     * @return string image file name for the specified podcast host, "image
+     * does not exist" otherwise
+     */
+    public function getPodcastHostById($hostId)
+    {
+        $stmt = $this->_conn->prepare("
+            SELECT * FROM podcasthost
+            WHERE host_id = :host_id
+            ");
+
+        $stmt->bindParam(':host_id', $hostId, PDO::PARAM_INT);
+        $stmt->execute();
+
+        //Initialize podcast host object
+        $podcastHost = null;
+
+        if ($stmt->rowCount() > 0) {
+            $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+            $hostId = $row['host_id'];
+            $firstName = $row['first_name'];
+            $lastName = $row['last_name'];
+            $image = $row['image'];
+            $bio = $row['bio'];
+
+            //Create new Podcast Host object and add to array
+            $podcastHost = new PodcastHost($hostId, $firstName, $lastName, $image, $bio);
+
+            return $podcastHost;
+        }
+        return null;
+    }
+
+    /**
+     * Deletes the specified host from the database
+     *
+     * @access public
+     * @param int $hostId the host id
+     */
+    public function deletePodcastHost($hostId)
+    {
+        $stmt = $this->_conn->prepare("
+            DELETE FROM podcasthost
+            WHERE host_id=:hostId
+            ");
+
+        $stmt->bindParam(':hostId', $hostId, PDO::PARAM_INT);
+
+        $stmt->execute();
+    }
+
+    /**
+     * Adds a new podcast host to the database'
+     *
+     * @access public
+     *
+     * @param String $firstName the podcast host's first name
+     * @param String $lastName the podcast host's last name
+     * @param String $bio the podcast host's biography
+     * @param String $image the podcast host's photo
+     */
+    public function addPodcastHost($firstName, $lastName, $bio, $image)
+    {
+        $stmt = $this->_conn->prepare("
+            INSERT INTO podcasthost (first_name, last_name, bio, image)
+            VALUES (:first_name, :last_name, :bio, :image)
+            ");
+
+        $stmt->bindParam(':first_name', $firstName, PDO::PARAM_STR);
+        $stmt->bindParam(':last_name', $lastName, PDO::PARAM_STR);
+        $stmt->bindParam(':bio', $bio, PDO::PARAM_STR);
+        $stmt->bindParam(':image', $image, PDO::PARAM_STR);
+
+        $stmt->execute();
+    }
+
+    /**
+     * Updates podcast host info in the database'
+     *
+     * @access public
+     *
+     * @param int $hostId record number for this host
+     * @param String $firstName the podcast host's first name
+     * @param String $lastName the podcast host's last name
+     * @param String $bio the podcast host's biography
+     * @param String $image the podcast host's photo
+     * @return int the host id of the last inserted podcast host
+     */
+    public function updatePodcastHost($hostId, $firstName, $lastName, $bio, $image)
+    {
+        $stmt = $this->_conn->prepare("
+            UPDATE podcasthost
+            SET first_name = :first_name,
+                last_name = :last_name,
+                bio = :bio,
+                image = :image
+            WHERE host_id = :host_id
+            ");
+
+        $stmt->bindParam(':host_id', $hostId, PDO::PARAM_INT);
+        $stmt->bindParam(':first_name', $firstName, PDO::PARAM_STR);
+        $stmt->bindParam(':last_name', $lastName, PDO::PARAM_STR);
+        $stmt->bindParam(':bio', $bio, PDO::PARAM_STR);
+        $stmt->bindParam(':image', $image, PDO::PARAM_STR);
+
+        $stmt->execute();
+        return null;
+    }
+
+
+// METHODS - ADMIN: VALIDATION / LOGON
+
+
+    //TODO: Clean up this portion and make use of verify subroutine
+    /**
+     * Checks the supplied credential against the records stored in th users
+     * database.  If a record is found with a matching username, the data
+     * for that record is retrieved.  The password values are then compared. If
+     * they match, an array of user data is then returned for Controller use.
+     * @param $username String uername used in login attempt
+     * @param $enteredPassword String password used in login attempt
+     * @return true if credentials are validated, false otherwise
+     */
+    public function areCredentialsValidated($username, $enteredPassword)
+    {
+        $stmt = $this->_conn->prepare("SELECT password FROM users WHERE username=:username");
+        $stmt->bindParam(":username", $username);
+        $stmt->execute();
+
+        //User found
+        if ($stmt->rowCount() > 0) {
+            $result = $stmt->fetch(PDO::FETCH_ASSOC);
+
+            $passwordFromDB = $result['password'];
+
+            $input = hash('sha256', $enteredPassword);
+
+            return $input === $passwordFromDB;
+            //return passwordVerify($enteredPassword, $passwordFromDB);
+        }
+
+        //User not found
+        return false;
+    }
+
+
+// METHODS - ADMIN: RSS / DB UPDATE
+
+
+    /**
+     * Returns the number of podcast records currently stored in the database.
+     * @return string Count of all records in podcast table
+     */
+    public function getPodcastCount() {
+        $stmt = $this->_conn->prepare('SELECT COUNT(*) as count FROM podcasts');
+        $stmt->execute();
+        $record = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $record['count'];
+    }
+
+
+// METHODS - ADMIN: TOPIC PRIORITIES
+
+
     /**
      * Returns an array of all the current priority topic records
      * @return array Array of priorities
@@ -324,6 +402,11 @@ class DbOperator {
         return null;
     }
 
+    /**
+     * Resets the priorities table by removing all current data and saves the
+     * new topic priority settings to match the users input.  Updates the
+     * database to reflect each topic row with the appropriate topic value.
+     */
     public function writePriorities() {
         $this->resetPriorities();
 
@@ -331,210 +414,10 @@ class DbOperator {
                                        (:priority, :topic)');
 
         for($i = 1; $i <= $_POST['count']; $i++) {
-//            echo 'Topic ' . $i . ': ' . $_POST['priority-' . $i];
             $stmt->bindParam(':priority', $i, PDO::PARAM_INT);
             $stmt->bindParam(':topic', $_POST['priority-' . $i], PDO::PARAM_STR);
             $stmt->execute();
         }
-    }
-    
-    
-    /**
-     * Retrieves all podcast host. Returns results in an array of
-     * Podcast Host objects.
-     * 
-     * @access public
-     * 
-     * @return array Array of Podcast Host object results
-     */
-    public function getPodcastHosts()
-    {
-        $stmt = $this->_conn->prepare("
-            SELECT host_id, first_name, last_name, image, bio
-            FROM podcasthost
-            ORDER BY host_id
-            ");
-
-        if($stmt->execute()) {
-            $podcastHosts = [];
-
-            while ($record = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                $hostId = $record['host_id'];
-                $firstName = $record['first_name'];
-                $lastName = $record['last_name'];
-                $image = $record['image'];
-                $bio = $record['bio'];
-                                
-                //Create new Podcast Host object and add to array
-                $newPodcastHost = new PodcastHost($hostId, $firstName, $lastName, $image, $bio);
-                $podcastHosts[] = $newPodcastHost;
-            }
-
-            return  $podcastHosts;
-        }
-    }
-    
-    /**
-     * Retrieves the image filename for the specified podcast host
-     * 
-     * @access public
-     *
-     * @param int $hostId the host id for the specified podcast host
-     * @return image file name for the specified podcast host, "image
-     * does not exist" otherwise
-     */
-    public function getPodcastHostById($hostId)
-    {
-        $stmt = $this->_conn->prepare("
-            SELECT * FROM podcasthost
-            WHERE host_id = :host_id
-            ");
-
-        $stmt->bindParam(':host_id', $hostId, PDO::PARAM_INT);
-        $stmt->execute();
-        
-        //Initialize podcast host object
-        $podcastHost = null;
-        
-        if ($stmt->rowCount() > 0) {
-            $row = $stmt->fetch(PDO::FETCH_ASSOC);
-            
-            $hostId = $row['host_id'];
-            $firstName = $row['first_name'];
-            $lastName = $row['last_name'];
-            $image = $row['image'];
-            $bio = $row['bio'];
-                            
-            //Create new Podcast Host object and add to array
-            $podcastHost = new PodcastHost($hostId, $firstName, $lastName, $image, $bio);
-            
-            return $podcastHost;
-        }
-        return null;
-    }
-
-    
-    /**
-     * Retrieves the image filename for the specified podcast host
-     * 
-     * @access public
-     *
-     * @param int $hostId the host id for the specified podcast host
-     * @return image file name for the specified podcast host, "image
-     * does not exist" otherwise
-     */
-/*    public function getPodcastHostImageFileName($hostId)
-    {
-        $stmt = $this->_conn->prepare("
-            SELECT image FROM podcasthost
-            WHERE host_id = :host_id
-            ");
-
-        $stmt->bindParam(':host_id', $hostId, PDO::PARAM_INT);
-        $stmt->execute();
-        
-        if ($stmt->rowCount() > 0) {
-            $row = $stmt->fetch(PDO::FETCH_ASSOC);
-            return $row['image'];
-        } else {
-            return 'image does not exist';
-        }
-    }
-*/
-
-    /**
-     * Deletes the specified host from the database
-     *
-     * @access public
-     * 
-     * @param int $id the host id 
-     */
-    public function deletePodcastHost($hostId)
-    {
-        $stmt = $this->_conn->prepare("
-            DELETE FROM podcasthost
-            WHERE host_id=:hostId
-            ");
-        
-        $stmt->bindParam(':hostId', $hostId, PDO::PARAM_INT);
-
-        $stmt->execute();
-    }
-    
-    
-    /**
-     * Adds a new podcast host to the database'
-     *
-     * @access public
-     *
-     * @param String $firstName the podcast host's first name
-     * @param String $lastName the podcast host's last name
-     * @param String $bio the podcast host's biography
-     * @param String $image the podcast host's photo
-     *
-     * @return the host id of the last inserted podcast host
-     */
-    public function addPodcastHost($firstName, $lastName, $bio, $image)
-    {
-        $stmt = $this->_conn->prepare("
-            INSERT INTO podcasthost (first_name, last_name, bio, image)
-            VALUES (:first_name, :last_name, :bio, :image)
-            ");
-        
-        $stmt->bindParam(':first_name', $firstName, PDO::PARAM_STR);
-        $stmt->bindParam(':last_name', $lastName, PDO::PARAM_STR);
-        $stmt->bindParam(':bio', $bio, PDO::PARAM_STR);
-        $stmt->bindParam(':image', $image, PDO::PARAM_STR);
-
-        $stmt->execute();
-    }
-    
-    
-    /**
-     * Updates podcast host info in the database'
-     *
-     * @access public
-     *
-     * @param String $firstName the podcast host's first name
-     * @param String $lastName the podcast host's last name
-     * @param String $bio the podcast host's biography
-     * @param String $image the podcast host's photo
-     *
-     * @return the host id of the last inserted podcast host
-     */
-    public function updatePodcastHost($hostId, $firstName, $lastName, $bio, $image)
-    {
-        $stmt = $this->_conn->prepare("
-            UPDATE podcasthost
-            SET first_name = :first_name,
-                last_name = :last_name,
-                bio = :bio,
-                image = :image
-            WHERE host_id = :host_id
-            ");
-        
-        $stmt->bindParam(':host_id', $hostId, PDO::PARAM_INT);
-        $stmt->bindParam(':first_name', $firstName, PDO::PARAM_STR);
-        $stmt->bindParam(':last_name', $lastName, PDO::PARAM_STR);
-        $stmt->bindParam(':bio', $bio, PDO::PARAM_STR);
-        $stmt->bindParam(':image', $image, PDO::PARAM_STR);
-
-        $stmt->execute();
-    }
-
-
-// METHODS - DATABASE UPDATE OPERATIONS
-
-
-    /**
-     * Returns the number of podcast records currently stored in the database.
-     * @return string Count of all records in podcast table
-     */
-    public function getPodcastCount() {
-        $stmt = $this->_conn->prepare('SELECT COUNT(*) as count FROM podcasts');
-        $stmt->execute();
-        $record = $stmt->fetch(PDO::FETCH_ASSOC);
-        return $record['count'];
     }
 
 
@@ -555,9 +438,15 @@ class DbOperator {
         }
     }
 
+    /**
+     * Compares a supplied password input to a stored password hash and returns
+     * the results.  Input is hashed using Sha256 before comparison.
+     * @param $input string Password entered as input
+     * @param $stored string Password hash stored in database
+     * @return bool true if match, false otherwise
+     */
     public function passwordVerify($input, $stored) {
         $input = hash('sha256', $input);
-
         return ($input == $stored);
     }
 
